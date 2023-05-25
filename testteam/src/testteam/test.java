@@ -7,5 +7,6 @@ public class test {
 // 바뀌나?
 	public static void main(String[] args) {
 		System.out.println("실험 8");
+		
 	}
 }
