@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+/bin/
+=======
 #폴더 무시(경로 이름 그대로 적으면 됨)
 /bin/
 # 모든 class 확장자 파일 무시하는 거
@@ -6,3 +9,4 @@
 # 무시할 파일 이름을 적으면 됨.
 .classpath
 .project
+>>>>>>> branch 'master' of https://github.com/tlakd/teamtest.git
