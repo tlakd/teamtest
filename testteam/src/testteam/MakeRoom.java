@@ -57,7 +57,8 @@ public class MakeRoom {
 		}
 	}
 
-	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
+	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는 값 초기화, 이때 까지 유저가 샀던 기록
+										// 초기화)
 		lottoCount++;
 		makeMachineLotto(lottoCount);
 		userCount = 1;
@@ -71,16 +72,21 @@ public class MakeRoom {
 	}
 
 	public void pay(int i) {// 결제 초안
-		if ((MaxPay = MaxPay - (userCount * 1000)) < 0) {
+		AutoLottoUser1 auot = new AutoLottoUser1();
+		int a = 0;
+		int setCount = userCount - a;
+		if (MaxPay - auot.pay < 0) {
 			// 여기에 경고문구 가는 거
-		} else if (i < (userCount * 1000)) {
+		} else if (i < auot.pay) {
 			// 결제 금액이 작다
 		} else {
-			// 결제 완료
+			MaxPay = MaxPay - auot.pay;
+			a = userCount;
 		}
 	}
 
 	public void 수동부분() {// 만들어야됨
 
 	}
+
 }
