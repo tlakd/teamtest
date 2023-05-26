@@ -16,6 +16,7 @@ public class PayNow {
 
 	private JFrame frame;
 	private JTextField textField;
+	static AutoLottoUser1 auto;
 
 	/**
 	 * Launch the application.
@@ -24,7 +25,7 @@ public class PayNow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PayNow window = new PayNow();
+					PayNow window = new PayNow(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +37,8 @@ public class PayNow {
 	/**
 	 * Create the application.
 	 */
-	public PayNow() {
+	public PayNow(AutoLottoUser1 auto) {
+		this.auto = auto;
 		initialize();
 	}
 
@@ -49,8 +51,7 @@ public class PayNow {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		AutoLottoUser1 auot = new AutoLottoUser1();
-		JLabel lblNewLabel = new JLabel("결제할 금액은 " + auot.pay + "원 입니다.");
+		JLabel lblNewLabel = new JLabel("결제금액은 " + auto.getPay() + "원입니다.");
 
 		JButton btnNewButton = new JButton("결제하기");
 

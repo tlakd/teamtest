@@ -12,6 +12,7 @@ public class MakeRoom {
 	Map<Integer, List<NumberSave>> lottoNumber = new HashMap<>();// 로또 번호 저장
 	Map<Integer, List<NumberSave>> userNumber = new HashMap<>(); // 유저 번호 저장
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
+	AutoLottoUser1 auot;
 
 	int userCount = 1;
 	int lottoCount = 101;
@@ -74,15 +75,15 @@ public class MakeRoom {
 	}
 
 	public void pay(int i) {// 결제 초안
-		AutoLottoUser1 auot = new AutoLottoUser1();
+
 		int a = 0;
 		int setCount = userCount - a;
-		if (MaxPay - auot.pay < 0) {
+		if (MaxPay - auot.getPay() < 0) {
 			// 여기에 경고문구 가는 거
-		} else if (i < auot.pay) {
+		} else if (i < auot.getPay()) {
 			// 결제 금액이 작다
 		} else {
-			MaxPay = MaxPay - auot.pay;
+			MaxPay = MaxPay - auot.getPay();
 			a = userCount;
 		}
 	}

@@ -17,7 +17,7 @@ public class AutoLottoUser1 {
 	private JTextField textField;
 	private String sum = "0";
 	private int sum2 = 0;
-	int pay;
+	private int pay;
 
 	/**
 	 * Launch the application.
@@ -213,7 +213,9 @@ public class AutoLottoUser1 {
 		btnOk.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PayNow a = new PayNow();
+				pay = Integer.valueOf(sum) * sum2;
+				System.out.println(pay);
+				PayNow a = new PayNow(AutoLottoUser1.this);
 				a.getFrame().setVisible(true);
 			}
 		});
@@ -325,11 +327,14 @@ public class AutoLottoUser1 {
 
 	public void NowPay() {
 		int a = Integer.valueOf(sum);
-		pay = Integer.valueOf(sum) + sum2;
 		textField.setText(sum2 + "원" + a + "장 총금액 : " + (a * sum2) + "원");
 	}
 
 	public JFrame getFrame() {
 		return frame;
+	}
+
+	public int getPay() {
+		return pay;
 	}
 }
