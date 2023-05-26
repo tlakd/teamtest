@@ -31,25 +31,23 @@ public class MakeRoom {
 	}
 
 	public void makeAutoNumber(int a) {// 사용자의 로또번호 자동생성 초안
-		for (int i = userCount; i < userCount + a; i++) {
-			int count = 0;
-			if (!userNumber.containsKey(i)) {
-				userNumber.put(i, new ArrayList<>());
+		int count = 0;
+		if (!userNumber.containsKey(userCount)) {
+			userNumber.put(userCount, new ArrayList<>());
+		}
+		while (userNumber.get(userCount).size() < 6) {
+			int q = (int) (Math.random() * 45) + 1;
+			NumberSave newNumber = new NumberSave(q);
+			if (!userNumber.get(userCount).contains(newNumber)) {
+				userNumber.get(userCount).add(newNumber);
+				count++;
 			}
-			while (userNumber.get(i).size() < 6) {
-				int q = (int) (Math.random() * 45) + 1;
-				NumberSave newNumber = new NumberSave(q);
-				if (!userNumber.get(i).contains(newNumber)) {
-					userNumber.get(i).add(newNumber);
-					count++;
-				}
-			}
-			userCount++;
-			if (count == 6) {
-				autoNotAuto.put(i, "자 동");
-			} else if (count < 6) {
-				autoNotAuto.put(i, "반자동");
-			}
+		}
+		userCount++;
+		if (count == 6) {
+			autoNotAuto.put(userCount, "자 동");
+		} else if (count < 6) {
+			autoNotAuto.put(userCount, "반자동");
 		}
 	}
 
@@ -59,14 +57,15 @@ public class MakeRoom {
 		}
 	}
 
-	public void makeLottoNumberNew(JComboBox<Integer> selectBox) {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
+	public void makeLottoNumberNew(JComboBox<Integer> selectBox) {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는
+																	// 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
 		lottoCount++;
 		makeMachineLotto(lottoCount);
 		userCount = 1;
 		MaxPay = 100000;
 		userNumber.clear();
 		selectBox.addItem(lottoCount);
-	
+
 	}
 
 	public void lookList(int i) {// 유저 번호 순서대로 나열
@@ -75,18 +74,21 @@ public class MakeRoom {
 	}
 
 	public void pay(int i) {// 결제 초안
-		if ((MaxPay = MaxPay - (userCount * 1000)) < 0) {
+		AutoLottoUser1 auot = new AutoLottoUser1();
+		int a = 0;
+		int setCount = userCount - a;
+		if (MaxPay - auot.pay < 0) {
 			// 여기에 경고문구 가는 거
-		} else if (i < (userCount * 1000)) {
+		} else if (i < auot.pay) {
 			// 결제 금액이 작다
 		} else {
-			// 결제 완료
+			MaxPay = MaxPay - auot.pay;
+			a = userCount;
 		}
 	}
 
 	public void 수동부분() {// 만들어야됨
 
 	}
-	
 
 }
