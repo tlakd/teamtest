@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JComboBox;
+
 public class MakeRoom {
 	Map<Integer, List<NumberSave>> lottoNumber = new HashMap<>();// 로또 번호 저장
 	Map<Integer, List<NumberSave>> userNumber = new HashMap<>(); // 유저 번호 저장
@@ -57,12 +59,14 @@ public class MakeRoom {
 		}
 	}
 
-	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
+	public void makeLottoNumberNew(JComboBox<Integer> selectBox) {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
 		lottoCount++;
 		makeMachineLotto(lottoCount);
 		userCount = 1;
 		MaxPay = 100000;
 		userNumber.clear();
+		selectBox.addItem(lottoCount);
+	
 	}
 
 	public void lookList(int i) {// 유저 번호 순서대로 나열
@@ -83,4 +87,6 @@ public class MakeRoom {
 	public void 수동부분() {// 만들어야됨
 
 	}
+	
+
 }
