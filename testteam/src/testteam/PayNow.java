@@ -16,6 +16,7 @@ public class PayNow {
 
 	private JFrame frame;
 	private JTextField textField;
+	AutoLottoUser1 auto;
 
 	/**
 	 * Launch the application.
@@ -24,7 +25,7 @@ public class PayNow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PayNow window = new PayNow();
+					PayNow window = new PayNow(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +37,8 @@ public class PayNow {
 	/**
 	 * Create the application.
 	 */
-	public PayNow() {
+	public PayNow(AutoLottoUser1 auto) {
+		this.auto = auto;
 		initialize();
 	}
 
@@ -49,8 +51,7 @@ public class PayNow {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		AutoLottoUser1 auot = new AutoLottoUser1();
-		JLabel lblNewLabel = new JLabel("결제할 금액은 " + auot.pay + "원 입니다.");
+		JLabel lblNewLabel = new JLabel("결제금액은 " + auto.getPay() + "원입니다.");
 
 		JButton btnNewButton = new JButton("결제하기");
 
@@ -62,22 +63,41 @@ public class PayNow {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				makeRoom.pay(Integer.valueOf(textField.getText()));
+				try {
+					auto.PayGo(Integer.valueOf(textField.getText()));
+				} catch (Exception o) {
+					lblNewLabel_1.setText("정수를 입력해 주세요.");
+				}
+			}
+		});
+
+		JButton btnNewButton_1 = new JButton("뒤로가기");
+
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
 			}
 		});
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup().addGap(56)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup().addGap(56)
+				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING,
+								groupLayout.createSequentialGroup().addComponent(btnNewButton_1)
+										.addPreferredGap(ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+										.addComponent(
+												btnNewButton, GroupLayout.PREFERRED_SIZE, 97,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(61))
+						.addGroup(groupLayout.createSequentialGroup().addGroup(groupLayout
+								.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 308, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 250,
 										GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(70, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup().addContainerGap(276, Short.MAX_VALUE)
-						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-						.addGap(61)));
+								.addContainerGap(70, Short.MAX_VALUE)))));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup().addGap(46)
 						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
@@ -85,7 +105,10 @@ public class PayNow {
 						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(ComponentPlacement.UNRELATED)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(37)
-						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+										Short.MAX_VALUE)
+								.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
 						.addContainerGap(29, Short.MAX_VALUE)));
 		frame.getContentPane().setLayout(groupLayout);
 	}
@@ -94,4 +117,7 @@ public class PayNow {
 		return frame;
 	}
 
+	public void falsePayNow() {
+		frame.setVisible(false);
+	}
 }

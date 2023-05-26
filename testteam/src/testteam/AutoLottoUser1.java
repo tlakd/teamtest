@@ -17,7 +17,8 @@ public class AutoLottoUser1 {
 	private JTextField textField;
 	private String sum = "0";
 	private int sum2 = 0;
-	int pay;
+	private int pay;
+	PayNow a = new PayNow(AutoLottoUser1.this);
 
 	/**
 	 * Launch the application.
@@ -213,30 +214,31 @@ public class AutoLottoUser1 {
 		btnOk.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PayNow a = new PayNow();
+				pay = Integer.valueOf(sum) * sum2;
 				a.getFrame().setVisible(true);
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-								.addGroup(groupLayout.createSequentialGroup().addGap(262).addComponent(lblNewLabel,
-										GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup().addGap(164).addComponent(textField,
-										GroupLayout.PREFERRED_SIZE, 376, GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup().addGap(48).addGroup(groupLayout
-										.createParallelGroup(Alignment.TRAILING, false).addComponent(btnNum4,
-												Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(btnNum1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 58,
-												Short.MAX_VALUE)
-										.addComponent(btnNum7, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-										.addGap(18)
-										.addGroup(groupLayout
-												.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-														.createSequentialGroup().addGroup(groupLayout
+		groupLayout
+				.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false).addGroup(
+										groupLayout.createSequentialGroup().addGap(164)
+												.addComponent(textField, GroupLayout.PREFERRED_SIZE, 376,
+														GroupLayout.PREFERRED_SIZE))
+										.addGroup(groupLayout.createSequentialGroup().addGap(48).addGroup(groupLayout
+												.createParallelGroup(Alignment.TRAILING, false)
+												.addComponent(btnNum4, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+														GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(
+														btnNum1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 58,
+														Short.MAX_VALUE)
+												.addComponent(
+														btnNum7, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+														GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+												.addGap(18)
+												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(
+														groupLayout.createSequentialGroup().addGroup(groupLayout
 																.createParallelGroup(Alignment.LEADING, false)
 																.addComponent(btnNum8, GroupLayout.DEFAULT_SIZE,
 																		GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -245,51 +247,55 @@ public class AutoLottoUser1 {
 																.addComponent(btnNum2, GroupLayout.DEFAULT_SIZE, 59,
 																		Short.MAX_VALUE)
 																.addComponent(btnNum0, 0, 0, Short.MAX_VALUE))
-														.addGap(18)
-														.addGroup(groupLayout
-																.createParallelGroup(Alignment.LEADING, false)
-																.addComponent(btnNum9, GroupLayout.DEFAULT_SIZE,
-																		GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																.addComponent(btnNum3, GroupLayout.DEFAULT_SIZE, 55,
-																		Short.MAX_VALUE)
-																.addComponent(btnNum6, GroupLayout.DEFAULT_SIZE,
-																		GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-												.addComponent(btnNo, GroupLayout.PREFERRED_SIZE, 76,
-														GroupLayout.PREFERRED_SIZE))
-										.addGap(159)
-										.addGroup(groupLayout
-												.createParallelGroup(Alignment.LEADING)
-												.addComponent(btnOk, GroupLayout.PREFERRED_SIZE, 84,
-														GroupLayout.PREFERRED_SIZE)
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-														.addComponent(btnNum5000, GroupLayout.DEFAULT_SIZE, 125,
-																Short.MAX_VALUE)
-														.addComponent(btnNum4000, GroupLayout.DEFAULT_SIZE, 125,
-																Short.MAX_VALUE)
+																.addGap(18)
+																.addGroup(groupLayout
+																		.createParallelGroup(Alignment.LEADING, false)
+																		.addComponent(btnNum9, GroupLayout.DEFAULT_SIZE,
+																				GroupLayout.DEFAULT_SIZE,
+																				Short.MAX_VALUE)
+																		.addComponent(btnNum3, GroupLayout.DEFAULT_SIZE,
+																				55, Short.MAX_VALUE)
+																		.addComponent(btnNum6, GroupLayout.DEFAULT_SIZE,
+																				GroupLayout.DEFAULT_SIZE,
+																				Short.MAX_VALUE)))
 														.addComponent(
-																btnNum3000, GroupLayout.DEFAULT_SIZE,
-																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addGroup(Alignment.TRAILING, groupLayout
-																.createParallelGroup(Alignment.LEADING, false)
-																.addComponent(btnNum2000, Alignment.TRAILING,
-																		GroupLayout.DEFAULT_SIZE,
+																btnNo, GroupLayout.PREFERRED_SIZE, 76,
+																GroupLayout.PREFERRED_SIZE))
+												.addGap(159)
+												.addGroup(groupLayout
+														.createParallelGroup(Alignment.LEADING)
+														.addComponent(btnOk, GroupLayout.PREFERRED_SIZE, 84,
+																GroupLayout.PREFERRED_SIZE)
+														.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+																.addComponent(btnNum5000, GroupLayout.DEFAULT_SIZE, 125,
+																		Short.MAX_VALUE)
+																.addComponent(btnNum4000, GroupLayout.DEFAULT_SIZE, 125,
+																		Short.MAX_VALUE)
+																.addComponent(
+																		btnNum3000, GroupLayout.DEFAULT_SIZE,
 																		GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																.addComponent(btnNum1000, Alignment.TRAILING,
-																		GroupLayout.DEFAULT_SIZE, 125,
-																		Short.MAX_VALUE))))))
-						.addContainerGap(199, Short.MAX_VALUE)));
+																.addGroup(groupLayout
+																		.createParallelGroup(Alignment.LEADING, false)
+																		.addComponent(btnNum2000, Alignment.TRAILING,
+																				GroupLayout.DEFAULT_SIZE,
+																				GroupLayout.DEFAULT_SIZE,
+																				Short.MAX_VALUE)
+																		.addComponent(btnNum1000, Alignment.TRAILING,
+																				GroupLayout.DEFAULT_SIZE, 125,
+																				Short.MAX_VALUE)))))
+										.addGroup(groupLayout.createSequentialGroup().addGap(250).addComponent(
+												lblNewLabel, GroupLayout.PREFERRED_SIZE, 246,
+												GroupLayout.PREFERRED_SIZE)))
+								.addContainerGap(199, Short.MAX_VALUE)));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
 				.createSequentialGroup().addGap(30).addComponent(lblNewLabel).addGap(18)
-				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE).addGap(18)
 				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(groupLayout.createSequentialGroup().addGap(18)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(btnNum1, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-										.addComponent(btnNum2, GroupLayout.PREFERRED_SIZE, 35,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(btnNum3, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)))
-						.addGroup(groupLayout.createSequentialGroup().addGap(18).addComponent(btnNum1000,
-								GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnNum1, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+								.addComponent(btnNum2, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnNum3, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+						.addComponent(btnNum1000, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup().addGap(18)
 								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -325,11 +331,26 @@ public class AutoLottoUser1 {
 
 	public void NowPay() {
 		int a = Integer.valueOf(sum);
-		pay = Integer.valueOf(sum) + sum2;
 		textField.setText(sum2 + "원" + a + "장 총금액 : " + (a * sum2) + "원");
 	}
 
 	public JFrame getFrame() {
 		return frame;
+	}
+
+	public int getPay() {
+		return pay;
+	}
+
+	public void PayGo(int q) {
+		int sumP = Integer.valueOf(sum);
+		MakeRoom makeRoom = new MakeRoom();
+		if (makeRoom.pay(pay, q)) {
+			for (int i = 0; i < sumP; i++) {
+				makeRoom.makeAutoNumber();
+				a.falsePayNow();
+				frame.setVisible(false);
+			}
+		}
 	}
 }
