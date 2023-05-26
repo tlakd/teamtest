@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 public class MakeRoom {
 	Map<Integer, List<NumberSave>> lottoNumber = new HashMap<>();// 로또 번호 저장
 	Map<Integer, List<NumberSave>> userNumber = new HashMap<>(); // 유저 번호 저장
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
-	AutoLottoUser1 auot;
 
 	int userCount = 1;
 	int lottoCount = 101;
@@ -31,7 +31,7 @@ public class MakeRoom {
 		}
 	}
 
-	public void makeAutoNumber(int a) {// 사용자의 로또번호 자동생성 초안
+	public void makeAutoNumber() {// 사용자의 로또번호 자동생성 초안
 		int count = 0;
 		if (!userNumber.containsKey(userCount)) {
 			userNumber.put(userCount, new ArrayList<>());
@@ -65,6 +65,7 @@ public class MakeRoom {
 		userCount = 1;
 		MaxPay = 100000;
 		userNumber.clear();
+		autoNotAuto.clear();
 		selectBox.addItem(lottoCount);
 
 	}
@@ -74,17 +75,23 @@ public class MakeRoom {
 
 	}
 
-	public void pay(int i) {// 결제 초안
-
+	public boolean pay(int i, int j) {// 결제 초안
 		int a = 0;
 		int setCount = userCount - a;
-		if (MaxPay - auot.getPay() < 0) {
-			// 여기에 경고문구 가는 거
-		} else if (i < auot.getPay()) {
-			// 결제 금액이 작다
+		if (MaxPay - i < 0) {
+			System.out.println("10만원");
+			// 10만원 이상 경고문
+			JOptionPane.showMessageDialog(null, "1인 10만원 이상 구매가 불가능 합니다.");
+			return false;
+		} else if (j < i) {
+			System.out.println("돈부족");
+			// 돈이 부족하다는 경고문
+			JOptionPane.showMessageDialog(null, "결제 금액보다 투입금이 부족합니다.");
+			return false;
 		} else {
-			MaxPay = MaxPay - auot.getPay();
+			MaxPay = MaxPay - i;
 			a = userCount;
+			return true;
 		}
 	}
 
