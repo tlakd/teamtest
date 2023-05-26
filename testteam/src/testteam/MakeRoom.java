@@ -15,6 +15,7 @@ public class MakeRoom {
 
 	int userCount = 1;
 	int lottoCount = 101;
+
 	int MaxPay = 100000;
 
 	public void makeMachineLotto(int i) {// 로또번호 만드는 곳
@@ -65,6 +66,16 @@ public class MakeRoom {
 		MaxPay = 100000;
 		userNumber.clear();
 		selectBox.addItem(lottoCount);
+
+	}
+	
+	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는
+		// 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
+		lottoCount++;
+		makeMachineLotto(lottoCount);
+		userCount = 1;
+		MaxPay = 100000;
+		userNumber.clear();
 
 	}
 
