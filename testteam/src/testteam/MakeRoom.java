@@ -26,7 +26,7 @@ public class MakeRoom {
 		}
 	}
 
-	public void makeAutoNumber() {// 사용자의 로또번호 자동생성 초안
+	public void makeAutoNumber(int a) {// 사용자의 로또번호 자동생성 초안
 		if (!userNumber.containsKey(userCount)) {
 			userNumber.put(userCount, new ArrayList<>());
 		}
@@ -46,7 +46,7 @@ public class MakeRoom {
 		}
 	}
 
-	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안
+	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(있는거 로또 다음 회차 생성, 샀던 개수 초기화 살수있는 값 초기화)
 		lottoCount++;
 		makeMachineLotto(lottoCount);
 		userCount = 1;
