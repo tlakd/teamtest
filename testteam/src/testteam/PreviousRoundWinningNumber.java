@@ -51,7 +51,7 @@ public class PreviousRoundWinningNumber {
 		JButton btn = new JButton("이전으로");
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//메인화면으로
+				frame.dispose();
 			}
 		});
 		springLayout.putConstraint(SpringLayout.SOUTH, btn, -24, SpringLayout.SOUTH, frame.getContentPane());
@@ -90,66 +90,67 @@ public class PreviousRoundWinningNumber {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JComboBox<Integer> selectBox = new JComboBox<>();
-		MakeRoom a = new MakeRoom(); // selectBox 객체를 MakeRoom 클래스에 전달하여 접근 가능하도록 함
-	
+		MakeRoom a = new MakeRoom(); // 
 
 		for (int i = 1; i <= 101; i++) {
-		    selectBox.addItem(i);
-		} 
+			selectBox.addItem(i);
+		}
 		a.makeLottoNumberNew(selectBox);
-    	a.makeLottoNumberNew(selectBox);
-    	a.makeLottoNumberNew(selectBox);
-    	a.makeLottoNumberNew(selectBox);
-    	a.makeLottoNumberNew(selectBox);
-    	a.makeLottoNumberNew(selectBox);
+		a.makeLottoNumberNew(selectBox);
 		Map<Integer, List<Integer>> lottoNumberMap = new HashMap<>(); // 회차별 로또 번호 저장
 
 		selectBox.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		    
-		        int selectedNumber = (int) selectBox.getSelectedItem();
-		        lbl4.setText(Integer.toString(selectedNumber));
-		        List<Integer> lottoNumbers;
-		        if (lottoNumberMap.containsKey(selectedNumber)) {
-		            lottoNumbers = lottoNumberMap.get(selectedNumber);
-		        } else {
-		            lottoNumbers = generateLottoNumbers();
-		            lottoNumberMap.put(selectedNumber, lottoNumbers);
-		        }
-		        String lottoNumberString = convertListToString(lottoNumbers);
-		        lbl5.setText(lottoNumberString);
-		    }
+			public void actionPerformed(ActionEvent e) {
 
-		    private List<Integer> generateLottoNumbers() {
-		        List<Integer> numbers = new ArrayList<>();
-		        while (numbers.size() < 7) {
-		            int number = (int) (Math.random() * 45) + 1;
-		            if (!numbers.contains(number)) {
-		                numbers.add(number);
-		            }
-		        }
-		        Collections.sort(numbers);
-		        return numbers;
-		    }
-		    private String convertListToString(List<Integer> numbers) {
-		        StringBuilder sb = new StringBuilder();
-		        for (int number : numbers) {
-		            sb.append(number).append(" ");
-		        }
-		        return sb.toString().trim();
-		    }
+				int selectedNumber = (int) selectBox.getSelectedItem();
+				lbl4.setText(Integer.toString(selectedNumber));
+				List<Integer> lottoNumbers;
+				if (lottoNumberMap.containsKey(selectedNumber)) {
+					lottoNumbers = lottoNumberMap.get(selectedNumber);
+				} else {
+					lottoNumbers = generateLottoNumbers();
+					lottoNumberMap.put(selectedNumber, lottoNumbers);
+				}
+
+				String lottoNumberString = convertListToString(lottoNumbers);
+				lbl5.setText(lottoNumberString);
+			}
+
+			private List<Integer> generateLottoNumbers() {
+				List<Integer> numbers = new ArrayList<>();
+				while (numbers.size() < 6) {
+					int number = (int) (Math.random() * 45) + 1;
+					if (!numbers.contains(number)) {
+						numbers.add(number);
+					}
+				}
+				Collections.sort(numbers);
+				int bonusNumber = (int) (Math.random() * 45) + 1;
+				numbers.add(bonusNumber);
+			
+				return numbers;
+			}
+
+			private String convertListToString(List<Integer> numbers) {
+				StringBuilder sb = new StringBuilder();
+				for (int i = 0; i < numbers.size(); i++) {
+					sb.append(numbers.get(i));
+					if (i < numbers.size() - 2) {
+						sb.append(" "); // 번호 간격을 공백으로 설정
+					} else {
+						sb.append("      "); // 맨 마지막 번호에 더 많은 공백 추가
+					}
+				}
+				return sb.toString();
+			}
+
 		});
 
-
-
-		
-		
-		
 		springLayout.putConstraint(SpringLayout.SOUTH, lbl1, -15, SpringLayout.NORTH, selectBox);
 		springLayout.putConstraint(SpringLayout.NORTH, selectBox, -3, SpringLayout.NORTH, lbl2);
 		springLayout.putConstraint(SpringLayout.WEST, selectBox, 17, SpringLayout.EAST, lbl2);
 		frame.getContentPane().add(selectBox);
-		
+
 	}
 	
 public static void main(String[] args) {
