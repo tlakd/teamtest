@@ -328,4 +328,8 @@ public class AutoLottoUser1 {
 		pay = Integer.valueOf(sum) + sum2;
 		textField.setText(sum2 + "원" + a + "장 총금액 : " + (a * sum2) + "원");
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
 }
