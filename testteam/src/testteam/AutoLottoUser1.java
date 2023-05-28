@@ -216,7 +216,7 @@ public class AutoLottoUser1 {
 			public void actionPerformed(ActionEvent e) {
 				pay = Integer.valueOf(sum) * sum2;
 				a.getFrame().setVisible(true);
-				a.nowPay(Integer.valueOf(sum) * sum2);
+				a.nowPay(Integer.valueOf(sum) * sum2);// 이부분이 추가되었습니다.
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
