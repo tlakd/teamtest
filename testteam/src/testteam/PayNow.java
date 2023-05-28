@@ -17,6 +17,8 @@ public class PayNow {
 	private JFrame frame;
 	private JTextField textField;
 	AutoLottoUser1 auto;
+	int nowP;
+	JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -51,7 +53,7 @@ public class PayNow {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JLabel lblNewLabel = new JLabel("결제금액은 " + auto.getPay() + "원입니다.");
+		lblNewLabel = new JLabel("총금액: " + nowP + "");
 
 		JButton btnNewButton = new JButton("결제하기");
 
@@ -119,5 +121,10 @@ public class PayNow {
 
 	public void falsePayNow() {
 		frame.setVisible(false);
+	}
+
+	public void nowPay(int a) {
+		nowP = a;
+		lblNewLabel.setText("총금액: " + nowP + "");
 	}
 }
