@@ -17,8 +17,8 @@ public class AutoLottoUser1 {
 	private JTextField textField;
 	private String sum = "0";
 	private int sum2 = 0;
-	private int pay;
-	PayNow a = new PayNow(AutoLottoUser1.this);
+	private int pay = Integer.valueOf(sum) * sum2;
+	PayNow a = new PayNow(this);
 
 	/**
 	 * Launch the application.
@@ -216,6 +216,7 @@ public class AutoLottoUser1 {
 			public void actionPerformed(ActionEvent e) {
 				pay = Integer.valueOf(sum) * sum2;
 				a.getFrame().setVisible(true);
+				a.nowPay(Integer.valueOf(sum) * sum2);
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -340,6 +341,14 @@ public class AutoLottoUser1 {
 
 	public int getPay() {
 		return pay;
+	}
+
+	public String getSum() {
+		return sum;
+	}
+
+	public int getSum2() {
+		return sum2;
 	}
 
 	public void PayGo(int q) {
