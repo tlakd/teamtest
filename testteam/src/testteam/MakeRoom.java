@@ -15,7 +15,7 @@ public class MakeRoom {
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
 
 	int userCount = 1;
-	int lottoCount = 101;
+	static int lottoCount = 101;
 
 	int MaxPay = 100000;
 
@@ -31,6 +31,7 @@ public class MakeRoom {
 			}
 		}
 	}
+	
 
 	public void makeAutoNumber() {// 사용자의 로또번호 자동생성 초안
 		int count = 0;
@@ -109,6 +110,10 @@ public class MakeRoom {
 
 	public void 수동부분() {// 만들어야됨
 
+	}
+
+	public List<NumberSave> getLottoNumbers() {
+		return lottoNumber.get(lottoCount);
 	}
 
 }

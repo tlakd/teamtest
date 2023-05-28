@@ -222,12 +222,7 @@ public class PreviousRoundWinningNumber {
           
         }
       });
-      MakeRoom a = new MakeRoom();
-      a.makeLottoNumber();
-      List<NumberSave> lottoNumbers = a.lottoNumber.get(1); // 로또 번호를 가져옵니다.
-      for (NumberSave number : lottoNumbers) {
-          System.out.println(number);
-      }
+      
   }
   }
     

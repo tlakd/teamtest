@@ -6,20 +6,24 @@ import java.util.Objects;
 
 public class NumberSave implements Comparable<NumberSave> {
 	List<Integer> NumberList = new ArrayList<>();
-	int Number;
+	int number;
 
 	public NumberSave(int value) {
-		this.Number = value;
+		this.number = value;
 	}
+
+	   public int getNumber() {
+	        return number;
+	    }
 
 	@Override
 	public String toString() {
-		return Number + "";
+		return number + "";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Number);
+		return Objects.hash(number);
 	}
 
 	@Override
@@ -31,12 +35,12 @@ public class NumberSave implements Comparable<NumberSave> {
 		if (getClass() != obj.getClass())
 			return false;
 		NumberSave other = (NumberSave) obj;
-		return Number == other.Number;
+		return number == other.number;
 	}
 
 	@Override
 	public int compareTo(NumberSave o) {
-		return Integer.compare(this.Number, o.Number);
+		return Integer.compare(this.number, o.number);
 	}
 
 }
