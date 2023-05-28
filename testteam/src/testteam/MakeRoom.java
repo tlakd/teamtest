@@ -70,7 +70,7 @@ public class MakeRoom {
 		selectBox.addItem(lottoCount);
 
 	}
-	
+
 	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는
 		// 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
 		lottoCount++;
@@ -102,6 +102,7 @@ public class MakeRoom {
 		} else {
 			MaxPay = MaxPay - i;
 			a = userCount;
+			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");
 			return true;
 		}
 	}
