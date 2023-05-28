@@ -46,12 +46,12 @@ public class MakeRoom {
 				count++;
 			}
 		}
-		userCount++;
 		if (count == 6) {
 			autoNotAuto.put(userCount, "자 동");
 		} else if (count < 6) {
 			autoNotAuto.put(userCount, "반자동");
 		}
+		userCount++;
 	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
@@ -103,7 +103,7 @@ public class MakeRoom {
 		} else {
 			MaxPay = MaxPay - i;
 			a = userCount;
-			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈이랑 결제완료 추가
+			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈부분추가
 			return true;
 		}
 	}
