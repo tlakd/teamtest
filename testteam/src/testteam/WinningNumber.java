@@ -51,7 +51,7 @@ public class WinningNumber {
 	private void initialize() {
 		MakeRoom a= new MakeRoom();
 		a.makeLottoNumber();
-		a.makeAutoNumber(2312);
+		//a.makeAutoNumber(2312);
 		
 		
 
@@ -135,20 +135,20 @@ public class WinningNumber {
 		springLayout.putConstraint(SpringLayout.SOUTH, lbl5, -6, SpringLayout.NORTH, txtr1);
 		frame.getContentPane().add(lbl5);
 		
-		Map<Integer, List<NumberSave>> lottoNumber = a.getLottoNumber(); // lottoNumber 맵 가져오기
-		StringBuilder sb = new StringBuilder();
-		for (Map.Entry<Integer, List<NumberSave>> entry : lottoNumber.entrySet()) {
-			List<NumberSave> numbers = entry.getValue();
-			// 로또 번호 정렬
-			Collections.sort(numbers);
-			// 로또 번호 추가
-			for (NumberSave number : numbers) {
-				sb.append(number).append(" ");
-			}
-			sb.append("\n");
-		}
-		
-		txtr1.setText(sb.toString());
+	//	Map<Integer, List<NumberSave>> lottoNumber = a.getLottoNumber(); // lottoNumber 맵 가져오기
+//		StringBuilder sb = new StringBuilder();
+//		for (Map.Entry<Integer, List<NumberSave>> entry : lottoNumber.entrySet()) {
+//			List<NumberSave> numbers = entry.getValue();
+//			// 로또 번호 정렬
+//			Collections.sort(numbers);
+//			// 로또 번호 추가
+//			for (NumberSave number : numbers) {
+//				sb.append(number).append(" ");
+//			}
+//			sb.append("\n");
+//		}
+//		
+		//txtr1.setText(sb.toString());
 //		
 //		
 //        List<Integer> autoLottoNumbers = a.getAutoLottoNumbers();
