@@ -102,7 +102,7 @@ public class MakeRoom {
 		} else {
 			MaxPay = MaxPay - i;
 			a = userCount;
-			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");
+			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈이랑 결제완료 추가
 			return true;
 		}
 	}
