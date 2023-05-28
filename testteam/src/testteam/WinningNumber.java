@@ -19,6 +19,20 @@ import javax.swing.SwingConstants;
 
 public class WinningNumber {
 	private JFrame frame;
+	
+	
+	public void 자동여러장구매시(Map<Integer, List<NumberSave>> userNumber, Map<Integer, String> autoNotAuto) {
+        for (int i = 1; i <= userNumber.size(); i++) {
+            List<NumberSave> numbers = userNumber.get(i);
+            String autoType = autoNotAuto.get(i);
+
+            System.out.println("유저 번호: " + numbers);
+            System.out.println("자동/반자동/수동: " + autoType);
+            System.out.println("------------------------------");
+        }
+    }
+	 //userNumber는 사용자의 로또 번호를 저장하는 맵입니다.
+	 //autoNotAuto는 자동 반자동 수동인지 확인해주는 맵입니다
 
 	/**
 	 * Launch the application.g
@@ -403,9 +417,6 @@ public class WinningNumber {
         nlbl6.setText(String.valueOf(numNlbl6));
         int numNlbl7 = lottoNumbers.get(6).getNumber();
         nlbl7.setText(String.valueOf(numNlbl7));
-        
-		 
-        
         
         
 		
