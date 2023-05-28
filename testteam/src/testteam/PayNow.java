@@ -53,7 +53,7 @@ public class PayNow {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		lblNewLabel = new JLabel("총금액: " + nowP + "");
+		lblNewLabel = new JLabel("총금액: " + nowP + "");// 글자 
 
 		JButton btnNewButton = new JButton("결제하기");
 
@@ -123,7 +123,7 @@ public class PayNow {
 		frame.setVisible(false);
 	}
 
-	public void nowPay(int a) {
+	public void nowPay(int a) {// 추가된부분입니다.
 		nowP = a;
 		lblNewLabel.setText("총금액: " + nowP + "");
 	}
