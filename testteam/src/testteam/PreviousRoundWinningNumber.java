@@ -139,12 +139,8 @@ public class PreviousRoundWinningNumber {
     for (int i = 1; i <= 101; i++) {
       selectBox.addItem(i);
     }
-    a.makeLottoNumberNew(selectBox);
+a.makeLottoNumberNew(selectBox);
     
-    a.makeLottoNumberNew(selectBox);
-    a.makeLottoNumberNew(selectBox);
-    a.makeLottoNumberNew(selectBox);
-    a.makeLottoNumberNew(selectBox);
     Map<Integer, List<Integer>> lottoNumberMap = new HashMap<>(); // 회차별 로또 번호 저장
 
     selectBox.addActionListener(new ActionListener() {

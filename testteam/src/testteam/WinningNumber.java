@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
 public class WinningNumber {
-	private JFrame frame;
+	JFrame frame;
 	
 	
 	public void 자동여러장구매시(Map<Integer, List<NumberSave>> userNumber, Map<Integer, String> autoNotAuto) {
@@ -393,11 +393,11 @@ public class WinningNumber {
         });
         
     
-        for (NumberSave number : lottoNumbers.subList(0, 6)) {
-            System.out.println(number.getNumber());
-        }
-        System.out.println(bonusNumber);
-       
+      //  for (NumberSave number : lottoNumbers.subList(0, 6)) {
+      //      System.out.println(number.getNumber());
+     //   }
+      //  System.out.println(bonusNumber);
+    
       
         
         

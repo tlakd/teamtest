@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class MakeRoom {
@@ -52,6 +53,9 @@ public class MakeRoom {
 			autoNotAuto.put(userCount, "반자동");
 		}
 		userCount++;
+		WinningNumber win = new WinningNumber();
+		win.자동여러장구매시(userNumber, autoNotAuto);
+	
 	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
@@ -105,7 +109,10 @@ public class MakeRoom {
 			a = userCount;
 			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈부분추가
 			return true;
+			
 		}
+		
+		
 	}
 
 	public void 수동부분() {// 만들어야됨
