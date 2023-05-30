@@ -123,7 +123,7 @@ public class PayNow {
 		frame.setVisible(false);
 	}
 
-	public void nowPay(int a) {// 추가된부분입니다.
+	public void nowPay(int a) {
 		nowP = a;
 		lblNewLabel.setText("총금액: " + nowP + "");
 	}

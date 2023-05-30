@@ -32,9 +32,8 @@ public class MakeRoom {
 			}
 		}
 	}
-	
 
-	public void makeAutoNumber() {// 사용자의 로또번호 자동생성 초안
+	public void makeAutoNumber() {// 사용자의 로또번호 자동생성
 		int count = 0;
 		if (!userNumber.containsKey(userCount)) {
 			userNumber.put(userCount, new ArrayList<>());
@@ -52,10 +51,10 @@ public class MakeRoom {
 		} else if (count < 6) {
 			autoNotAuto.put(userCount, "반자동");
 		}
+		Collections.sort(userNumber.get(userCount));
 		userCount++;
 		WinningNumber win = new WinningNumber();
 		win.자동여러장구매시(userNumber, autoNotAuto);
-	
 	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
@@ -86,11 +85,6 @@ public class MakeRoom {
 
 	}
 
-	public void lookList(int i) {// 유저 번호 순서대로 나열
-		Collections.sort(userNumber.get(i));
-
-	}
-
 	public boolean pay(int i, int j) {// 결제 초안
 		int a = 0;
 		int setCount = userCount - a;
@@ -109,18 +103,13 @@ public class MakeRoom {
 			a = userCount;
 			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈부분추가
 			return true;
-			
+
 		}
-		
-		
+
 	}
 
 	public void 수동부분() {// 만들어야됨
 
-	}
-
-	public List<NumberSave> getLottoNumbers() {
-		return lottoNumber.get(lottoCount);
 	}
 
 }
