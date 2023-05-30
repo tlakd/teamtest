@@ -13,12 +13,13 @@ import javax.swing.JOptionPane;
 public class Manual extends JFrame {
 	JButton[] button = new JButton[45];
 	JLayeredPane lp = new JLayeredPane();
-	private int clickCount = 0;
 	List<Integer> numSa = new ArrayList<Integer>();
 	MakeRoom m = new MakeRoom();
+	int number;
 
 	public void makeButton() {// 여기서 부르기
 		int count = 0;
+		// 초기화 버튼
 		JButton jbut = new JButton();
 		jbut.setBounds(50, 480, 100, 40);
 		jbut.setText("초기화");
@@ -29,25 +30,28 @@ public class Manual extends JFrame {
 			}
 		});
 		lp.add(jbut);
+		// 완료 버튼
 		JButton jbut1 = new JButton();
 		jbut1.setBounds(300, 480, 100, 40);
 		jbut1.setText("완료");
 		jbut1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				m.수동부분();
+				수동부분저장();
+				numSa.clear();
 				setVisible(false);
 			}
 		});
 		lp.add(jbut1);
+		// 자동완성 버튼
 		JButton jbut2 = new JButton();
 		jbut2.setBounds(175, 480, 100, 40);
 		jbut2.setText("자동완성");
 		jbut2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				수동부분저장();
 				m.makeAutoNumber();
-				setVisible(false);
 			}
 		});
 		lp.add(jbut2);
@@ -64,14 +68,14 @@ public class Manual extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					JButton source = (JButton) e.getSource();
-					if (clickCount < 6) {// 6개까지 중복
+					if (numSa.size() < 6) {// 6개까지 중복
 						if (!numSa.contains(index)) {
 							numSa.add(index);
-							clickCount++;
 						} else {
 							performOtherAction(source, index); // 다른 액션 수행
 						}
 					} else if (!numSa.contains(index)) {
+						System.out.println(numSa);
 						JOptionPane.showMessageDialog(null, "숫자 6개 까지 선택 가능합니다.");
 					} else {
 						performOtherAction(source, index); // 다른 액션 수행
@@ -88,12 +92,43 @@ public class Manual extends JFrame {
 
 	private void performOtherAction(JButton source, int a) {
 		numSa.remove(Integer.valueOf(a));
-		clickCount--;
 	}
 
 	public void reset() {
-		clickCount = 0;
 		numSa.clear();
+		try {
+			m.userNumber.get(m.userCount - 1).clear();
+		} catch (NullPointerException e) {
+			System.out.println(m.userNumber.get(m.userCount - 1));
+		}
+	}
+
+	public void 수동부분저장() {
+
+		if (!m.userNumber.containsKey(m.userCount)) {
+			m.userNumber.put(m.userCount, new ArrayList<>());
+		}
+
+		for (int j = 0; j < numSa.size(); j++) {
+			number = numSa.get(j);
+			NumberSave newNumber = new NumberSave(number);
+			m.userNumber.get(m.userCount).add(newNumber);
+			if (numSa.size() < 6) {
+				m.makeAutoNumber();
+			}
+		}
+
+		// 저장된 값 확인을 위한 출력
+		for (int i = 1; i <= m.userCount; i++) {
+			List<NumberSave> numbers = m.userNumber.get(i);
+			if (numbers != null) {
+				System.out.print("User " + i + " Numbers: ");
+				for (NumberSave number : numbers) {
+					System.out.print(number.getNumber() + " ");
+				}
+				System.out.println();
+			}
+		}
 	}
 
 	public static void main(String[] args) {// 이거는 나중에 지우면 되고

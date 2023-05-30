@@ -52,8 +52,8 @@ public class MakeRoom {
 		}
 		Collections.sort(userNumber.get(userCount));
 		userCount++;
-		WinningNumber win = new WinningNumber();
-		win.자동여러장구매시(userNumber, autoNotAuto);
+//		WinningNumber win = new WinningNumber();
+//		win.자동여러장구매시(userNumber, autoNotAuto);
 	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
@@ -71,18 +71,6 @@ public class MakeRoom {
 		userNumber.clear();
 		autoNotAuto.clear();
 		selectBox.addItem(lottoCount);
-		Manual m = new Manual();
-		m.reset();
-
-	}
-
-	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는
-		// 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
-		lottoCount++;
-		makeMachineLotto(lottoCount);
-		userCount = 1;
-		MaxPay = 100000;
-		userNumber.clear();
 
 	}
 
@@ -107,18 +95,5 @@ public class MakeRoom {
 
 		}
 
-	}
-
-	public void 수동부분() {// 만들어야됨
-		Manual m = new Manual();
-		for (int i = 0; i < m.numSa.size(); i++) {
-			int number = m.numSa.get(i);
-			NumberSave newNumber = new NumberSave(number);
-			userNumber.get(userCount).add(newNumber);
-		}
-		if (m.numSa.size() == 6) {
-			autoNotAuto.put(userCount, "수 동");
-			userCount++;
-		}
 	}
 }
