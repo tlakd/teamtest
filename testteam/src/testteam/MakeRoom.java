@@ -38,6 +38,7 @@ public class MakeRoom {
 	}
 
 	public void makeAutoNumber() {// 사용자의 로또번호 자동생성
+		
 		int count = 0;
 		if (!userNumber.containsKey(userCount)) {
 			userNumber.put(userCount, new ArrayList<>());
@@ -57,15 +58,16 @@ public class MakeRoom {
 		}
 		Collections.sort(userNumber.get(userCount));
 		userCount++;
-		exeWin();
+		
+	
 	}
 	public void exeWin() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					WinningNumber win = new WinningNumber();
-					win.frame.setVisible(true);
 					win.자동여러장구매시(userNumber, autoNotAuto);
+					win.frame.setVisible(true);
 			} catch (Exception e) {
 					e.printStackTrace();
 				}

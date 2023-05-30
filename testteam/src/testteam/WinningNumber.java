@@ -420,12 +420,6 @@ public class WinningNumber {
                     }
                 });
 
-                System.out.println("로또 번호 " + lottoIndex + "의 정렬된 숫자들:");
-                for (NumberSave number : sortedNumbers) {
-                    int num = number.getNumber();
-                    System.out.println(num);
-                }
-
                 nlbl1.setText(String.valueOf(sortedNumbers.get(0).getNumber()));
                 nlbl2.setText(String.valueOf(sortedNumbers.get(1).getNumber()));
                 nlbl3.setText(String.valueOf(sortedNumbers.get(2).getNumber()));
