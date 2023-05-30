@@ -19,6 +19,7 @@ public class AutoLottoUser1 {
 	private int sum2 = 0;
 	private int pay = Integer.valueOf(sum) * sum2;
 	PayNow a = new PayNow(this);
+	
 
 	/**
 	 * Launch the application.
@@ -350,5 +351,7 @@ public class AutoLottoUser1 {
 		}
 		
 	}
+	
+	
 	
 }

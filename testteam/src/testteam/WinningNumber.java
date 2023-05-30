@@ -27,6 +27,12 @@ public class WinningNumber {
     JLabel albl1;
 	String numberText;
 	String firstNumber;
+	private JLabel albl2;
+	private JLabel albl3;
+	private JLabel albl4;
+	private JLabel albl5;
+	private JLabel albl6;
+	private JLabel albl;
 
     public String getNumberText() {
 		return numberText;
@@ -43,10 +49,15 @@ public class WinningNumber {
             
 
             System.out.println("유저 번호: " + numbers);
-            System.out.println(numbers.get(0));
-            System.out.println("라벨 변경");
-            albl1.setText(String.valueOf(numbers.get(0)));
             System.out.println("자동/반자동/수동: " + autoType);
+            
+            albl1.setText(String.valueOf(numbers.get(0)));
+            albl2.setText(String.valueOf(numbers.get(1)));
+            albl3.setText(String.valueOf(numbers.get(2)));
+            albl4.setText(String.valueOf(numbers.get(3)));
+            albl5.setText(String.valueOf(numbers.get(4)));
+            albl6.setText(String.valueOf(numbers.get(5)));
+            albl.setText(autoType);
             System.out.println("------------------------------");
            
             
@@ -135,32 +146,32 @@ public class WinningNumber {
 		frame.getContentPane().add(lbl4);
 		
         
-        JLabel albl = new JLabel("자동");
+        albl = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, albl, 77, SpringLayout.NORTH, frame.getContentPane());
         springLayout.putConstraint(SpringLayout.WEST, albl, 0, SpringLayout.WEST, btn1);
         frame.getContentPane().add(albl);
         
-        JLabel blbl = new JLabel("수동");
+        JLabel blbl = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, blbl, 6, SpringLayout.SOUTH, albl);
         springLayout.putConstraint(SpringLayout.WEST, blbl, 0, SpringLayout.WEST, btn1);
         frame.getContentPane().add(blbl);
         
-        JLabel clbl = new JLabel("자동");
+        JLabel clbl = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, clbl, 6, SpringLayout.SOUTH, blbl);
         springLayout.putConstraint(SpringLayout.WEST, clbl, 0, SpringLayout.WEST, btn1);
         frame.getContentPane().add(clbl);
         
-        JLabel dlbl = new JLabel("반자동");
+        JLabel dlbl = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, dlbl, 6, SpringLayout.SOUTH, clbl);
         springLayout.putConstraint(SpringLayout.WEST, dlbl, 0, SpringLayout.WEST, btn1);
         frame.getContentPane().add(dlbl);
         
-        JLabel elbl = new JLabel("수동");
+        JLabel elbl = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, elbl, 4, SpringLayout.SOUTH, dlbl);
         springLayout.putConstraint(SpringLayout.WEST, elbl, 0, SpringLayout.WEST, btn1);
         frame.getContentPane().add(elbl);
         
-        this.albl1 = new JLabel("18");
+        this.albl1 = new JLabel("");
         springLayout.putConstraint(SpringLayout.WEST, lbl4, 0, SpringLayout.WEST, albl1);
         springLayout.putConstraint(SpringLayout.SOUTH, lbl4, -6, SpringLayout.NORTH, albl1);
         springLayout.putConstraint(SpringLayout.NORTH, albl1, 77, SpringLayout.NORTH, frame.getContentPane());
@@ -170,216 +181,216 @@ public class WinningNumber {
         System.out.println("라벨 생성");
     
         
-        JLabel albl2 = new JLabel("2번");
+        albl2 = new JLabel("");
         albl2.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.WEST, albl2, 9, SpringLayout.EAST, albl1);
         springLayout.putConstraint(SpringLayout.SOUTH, albl2, 0, SpringLayout.SOUTH, albl);
         frame.getContentPane().add(albl2);
         
-        JLabel albl3 = new JLabel("3번");
+        albl3 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, albl3, 0, SpringLayout.NORTH, albl);
         springLayout.putConstraint(SpringLayout.WEST, albl3, 6, SpringLayout.EAST, albl2);
         albl3.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(albl3);
         
-        JLabel albl4 = new JLabel("4번");
+        albl4 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, albl4, 0, SpringLayout.NORTH, albl);
         albl4.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(albl4);
         
-        JLabel albl5 = new JLabel("5번");
+        albl5 = new JLabel("");
         springLayout.putConstraint(SpringLayout.WEST, albl5, 268, SpringLayout.WEST, frame.getContentPane());
         springLayout.putConstraint(SpringLayout.EAST, albl4, -6, SpringLayout.WEST, albl5);
         springLayout.putConstraint(SpringLayout.NORTH, albl5, 0, SpringLayout.NORTH, albl);
         albl5.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(albl5);
         
-        JLabel albl6 = new JLabel("6번");
+        albl6 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, albl6, 0, SpringLayout.NORTH, albl);
         springLayout.putConstraint(SpringLayout.EAST, albl6, 0, SpringLayout.EAST, btn2);
         albl6.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(albl6);
         
-        JLabel blbl1 = new JLabel("1번");
+        JLabel blbl1 = new JLabel("");
         blbl1.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.NORTH, blbl1, 0, SpringLayout.NORTH, blbl);
         springLayout.putConstraint(SpringLayout.EAST, blbl1, 0, SpringLayout.EAST, albl1);
         frame.getContentPane().add(blbl1);
         
-        JLabel blbl2 = new JLabel("2번");
+        JLabel blbl2 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, blbl2, 0, SpringLayout.NORTH, blbl);
         springLayout.putConstraint(SpringLayout.WEST, blbl2, 0, SpringLayout.WEST, albl2);
         springLayout.putConstraint(SpringLayout.SOUTH, blbl2, 0, SpringLayout.SOUTH, blbl);
         blbl2.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(blbl2);
         
-        JLabel blbl3 = new JLabel("3번");
+        JLabel blbl3 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, blbl3, 0, SpringLayout.NORTH, blbl);
         springLayout.putConstraint(SpringLayout.WEST, blbl3, 0, SpringLayout.WEST, albl3);
         blbl3.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(blbl3);
         
-        JLabel blbl4 = new JLabel("4번");
+        JLabel blbl4 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, blbl4, 0, SpringLayout.NORTH, blbl);
         springLayout.putConstraint(SpringLayout.WEST, blbl4, 0, SpringLayout.WEST, albl4);
         blbl4.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(blbl4);
         
-        JLabel blbl5 = new JLabel("5번");
+        JLabel blbl5 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, blbl5, 0, SpringLayout.NORTH, blbl);
         springLayout.putConstraint(SpringLayout.WEST, blbl5, 0, SpringLayout.WEST, albl5);
         blbl5.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(blbl5);
         
-        JLabel blbl6 = new JLabel("6번");
+        JLabel blbl6 = new JLabel("");
         blbl6.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.NORTH, blbl6, 0, SpringLayout.NORTH, blbl);
         springLayout.putConstraint(SpringLayout.EAST, blbl6, 0, SpringLayout.EAST, btn2);
         frame.getContentPane().add(blbl6);
         
-        JLabel nlbl1 = new JLabel("1번");
+        JLabel nlbl1 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, nlbl1, 0, SpringLayout.NORTH, lbl1);
         springLayout.putConstraint(SpringLayout.EAST, nlbl1, 0, SpringLayout.EAST, albl);
         nlbl1.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(nlbl1);
         
-        JLabel nlbl2 = new JLabel("2번");
+        JLabel nlbl2 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, lbl4, 17, SpringLayout.SOUTH, nlbl2);
         springLayout.putConstraint(SpringLayout.NORTH, nlbl2, 0, SpringLayout.NORTH, lbl1);
         nlbl2.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(nlbl2);
         
-        JLabel nlbl3 = new JLabel("3번");
+        JLabel nlbl3 = new JLabel("");
         springLayout.putConstraint(SpringLayout.EAST, nlbl2, -22, SpringLayout.WEST, nlbl3);
         springLayout.putConstraint(SpringLayout.NORTH, nlbl3, 0, SpringLayout.NORTH, lbl1);
         springLayout.putConstraint(SpringLayout.WEST, nlbl3, 0, SpringLayout.WEST, albl2);
         nlbl3.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(nlbl3);
         
-        JLabel nlbl4 = new JLabel("4번");
+        JLabel nlbl4 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, nlbl4, 0, SpringLayout.NORTH, lbl1);
         nlbl4.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(nlbl4);
         
-        JLabel nlbl5 = new JLabel("5번");
+        JLabel nlbl5 = new JLabel("");
         springLayout.putConstraint(SpringLayout.EAST, nlbl4, -18, SpringLayout.WEST, nlbl5);
         springLayout.putConstraint(SpringLayout.NORTH, nlbl5, 0, SpringLayout.NORTH, lbl1);
         springLayout.putConstraint(SpringLayout.WEST, nlbl5, 0, SpringLayout.WEST, albl4);
         nlbl5.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(nlbl5);
         
-        JLabel nlbl6 = new JLabel("6번");
+        JLabel nlbl6 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, nlbl6, 0, SpringLayout.NORTH, lbl1);
         springLayout.putConstraint(SpringLayout.EAST, nlbl6, 0, SpringLayout.EAST, lbl4);
         nlbl6.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(nlbl6);
         
-        JLabel nlbl7 = new JLabel("보너스");
+        JLabel nlbl7 = new JLabel("");
         nlbl7.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.WEST, nlbl7, 6, SpringLayout.EAST, lbl2);
         springLayout.putConstraint(SpringLayout.SOUTH, nlbl7, 0, SpringLayout.SOUTH, lbl1);
         frame.getContentPane().add(nlbl7);
         
-        JLabel clbl1 = new JLabel("1번");
+        JLabel clbl1 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, clbl1, 0, SpringLayout.NORTH, clbl);
         springLayout.putConstraint(SpringLayout.WEST, clbl1, 0, SpringLayout.WEST, lbl4);
         clbl1.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(clbl1);
         
-        JLabel clbl2 = new JLabel("2번");
+        JLabel clbl2 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, clbl2, 0, SpringLayout.NORTH, clbl);
         springLayout.putConstraint(SpringLayout.EAST, clbl2, 0, SpringLayout.EAST, albl2);
         clbl2.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(clbl2);
         
-        JLabel clbl3 = new JLabel("3번");
+        JLabel clbl3 = new JLabel("");
         springLayout.putConstraint(SpringLayout.WEST, clbl3, 0, SpringLayout.WEST, albl3);
         springLayout.putConstraint(SpringLayout.SOUTH, clbl3, 0, SpringLayout.SOUTH, clbl);
         frame.getContentPane().add(clbl3);
         
-        JLabel clbl4 = new JLabel("4번");
+        JLabel clbl4 = new JLabel("");
         springLayout.putConstraint(SpringLayout.WEST, clbl4, 0, SpringLayout.WEST, albl4);
         springLayout.putConstraint(SpringLayout.SOUTH, clbl4, 0, SpringLayout.SOUTH, clbl);
         frame.getContentPane().add(clbl4);
         
-        JLabel clbl5 = new JLabel("5번");
+        JLabel clbl5 = new JLabel("");
         springLayout.putConstraint(SpringLayout.WEST, clbl5, 0, SpringLayout.WEST, albl5);
         springLayout.putConstraint(SpringLayout.SOUTH, clbl5, 0, SpringLayout.SOUTH, clbl);
         frame.getContentPane().add(clbl5);
         
-        JLabel clbl6 = new JLabel("6번");
+        JLabel clbl6 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, clbl6, 0, SpringLayout.NORTH, clbl);
         springLayout.putConstraint(SpringLayout.EAST, clbl6, 0, SpringLayout.EAST, btn2);
         clbl6.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(clbl6);
         
-        JLabel dlbl1 = new JLabel("1번");
+        JLabel dlbl1 = new JLabel("");
         dlbl1.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.NORTH, dlbl1, 0, SpringLayout.NORTH, dlbl);
         springLayout.putConstraint(SpringLayout.WEST, dlbl1, 0, SpringLayout.WEST, lbl4);
         frame.getContentPane().add(dlbl1);
         
-        JLabel dlbl2 = new JLabel("2번");
+        JLabel dlbl2 = new JLabel("");
         dlbl2.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.NORTH, dlbl2, 0, SpringLayout.NORTH, dlbl);
         springLayout.putConstraint(SpringLayout.WEST, dlbl2, 0, SpringLayout.WEST, albl2);
         frame.getContentPane().add(dlbl2);
         
-        JLabel dlbl3 = new JLabel("3번");
+        JLabel dlbl3 = new JLabel("");
         dlbl3.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.WEST, dlbl3, 0, SpringLayout.WEST, albl3);
         springLayout.putConstraint(SpringLayout.SOUTH, dlbl3, 0, SpringLayout.SOUTH, dlbl);
         frame.getContentPane().add(dlbl3);
         
-        JLabel dlbl4 = new JLabel("4번");
+        JLabel dlbl4 = new JLabel("");
         dlbl4.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.WEST, dlbl4, 0, SpringLayout.WEST, albl4);
         springLayout.putConstraint(SpringLayout.SOUTH, dlbl4, 0, SpringLayout.SOUTH, dlbl);
         frame.getContentPane().add(dlbl4);
         
-        JLabel dlbl5 = new JLabel("5번");
+        JLabel dlbl5 = new JLabel("");
         dlbl5.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.WEST, dlbl5, 0, SpringLayout.WEST, albl5);
         springLayout.putConstraint(SpringLayout.SOUTH, dlbl5, 0, SpringLayout.SOUTH, dlbl);
         frame.getContentPane().add(dlbl5);
         
-        JLabel dlbl6 = new JLabel("6번");
+        JLabel dlbl6 = new JLabel("");
         dlbl6.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.WEST, dlbl6, 0, SpringLayout.WEST, albl6);
         springLayout.putConstraint(SpringLayout.SOUTH, dlbl6, 0, SpringLayout.SOUTH, dlbl);
         frame.getContentPane().add(dlbl6);
         
-        JLabel elbl1 = new JLabel("1번");
+        JLabel elbl1 = new JLabel("");
         elbl1.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.WEST, elbl1, 0, SpringLayout.WEST, lbl4);
         springLayout.putConstraint(SpringLayout.SOUTH, elbl1, 0, SpringLayout.SOUTH, elbl);
         frame.getContentPane().add(elbl1);
         
-        JLabel elbl2 = new JLabel("2번");
+        JLabel elbl2 = new JLabel("");
         elbl2.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.NORTH, elbl2, 0, SpringLayout.NORTH, elbl);
         springLayout.putConstraint(SpringLayout.WEST, elbl2, 0, SpringLayout.WEST, albl2);
         frame.getContentPane().add(elbl2);
         
-        JLabel elbl3 = new JLabel("3번");
+        JLabel elbl3 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, elbl3, 0, SpringLayout.NORTH, elbl);
         springLayout.putConstraint(SpringLayout.EAST, elbl3, 0, SpringLayout.EAST, albl3);
         elbl3.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(elbl3);
         
-        JLabel elbl4 = new JLabel("4번");
+        JLabel elbl4 = new JLabel("");
         elbl4.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.NORTH, elbl4, 0, SpringLayout.NORTH, elbl);
         springLayout.putConstraint(SpringLayout.WEST, elbl4, 0, SpringLayout.WEST, albl4);
         frame.getContentPane().add(elbl4);
         
-        JLabel elbl5 = new JLabel("5번");
+        JLabel elbl5 = new JLabel("");
         elbl5.setHorizontalAlignment(SwingConstants.CENTER);
         springLayout.putConstraint(SpringLayout.NORTH, elbl5, 0, SpringLayout.NORTH, elbl);
         springLayout.putConstraint(SpringLayout.WEST, elbl5, 0, SpringLayout.WEST, albl5);
         frame.getContentPane().add(elbl5);
         
-        JLabel elbl6 = new JLabel("6번");
+        JLabel elbl6 = new JLabel("");
         springLayout.putConstraint(SpringLayout.NORTH, elbl6, 0, SpringLayout.NORTH, elbl);
         springLayout.putConstraint(SpringLayout.WEST, elbl6, 0, SpringLayout.WEST, albl6);
         elbl6.setHorizontalAlignment(SwingConstants.CENTER);
