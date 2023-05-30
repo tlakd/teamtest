@@ -16,21 +16,43 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.JTextPane;
+import javax.swing.JList;
+import javax.swing.JComboBox;
+import javax.swing.JScrollBar;
 
 public class WinningNumber {
-	JFrame frame;
-	
-	
+    JFrame frame;
+    JLabel albl1;
+	String numberText;
+	String firstNumber;
+
+    public String getNumberText() {
+		return numberText;
+	}
+
+	public void setNumberText(String numberText) {
+		this.numberText = numberText;
+	}
+
 	public void 자동여러장구매시(Map<Integer, List<NumberSave>> userNumber, Map<Integer, String> autoNotAuto) {
         for (int i = 1; i <= userNumber.size(); i++) {
             List<NumberSave> numbers = userNumber.get(i);
             String autoType = autoNotAuto.get(i);
+            
 
             System.out.println("유저 번호: " + numbers);
+            System.out.println(numbers.get(0));
+            System.out.println("라벨 변경");
+            albl1.setText(String.valueOf(numbers.get(0)));
             System.out.println("자동/반자동/수동: " + autoType);
             System.out.println("------------------------------");
+           
+            
         }
     }
+      
 	 //userNumber는 사용자의 로또 번호를 저장하는 맵입니다.
 	 //autoNotAuto는 자동 반자동 수동인지 확인해주는 맵입니다
 
@@ -39,25 +61,14 @@ public class WinningNumber {
 	 */
 	public static void main(String[] args) {
 		
-	
 		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					WinningNumber window = new WinningNumber();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
 	/**
 	 * Create the application.
 	 */
 	public WinningNumber() {
-		initialize();
+		    initialize();
 	}
 
 	/**
@@ -149,13 +160,15 @@ public class WinningNumber {
         springLayout.putConstraint(SpringLayout.WEST, elbl, 0, SpringLayout.WEST, btn1);
         frame.getContentPane().add(elbl);
         
-        JLabel albl1 = new JLabel("1번");
+        this.albl1 = new JLabel("18");
         springLayout.putConstraint(SpringLayout.WEST, lbl4, 0, SpringLayout.WEST, albl1);
         springLayout.putConstraint(SpringLayout.SOUTH, lbl4, -6, SpringLayout.NORTH, albl1);
         springLayout.putConstraint(SpringLayout.NORTH, albl1, 77, SpringLayout.NORTH, frame.getContentPane());
         springLayout.putConstraint(SpringLayout.WEST, albl1, 22, SpringLayout.EAST, albl);
         albl1.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(albl1);
+        System.out.println("라벨 생성");
+    
         
         JLabel albl2 = new JLabel("2번");
         albl2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -417,8 +430,7 @@ public class WinningNumber {
         nlbl6.setText(String.valueOf(numNlbl6));
         int numNlbl7 = lottoNumbers.get(6).getNumber();
         nlbl7.setText(String.valueOf(numNlbl7));
-        
-        
-		
+       
 	}
+	
 }

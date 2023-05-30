@@ -1,5 +1,6 @@
 package testteam;
 
+import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -53,9 +54,21 @@ public class MakeRoom {
 			autoNotAuto.put(userCount, "반자동");
 		}
 		userCount++;
-		WinningNumber win = new WinningNumber();
-		win.자동여러장구매시(userNumber, autoNotAuto);
+		exeWin();
+	}
 	
+	public void exeWin() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					WinningNumber win = new WinningNumber();
+					win.frame.setVisible(true);
+					win.자동여러장구매시(userNumber, autoNotAuto);
+			} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때

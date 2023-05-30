@@ -362,16 +362,9 @@ public class AutoLottoUser1 {
 				a.falsePayNow();
 				frame.setVisible(false);
 			}
-//			EventQueue.invokeLater(new Runnable() {
-//				public void run() {
-//					try {
-//						WinningNumber window = new WinningNumber();
-//						window.frame.setVisible(true);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//				}
-//			});
+		
 		}
+		
 	}
+	
 }
