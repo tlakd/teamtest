@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class MakeRoom {
@@ -15,7 +16,8 @@ public class MakeRoom {
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
 
 	int userCount = 1;
-	int lottoCount = 101;
+	static int lottoCount = 101;
+
 	int MaxPay = 100000;
 
 	public void makeMachineLotto(int i) {// 로또번호 만드는 곳
@@ -30,6 +32,7 @@ public class MakeRoom {
 			}
 		}
 	}
+	
 
 	public void makeAutoNumber() {// 사용자의 로또번호 자동생성 초안
 		int count = 0;
@@ -44,12 +47,15 @@ public class MakeRoom {
 				count++;
 			}
 		}
-		userCount++;
 		if (count == 6) {
 			autoNotAuto.put(userCount, "자 동");
 		} else if (count < 6) {
 			autoNotAuto.put(userCount, "반자동");
 		}
+		userCount++;
+		WinningNumber win = new WinningNumber();
+		win.자동여러장구매시(userNumber, autoNotAuto);
+	
 	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
@@ -67,6 +73,16 @@ public class MakeRoom {
 		userNumber.clear();
 		autoNotAuto.clear();
 		selectBox.addItem(lottoCount);
+
+	}
+
+	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는
+		// 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
+		lottoCount++;
+		makeMachineLotto(lottoCount);
+		userCount = 1;
+		MaxPay = 100000;
+		userNumber.clear();
 
 	}
 
@@ -91,12 +107,20 @@ public class MakeRoom {
 		} else {
 			MaxPay = MaxPay - i;
 			a = userCount;
+			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈부분추가
 			return true;
+			
 		}
+		
+		
 	}
 
 	public void 수동부분() {// 만들어야됨
 
+	}
+
+	public List<NumberSave> getLottoNumbers() {
+		return lottoNumber.get(lottoCount);
 	}
 
 }
