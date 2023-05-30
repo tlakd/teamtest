@@ -60,10 +60,6 @@ public class AutoLottoUser1 {
 		JButton btnNum1 = new JButton("1");
 
 		JButton btnNum2 = new JButton("2");
-		btnNum2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 
 		JButton btnNum3 = new JButton("3");
 
@@ -95,6 +91,7 @@ public class AutoLottoUser1 {
 
 		JButton btnOk = new JButton("확인");
 
+		// 버튼 액션
 		btnNum0.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -169,35 +166,35 @@ public class AutoLottoUser1 {
 		btnNum1000.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sum2 = Integer.valueOf(btnNum1000.getText());
+				sum2 = 1000;
 				NowPay();
 			}
 		});
 		btnNum2000.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sum2 = Integer.valueOf(btnNum2000.getText());
+				sum2 = 2000;
 				NowPay();
 			}
 		});
 		btnNum3000.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sum2 = Integer.valueOf(btnNum3000.getText());
+				sum2 = 3000;
 				NowPay();
 			}
 		});
 		btnNum4000.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sum2 = Integer.valueOf(btnNum4000.getText());
+				sum2 = 4000;
 				NowPay();
 			}
 		});
 		btnNum5000.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sum2 = Integer.valueOf(btnNum5000.getText());
+				sum2 = 5000;
 				NowPay();
 			}
 		});
@@ -216,8 +213,8 @@ public class AutoLottoUser1 {
 			public void actionPerformed(ActionEvent e) {
 				pay = Integer.valueOf(sum) * sum2;
 				a.getFrame().setVisible(true);
-				a.nowPay(pay);// 이부분이 추가되었습니다.
-				
+				a.nowPay(pay);
+
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -340,25 +337,12 @@ public class AutoLottoUser1 {
 		return frame;
 	}
 
-	public int getPay() {
-		return pay;
-	}
-
-	public String getSum() {
-		return sum;
-	}
-
-	public int getSum2() {
-		return sum2;
-	}
-
 	public void PayGo(int q) {
 		int sumP = Integer.valueOf(sum);
 		MakeRoom makeRoom = new MakeRoom();
 		if (makeRoom.pay(pay, q)) {
-			for (int i = 0; i < sumP; i++) {
+			for (int i = 0; i < sumP * (sum2/1000); i++) {
 				makeRoom.makeAutoNumber();
-				
 				a.falsePayNow();
 				frame.setVisible(false);
 			}
