@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class MakeRoom {
@@ -72,6 +71,8 @@ public class MakeRoom {
 		userNumber.clear();
 		autoNotAuto.clear();
 		selectBox.addItem(lottoCount);
+		Manual m = new Manual();
+		m.reset();
 
 	}
 
@@ -109,7 +110,15 @@ public class MakeRoom {
 	}
 
 	public void 수동부분() {// 만들어야됨
-
+		Manual m = new Manual();
+		for (int i = 0; i < m.numSa.size(); i++) {
+			int number = m.numSa.get(i);
+			NumberSave newNumber = new NumberSave(number);
+			userNumber.get(userCount).add(newNumber);
+		}
+		if (m.numSa.size() == 6) {
+			autoNotAuto.put(userCount, "수 동");
+			userCount++;
+		}
 	}
-
 }
