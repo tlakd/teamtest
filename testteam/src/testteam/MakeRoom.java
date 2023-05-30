@@ -15,6 +15,10 @@ public class MakeRoom {
 	Map<Integer, List<NumberSave>> userNumber = new HashMap<>(); // 유저 번호 저장
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
 
+	public Map<Integer, List<NumberSave>> getLottoNumber() {
+		return lottoNumber;
+	}
+
 	int userCount = 1;
 	static int lottoCount = 101;
 

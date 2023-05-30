@@ -391,46 +391,43 @@ public class WinningNumber {
         
         MakeRoom a = new MakeRoom();
         a.makeLottoNumberNew();
-       
-        
-        List<NumberSave> lottoNumbers = a.getLottoNumbers();
-        int bonusNumber = lottoNumbers.get(6).getNumber();
-        
-        Collections.sort(lottoNumbers.subList(0, 6), new Comparator<NumberSave>() {
-            @Override
-            public int compare(NumberSave number1, NumberSave number2) {
-                int num1 = number1.getNumber();
-                int num2 = number2.getNumber();
-                return Integer.compare(num1, num2);
+
+        Map<Integer, List<NumberSave>> lottoNumbers = a.getLottoNumber();
+
+        for (Map.Entry<Integer, List<NumberSave>> entry : lottoNumbers.entrySet()) {
+            int lottoIndex = entry.getKey();
+            List<NumberSave> numbers = entry.getValue();
+
+            if (numbers.size() >= 7) {
+                List<NumberSave> sortedNumbers = new ArrayList<>(numbers.subList(0, 6));
+                Collections.sort(sortedNumbers, new Comparator<NumberSave>() {
+                    @Override
+                    public int compare(NumberSave number1, NumberSave number2) {
+                        int num1 = number1.getNumber();
+                        int num2 = number2.getNumber();
+                        return Integer.compare(num1, num2);
+                    }
+                });
+
+                System.out.println("로또 번호 " + lottoIndex + "의 정렬된 숫자들:");
+                for (NumberSave number : sortedNumbers) {
+                    int num = number.getNumber();
+                    System.out.println(num);
+                }
+
+                nlbl1.setText(String.valueOf(sortedNumbers.get(0).getNumber()));
+                nlbl2.setText(String.valueOf(sortedNumbers.get(1).getNumber()));
+                nlbl3.setText(String.valueOf(sortedNumbers.get(2).getNumber()));
+                nlbl4.setText(String.valueOf(sortedNumbers.get(3).getNumber()));
+                nlbl5.setText(String.valueOf(sortedNumbers.get(4).getNumber()));
+                nlbl6.setText(String.valueOf(sortedNumbers.get(5).getNumber()));
+                nlbl7.setText(String.valueOf(numbers.get(6).getNumber()));
             }
-        });
-        
-    
-      //  for (NumberSave number : lottoNumbers.subList(0, 6)) {
-      //      System.out.println(number.getNumber());
-     //   }
-      //  System.out.println(bonusNumber);
-    
-      
+        }
+
+  
         
         
-        
-        
-        int numNlbl1 = lottoNumbers.get(0).getNumber();
-        nlbl1.setText(String.valueOf(numNlbl1));
-        int numNlbl2 = lottoNumbers.get(1).getNumber();
-        nlbl2.setText(String.valueOf(numNlbl2));
-        int numNlbl3 = lottoNumbers.get(2).getNumber();
-        nlbl3.setText(String.valueOf(numNlbl3));
-        int numNlbl4 = lottoNumbers.get(3).getNumber();
-        nlbl4.setText(String.valueOf(numNlbl4));
-        int numNlbl5 = lottoNumbers.get(4).getNumber();
-        nlbl5.setText(String.valueOf(numNlbl5));
-        int numNlbl6 = lottoNumbers.get(5).getNumber();
-        nlbl6.setText(String.valueOf(numNlbl6));
-        int numNlbl7 = lottoNumbers.get(6).getNumber();
-        nlbl7.setText(String.valueOf(numNlbl7));
-       
 	}
 	
-}
+        }
