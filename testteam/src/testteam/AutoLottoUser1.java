@@ -341,21 +341,14 @@ public class AutoLottoUser1 {
 		int sumP = Integer.valueOf(sum);
 		MakeRoom makeRoom = new MakeRoom();
 		if (makeRoom.pay(pay, q)) {
-			for (int i = 0; i < sumP * (sum2/1000); i++) {
+			for (int i = 0; i < sumP * (sum2 / 1000); i++) {
 				makeRoom.makeAutoNumber();
 				a.falsePayNow();
 				frame.setVisible(false);
 			}
-//			EventQueue.invokeLater(new Runnable() {
-//				public void run() {
-//					try {
-//						WinningNumber window = new WinningNumber();
-//						window.frame.setVisible(true);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//				}
-//			});
+
 		}
+
 	}
+
 }

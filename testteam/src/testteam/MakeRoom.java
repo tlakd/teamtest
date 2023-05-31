@@ -1,5 +1,6 @@
 package testteam;
 
+import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -13,6 +14,10 @@ public class MakeRoom {
 	Map<Integer, List<NumberSave>> lottoNumber = new HashMap<>();// 로또 번호 저장
 	Map<Integer, List<NumberSave>> userNumber = new HashMap<>(); // 유저 번호 저장
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
+
+	public Map<Integer, List<NumberSave>> getLottoNumber() {
+		return lottoNumber;
+	}
 
 	int userCount = 1;
 	static int lottoCount = 101;
@@ -56,6 +61,20 @@ public class MakeRoom {
 //		win.자동여러장구매시(userNumber, autoNotAuto);
 	}
 
+	public void exeWin() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					WinningNumber win = new WinningNumber();
+					win.frame.setVisible(true);
+					win.자동여러장구매시(userNumber, autoNotAuto);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
 		for (int i = 0; i <= lottoCount; i++) {
 			makeMachineLotto(i);
@@ -92,7 +111,6 @@ public class MakeRoom {
 			a = userCount;
 			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈부분추가
 			return true;
-
 		}
 
 	}

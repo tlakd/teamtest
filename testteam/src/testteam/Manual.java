@@ -3,7 +3,10 @@ package testteam;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,12 +16,17 @@ import javax.swing.JOptionPane;
 public class Manual extends JFrame {
 	JButton[] button = new JButton[45];
 	JLayeredPane lp = new JLayeredPane();
-	List<Integer> numSa = new ArrayList<Integer>();
+	Map<Integer, List<NumberSave>> numSa = new HashMap<Integer, List<NumberSave>>();
+	Map<Integer, String> userAt = new HashMap<>();
 	MakeRoom m = new MakeRoom();
+	int countAll = 0;
 	int number;
+	int MakeNoA;
 
-	public void makeButton() {// 여기서 부르기
+	public void makeButton(int MakeNoA) {
+		this.MakeNoA = MakeNoA;
 		int count = 0;
+
 		// 초기화 버튼
 		JButton jbut = new JButton();
 		jbut.setBounds(50, 480, 100, 40);
@@ -30,6 +38,7 @@ public class Manual extends JFrame {
 			}
 		});
 		lp.add(jbut);
+
 		// 완료 버튼
 		JButton jbut1 = new JButton();
 		jbut1.setBounds(300, 480, 100, 40);
@@ -37,12 +46,19 @@ public class Manual extends JFrame {
 		jbut1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				수동부분저장();
-				numSa.clear();
+				if (countAll == 6) {
+					userAt.put(MakeNoA, "자 동");
+				} else if (countAll < 6) {
+					userAt.put(MakeNoA, "반자동");
+				} else {
+					userAt.put(MakeNoA, "수 동");
+				}
+				Collections.sort(numSa.get(MakeNoA));
 				setVisible(false);
 			}
 		});
 		lp.add(jbut1);
+
 		// 자동완성 버튼
 		JButton jbut2 = new JButton();
 		jbut2.setBounds(175, 480, 100, 40);
@@ -50,8 +66,7 @@ public class Manual extends JFrame {
 		jbut2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				수동부분저장();
-				m.makeAutoNumber();
+				반자동();
 			}
 		});
 		lp.add(jbut2);
@@ -68,17 +83,24 @@ public class Manual extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					JButton source = (JButton) e.getSource();
-					if (numSa.size() < 6) {// 6개까지 중복
-						if (!numSa.contains(index)) {
-							numSa.add(index);
+					if (numSa.containsKey(MakeNoA)) {
+						if (numSa.get(MakeNoA).size() < 6) {// 6개까지 중복
+							if (!containsNumber(numSa.get(MakeNoA), index)) {
+								NumberSave newNumber = new NumberSave(index);
+								numSa.get(MakeNoA).add(newNumber);
+							} else {
+								performOtherAction(source, index); // 다른 액션 수행
+							}
+						} else if (!containsNumber(numSa.get(MakeNoA), index)) {
+							JOptionPane.showMessageDialog(null, "숫자 6개까지 선택 가능합니다.");
 						} else {
 							performOtherAction(source, index); // 다른 액션 수행
 						}
-					} else if (!numSa.contains(index)) {
-						System.out.println(numSa);
-						JOptionPane.showMessageDialog(null, "숫자 6개 까지 선택 가능합니다.");
 					} else {
-						performOtherAction(source, index); // 다른 액션 수행
+						List<NumberSave> numbers = new ArrayList<NumberSave>();
+						NumberSave newNumber = new NumberSave(index);
+						numbers.add(newNumber);
+						numSa.put(MakeNoA, numbers);
 					}
 				}
 			});
@@ -91,39 +113,39 @@ public class Manual extends JFrame {
 	}
 
 	private void performOtherAction(JButton source, int a) {
-		numSa.remove(Integer.valueOf(a));
+		List<NumberSave> numbers = numSa.get(m.userCount);
+		numbers.removeIf(number -> number.getNumber() == a);
 	}
 
 	public void reset() {
-		numSa.clear();
-		try {
-			m.userNumber.get(m.userCount - 1).clear();
-		} catch (NullPointerException e) {
-			System.out.println(m.userNumber.get(m.userCount - 1));
-		}
+		countAll = 0;
+		numSa.get(MakeNoA).clear();
 	}
 
-	public void 수동부분저장() {
-
+	public void 수동부분저장() {// 나중에 한번에 저장
 		if (!m.userNumber.containsKey(m.userCount)) {
 			m.userNumber.put(m.userCount, new ArrayList<>());
 		}
-
-		for (int j = 0; j < numSa.size(); j++) {
-			number = numSa.get(j);
-			NumberSave newNumber = new NumberSave(number);
-			m.userNumber.get(m.userCount).add(newNumber);
-			if (numSa.size() < 6) {
-				m.makeAutoNumber();
+		for (int i = 1; i < 6; i++) {
+			if (numSa.get(i) == null) {
+				continue;
+			} else {
+				List<NumberSave> numbers = numSa.get(i);
+				if (numbers != null) {
+					for (NumberSave number : numbers) {
+						m.userNumber.get(m.userCount).add(number);
+					}
+				}
+				m.userCount++;
 			}
 		}
 
 		// 저장된 값 확인을 위한 출력
 		for (int i = 1; i <= m.userCount; i++) {
-			List<NumberSave> numbers = m.userNumber.get(i);
-			if (numbers != null) {
+			List<NumberSave> userNumbers = m.userNumber.get(i);
+			if (userNumbers != null) {
 				System.out.print("User " + i + " Numbers: ");
-				for (NumberSave number : numbers) {
+				for (NumberSave number : userNumbers) {
 					System.out.print(number.getNumber() + " ");
 				}
 				System.out.println();
@@ -131,8 +153,33 @@ public class Manual extends JFrame {
 		}
 	}
 
-	public static void main(String[] args) {// 이거는 나중에 지우면 되고
+	private boolean containsNumber(List<NumberSave> numbers, int number) {
+		for (NumberSave num : numbers) {
+			if (num.getNumber() == number) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void 반자동() {
+
+		if (!numSa.containsKey(MakeNoA)) {
+			numSa.put(MakeNoA, new ArrayList<>());
+		}
+		while (numSa.get(MakeNoA).size() < 6) {
+			int q = (int) (Math.random() * 45) + 1;
+			NumberSave newNumber = new NumberSave(q);
+			if (!numSa.get(MakeNoA).contains(newNumber)) {
+				numSa.get(MakeNoA).add(newNumber);
+				countAll++;
+			}
+		}
+		
+	}
+
+	public static void main(String[] args) {
 		Manual m = new Manual();
-		m.makeButton();
+		m.makeButton(1);
 	}
 }
