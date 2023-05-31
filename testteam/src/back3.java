@@ -1,3 +1,5 @@
+// 1차수정
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
