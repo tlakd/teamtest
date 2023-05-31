@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.JTextPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JScrollBar;
 
@@ -33,11 +34,11 @@ public class WinningNumber {
 	private JLabel clbl, clbl1, clbl2, clbl3, clbl4, clbl5, clbl6;
 	private JLabel dlbl, dlbl1, dlbl2, dlbl3, dlbl4, dlbl5, dlbl6;
 	private JLabel elbl, elbl1, elbl2, elbl3, elbl4, elbl5, elbl6;
+	private JLabel nlbl1, nlbl2, nlbl3, nlbl4, nlbl5, nlbl6, nlbl7;
 	private JButton btn2;
 	private Map<Integer, List<NumberSave>> userNumber;
 	private Map<Integer, String> autoNotAuto;
-	private JLabel nlbl1, nlbl2, nlbl3, nlbl4, nlbl5, nlbl6, nlbl7;
-	private JLabel lbl3;
+	private JLabel lbl3, lbl8;
 	private List<NumberSave> numbers;
 	private int count = 0;
 
@@ -57,9 +58,6 @@ public class WinningNumber {
 		for (int i = 1; i <= this.userNumber.size(); i++) {
 			numbers = this.userNumber.get(i);
 			String autoType = this.autoNotAuto.get(i);
-
-			System.out.println("유저 번호: " + numbers);
-			System.out.println("자동/반자동/수동: " + autoType);
 
 			for (int j = 0; j < numbers.size(); j++) {
 				NumberSave number = numbers.get(j);
@@ -198,17 +196,17 @@ public class WinningNumber {
 			}
 
 		}
-		color();
+		글자색깔변경();
 	}
 
-	private void color() {
+	private void 글자색깔변경() {
 		Component[] components = { albl1, albl2, albl3, albl4, albl5, albl6, blbl1, blbl2, blbl3, blbl4, blbl5, blbl6,
 				clbl1, clbl2, clbl3, clbl4, clbl5, clbl6, dlbl1, dlbl2, dlbl3, dlbl4, dlbl5, dlbl6, elbl1, elbl2, elbl3,
 				elbl4, elbl5, elbl6 };
 		for (Component component : components) {
 			component.setForeground(Color.BLACK);
 		}
-		System.out.println("color메소드 실행");
+		System.out.println("글자색깔변경 메소드 실행");
 		Component[] component1 = { albl1, albl2, albl3, albl4, albl5, albl6, blbl1, blbl2, blbl3, blbl4, blbl5, blbl6,
 				clbl1, clbl2, clbl3, clbl4, clbl5, clbl6, dlbl1, dlbl2, dlbl3, dlbl4, dlbl5, dlbl6, elbl1, elbl2, elbl3,
 				elbl4, elbl5, elbl6 };
@@ -247,25 +245,22 @@ public class WinningNumber {
 
 		switch (colorCountA) {
 		case 3:
-			lbl3.setText("a 경 축 !! 5등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
 			break;
 		case 4:
-			lbl3.setText("a 경 축 !! 4등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(albl1.getText()) || nlbl7.getText().equals(albl2.getText())
 					|| nlbl7.getText().equals(albl3.getText()) || nlbl7.getText().equals(albl4.getText())
 					|| nlbl7.getText().equals(albl5.getText()) || nlbl7.getText().equals(albl6.getText())) {
-				lbl3.setText("a 경 축 !! 2등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
 			} else {
-				lbl3.setText("a 경 축 !! 3등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
 			}
 			break;
 		case 6:
-			lbl3.setText("a 경 축 !! 1등 당첨 되었습니다.");
-			break;
-		default:
-			lbl3.setText("a 꽝.");
+			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
 			break;
 		}
 
@@ -292,22 +287,22 @@ public class WinningNumber {
 
 		switch (colorCountB) {
 		case 3:
-			lbl3.setText("b 경 축 !! 5등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
 			break;
 		case 4:
-			lbl3.setText("b 경 축 !! 4등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(blbl1.getText()) || nlbl7.getText().equals(blbl2.getText())
 					|| nlbl7.getText().equals(blbl3.getText()) || nlbl7.getText().equals(blbl4.getText())
 					|| nlbl7.getText().equals(blbl5.getText()) || nlbl7.getText().equals(blbl6.getText())) {
-				lbl3.setText("b 경 축 !! 2등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
 			} else {
-				lbl3.setText("b 경 축 !! 3등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
 			}
 			break;
 		case 6:
-			lbl3.setText("b 경 축 !! 1등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
 			break;
 		}
 
@@ -334,22 +329,22 @@ public class WinningNumber {
 
 		switch (colorCountC) {
 		case 3:
-			lbl3.setText("c 경 축 !! 5등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
 			break;
 		case 4:
-			lbl3.setText("c 경 축 !! 4등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(clbl1.getText()) || nlbl7.getText().equals(clbl2.getText())
 					|| nlbl7.getText().equals(clbl3.getText()) || nlbl7.getText().equals(clbl4.getText())
 					|| nlbl7.getText().equals(clbl5.getText()) || nlbl7.getText().equals(clbl6.getText())) {
-				lbl3.setText("c 경 축 !! 2등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
 			} else {
-				lbl3.setText("c 경 축 !! 3등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
 			}
 			break;
 		case 6:
-			lbl3.setText("c 경 축 !! 1등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
 			break;
 		}
 
@@ -376,22 +371,22 @@ public class WinningNumber {
 
 		switch (colorCountD) {
 		case 3:
-			lbl3.setText("d 경 축 !! 5등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
 			break;
 		case 4:
-			lbl3.setText("d 경 축 !! 4등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(dlbl1.getText()) || nlbl7.getText().equals(dlbl2.getText())
 					|| nlbl7.getText().equals(dlbl3.getText()) || nlbl7.getText().equals(dlbl4.getText())
 					|| nlbl7.getText().equals(dlbl5.getText()) || nlbl7.getText().equals(dlbl6.getText())) {
-				lbl3.setText("d 경 축 !! 2등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
 			} else {
-				lbl3.setText("d 경 축 !! 3등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
 			}
 			break;
 		case 6:
-			lbl3.setText("d 경 축 !! 1등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
 			break;
 		}
 
@@ -418,119 +413,119 @@ public class WinningNumber {
 
 		switch (colorCountE) {
 		case 3:
-			lbl3.setText("e 경 축 !! 5등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
 			break;
 		case 4:
-			lbl3.setText("e 경 축 !! 4등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(elbl1.getText()) || nlbl7.getText().equals(elbl2.getText())
 					|| nlbl7.getText().equals(elbl3.getText()) || nlbl7.getText().equals(elbl4.getText())
 					|| nlbl7.getText().equals(elbl5.getText()) || nlbl7.getText().equals(elbl6.getText())) {
-				lbl3.setText("e 경 축 !! 2등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
 			} else {
-				lbl3.setText("e 경 축 !! 3등 당첨 되었습니다.");
+				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
 			}
 			break;
 		case 6:
-			lbl3.setText("e 경 축 !! 1등 당첨 되었습니다.");
+			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
 			break;
 		}
 		if (colorCountA < 3 && colorCountB < 3 && colorCountC < 3 && colorCountD < 3 && colorCountE < 3) {
-			lbl3.setText("낙첨 되셨습니다.");
+			lbl3.setText("낙첨 되었습니다.");
 		}
 
 		if (colorCountA == 3 && colorCountB == 3)
-			System.out.println("a, b 경 축 !! 5등 당첨 되었습니다. ");
+			lbl3.setText("경 축 !! 5등 두 개 당첨 되었습니다.");
 
-		if (colorCountA == 3 && colorCountC == 3) {
-			System.out.println("a, c 경 축 !! 5등 당첨 되었습니다. ");
+		else if (colorCountA == 3 && colorCountC == 3) {
+			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountA == 3 && colorCountD == 3) {
-			System.out.println("a, d 경 축 !! 5등 당첨 되었습니다. ");
+		else if (colorCountA == 3 && colorCountD == 3) {
+			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountA == 3 && colorCountE == 3) {
-			System.out.println("a, e 경 축 !! 5등 당첨 되었습니다. ");
+		else if (colorCountA == 3 && colorCountE == 3) {
+			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountB == 3 && colorCountC == 3) {
-			System.out.println("b, c 경 축 !! 5등 당첨 되었습니다. ");
+		else if (colorCountB == 3 && colorCountC == 3) {
+			lbl3.setText("b경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountB == 3 && colorCountD == 3) {
-			System.out.println("b, d 경 축 !! 5등 당첨 되었습니다. ");
+		else if (colorCountB == 3 && colorCountD == 3) {
+			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountB == 3 && colorCountE == 3) {
-			System.out.println("b, e 경 축 !! 5등 당첨 되었습니다. ");
+		else if (colorCountB == 3 && colorCountE == 3) {
+			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountC == 3 && colorCountD == 3) {
-			System.out.println("c, d 경 축 !! 5등 당첨 되었습니다. ");
+		else if (colorCountC == 3 && colorCountD == 3) {
+			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountC == 3 && colorCountE == 3) {
-			System.out.println("c, e 경 축 !! 5등 당첨 되었습니다. ");
+		else if (colorCountC == 3 && colorCountE == 3) {
+			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountD == 3 && colorCountE == 3) {
-			System.out.println("d, e 경 축 !! 5등 당첨 되었습니다. ");
-		}
-
-		if (colorCountA == 4 && colorCountB == 4)
-			System.out.println("a, b 경 축 !! 4등 당첨 되었습니다. ");
-
-		if (colorCountA == 4 && colorCountC == 4) {
-			System.out.println("a, c 경 축 !! 4등 당첨 되었습니다. ");
-		}
-		if (colorCountA == 4 && colorCountD == 4) {
-			System.out.println("a, d 경 축 !! 4등 당첨 되었습니다. ");
-		}
-		if (colorCountA == 4 && colorCountE == 4) {
-			System.out.println("a, e 경 축 !! 4등 당첨 되었습니다. ");
-		}
-		if (colorCountB == 4 && colorCountC == 4) {
-			System.out.println("b, c 경 축 !! 4등 당첨 되었습니다. ");
-		}
-		if (colorCountB == 4 && colorCountD == 4) {
-			System.out.println("b, d 경 축 !! 4등 당첨 되었습니다. ");
-		}
-		if (colorCountB == 4 && colorCountE == 4) {
-			System.out.println("b, e 경 축 !! 4등 당첨 되었습니다. ");
-		}
-		if (colorCountC == 4 && colorCountD == 4) {
-			System.out.println("c, d 경 축 !! 4등 당첨 되었습니다. ");
-		}
-		if (colorCountC == 4 && colorCountE == 4) {
-			System.out.println("c, e 경 축 !! 4등 당첨 되었습니다. ");
-		}
-		if (colorCountD == 4 && colorCountE == 4) {
-			System.out.println("d, e 경 축 !! 4등 당첨 되었습니다. ");
+		else if (colorCountD == 3 && colorCountE == 3) {
+			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
 
-		if (colorCountA == 3 && colorCountB == 3)
-			System.out.println("a, b 경 축 !! 3등 당첨 되었습니다. ");
+		else if (colorCountA == 4 && colorCountB == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountA == 4 && colorCountC == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountA == 4 && colorCountD == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountA == 4 && colorCountE == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountB == 4 && colorCountC == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountB == 4 && colorCountD == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountB == 4 && colorCountE == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountC == 4 && colorCountD == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountC == 4 && colorCountE == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
+		else if (colorCountD == 4 && colorCountE == 4) {
+			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+		}
 
-		if (colorCountA == 3 && colorCountC == 3) {
-			System.out.println("a, c 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountA == 5 && colorCountB == 5)
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
+
+		if (colorCountA == 5 && colorCountC == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountA == 3 && colorCountD == 3) {
-			System.out.println("a, d 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountA == 5 && colorCountD == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountA == 3 && colorCountE == 3) {
-			System.out.println("a, e 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountA == 5 && colorCountE == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountB == 3 && colorCountC == 3) {
-			System.out.println("b, c 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountB == 5 && colorCountC == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountB == 3 && colorCountD == 3) {
-			System.out.println("b, d 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountB == 5 && colorCountD == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountB == 3 && colorCountE == 3) {
-			System.out.println("b, e 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountB == 5 && colorCountE == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountC == 3 && colorCountD == 3) {
-			System.out.println("c, d 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountC == 5 && colorCountD == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountC == 3 && colorCountE == 3) {
-			System.out.println("c, e 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountC == 5 && colorCountE == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
-		if (colorCountD == 3 && colorCountE == 3) {
-			System.out.println("d, e 경 축 !! 3등 당첨 되었습니다. ");
+		if (colorCountD == 5 && colorCountE == 5) {
+			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
 		}
 
 	}
@@ -542,7 +537,7 @@ public class WinningNumber {
 	 * Launch the application.g
 	 */
 	public static void main(String[] args) {
-
+		
 	}
 
 	/**
@@ -590,77 +585,128 @@ public class WinningNumber {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println(userNumber.size());
-				System.out.println(userNumber);
-				
+			    int tempCount = count;
 
-				if (count == 0) {
-					count++; // Increase count variable only if it is initially zero
-				}
+			    if (count == 0) {
+			        tempCount++;
+			    }
 
-				count++; // Increase count variable
-	
+			    tempCount++;
 
-				for (int i = (count - 1) * 5; i < count * 5 && i < userNumber.size(); i++) {
-					int index = (i - 1) % 5;
-					switch (index) {
-					case 0:
-						albl1.setText(userNumber.get(i).get(0).toString());
-						albl2.setText(userNumber.get(i).get(1).toString());
-						albl3.setText(userNumber.get(i).get(2).toString());
-						albl4.setText(userNumber.get(i).get(3).toString());
-						albl5.setText(userNumber.get(i).get(4).toString());
-						albl6.setText(userNumber.get(i).get(5).toString());
-						break;
-					case 1:
-						blbl1.setText(userNumber.get(i).get(0).toString());
-						blbl2.setText(userNumber.get(i).get(1).toString());
-						blbl3.setText(userNumber.get(i).get(2).toString());
-						blbl4.setText(userNumber.get(i).get(3).toString());
-						blbl5.setText(userNumber.get(i).get(4).toString());
-						blbl6.setText(userNumber.get(i).get(5).toString());
-						break;
-					case 2:
-						clbl1.setText(userNumber.get(i).get(0).toString());
-						clbl2.setText(userNumber.get(i).get(1).toString());
-						clbl3.setText(userNumber.get(i).get(2).toString());
-						clbl4.setText(userNumber.get(i).get(3).toString());
-						clbl5.setText(userNumber.get(i).get(4).toString());
-						clbl6.setText(userNumber.get(i).get(5).toString());
-						break;
-					case 3:
-						dlbl1.setText(userNumber.get(i).get(0).toString());
-						dlbl2.setText(userNumber.get(i).get(1).toString());
-						dlbl3.setText(userNumber.get(i).get(2).toString());
-						dlbl4.setText(userNumber.get(i).get(3).toString());
-						dlbl5.setText(userNumber.get(i).get(4).toString());
-						dlbl6.setText(userNumber.get(i).get(5).toString());
-						break;
-					case 4:
-						elbl1.setText(userNumber.get(i).get(0).toString());
-						elbl2.setText(userNumber.get(i).get(1).toString());
-						elbl3.setText(userNumber.get(i).get(2).toString());
-						elbl4.setText(userNumber.get(i).get(3).toString());
-						elbl5.setText(userNumber.get(i).get(4).toString());
-						elbl6.setText(userNumber.get(i).get(5).toString());
-						break;
-					}
-				}
+			    if ((tempCount - 1) * 5 >= userNumber.size()) {
+			        // 로또 번호를 더 이상 참조할 수 없을 때 경고문을 표시합니다.
+			        JOptionPane.showMessageDialog(null, "더 이상 로또 번호가 없습니다.", "경고", JOptionPane.WARNING_MESSAGE);
+			        return;
+			    }
 
-				color();
-			}
+			    count = tempCount;
+			    lbl8.setText("내 선택 " + String.valueOf(count) + " 번째 번호 :");
+			        for (int i = (count - 1) * 5; i < count * 5; i++) {
+			            if (i < userNumber.size()) {
+			                int index = i % 5;
+			                switch (index) {
+			                    case 0:
+			                albl1.setText(userNumber.get(i).get(0).toString());
+			                albl2.setText(userNumber.get(i).get(1).toString());
+			                albl3.setText(userNumber.get(i).get(2).toString());
+			                albl4.setText(userNumber.get(i).get(3).toString());
+			                albl5.setText(userNumber.get(i).get(4).toString());
+			                albl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			            case 1:
+			                blbl1.setText(userNumber.get(i).get(0).toString());
+			                blbl2.setText(userNumber.get(i).get(1).toString());
+			                blbl3.setText(userNumber.get(i).get(2).toString());
+			                blbl4.setText(userNumber.get(i).get(3).toString());
+			                blbl5.setText(userNumber.get(i).get(4).toString());
+			                blbl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			            case 2:
+			                clbl1.setText(userNumber.get(i).get(0).toString());
+			                clbl2.setText(userNumber.get(i).get(1).toString());
+			                clbl3.setText(userNumber.get(i).get(2).toString());
+			                clbl4.setText(userNumber.get(i).get(3).toString());
+			                clbl5.setText(userNumber.get(i).get(4).toString());
+			                clbl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			            case 3:
+			                dlbl1.setText(userNumber.get(i).get(0).toString());
+			                dlbl2.setText(userNumber.get(i).get(1).toString());
+			                dlbl3.setText(userNumber.get(i).get(2).toString());
+			                dlbl4.setText(userNumber.get(i).get(3).toString());
+			                dlbl5.setText(userNumber.get(i).get(4).toString());
+			                dlbl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			            case 4:
+			                elbl1.setText(userNumber.get(i).get(0).toString());
+			                elbl2.setText(userNumber.get(i).get(1).toString());
+			                elbl3.setText(userNumber.get(i).get(2).toString());
+			                elbl4.setText(userNumber.get(i).get(3).toString());
+			                elbl5.setText(userNumber.get(i).get(4).toString());
+			                elbl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			        }
+			       }else {
+		                // usernumber.size()보다 큰 인덱스의 레이블을 공백으로 처리합니다.
+		                int index = i % 5;
+		                switch (index) {
+		                    case 0:
+		                        albl1.setText("");
+		                        albl2.setText("");
+		                        albl3.setText("");
+		                        albl4.setText("");
+		                        albl5.setText("");
+		                        albl6.setText("");
+		                        break;
+		                    case 1:
+		                        blbl1.setText("");
+		                        blbl2.setText("");
+		                        blbl3.setText("");
+		                        blbl4.setText("");
+		                        blbl5.setText("");
+		                        blbl6.setText("");
+		                        break;
+		                    case 2:
+		                        clbl1.setText("");
+		                        clbl2.setText("");
+		                        clbl3.setText("");
+		                        clbl4.setText("");
+		                        clbl5.setText("");
+		                        clbl6.setText("");
+		                        break;
+		                    case 3:
+		                        dlbl1.setText("");
+		                        dlbl2.setText("");
+		                        dlbl3.setText("");
+		                        dlbl4.setText("");
+		                        dlbl5.setText("");
+		                        dlbl6.setText("");
+		                        break;
+		                    case 4:
+		                        elbl1.setText("");
+		                        elbl2.setText("");
+		                        elbl3.setText("");
+		                        elbl4.setText("");
+		                        elbl5.setText("");
+		                        elbl6.setText("");
+		                        break;
+		                }
+		            }
+		        }
 
-			
+		        글자색깔변경();
+		    }
 		});
 		frame.getContentPane().add(btn2);
 
 		lbl3 = new JLabel("11");
 		lbl3.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl3.setBounds(147, 187, 144, 15);
+		lbl3.setBounds(71, 187, 303, 15);
 		frame.getContentPane().add(lbl3);
 
-		JLabel lbl8 = new JLabel("내 선택 첫번째 번호 :");
-		lbl8.setBounds(154, 56, 116, 15);
+		lbl8 = new JLabel("내 선택 1 번째 번호 :");
+		lbl8.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl8.setBounds(130, 56, 171, 15);
 		frame.getContentPane().add(lbl8);
 
 		albl = new JLabel("11");
@@ -692,7 +738,6 @@ public class WinningNumber {
 		albl1.setBounds(154, 77, 22, 15);
 		albl1.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(albl1);
-		System.out.println("라벨 생성");
 
 		albl2 = new JLabel("11");
 		albl2.setBounds(183, 77, 22, 15);
@@ -877,7 +922,67 @@ public class WinningNumber {
 		JButton btn3 = new JButton("이전 번호");
 		btn3.setBounds(136, 205, 96, 49);
 		frame.getContentPane().add(btn3);
-		//btn3.addActionListener(ActionListener);
+		btn3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+			    if (count > 1) {
+			        count--; // Decrease count variable if it is greater than 1
+			    } else {
+				            JOptionPane.showMessageDialog(null, "첫 번호입니다.");
+			        return;
+			    }
+			    lbl8.setText("내 선택 " + String.valueOf(count) + " 번째 번호 :");
+			    for (int i = (count - 1) * 5; i < count * 5 && i < userNumber.size(); i++) {
+			        int index = (i - 1) % 5;
+			        switch (index) {
+			            case 0:
+			                albl1.setText(userNumber.get(i).get(0).toString());
+			                albl2.setText(userNumber.get(i).get(1).toString());
+			                albl3.setText(userNumber.get(i).get(2).toString());
+			                albl4.setText(userNumber.get(i).get(3).toString());
+			                albl5.setText(userNumber.get(i).get(4).toString());
+			                albl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			            case 1:
+			                blbl1.setText(userNumber.get(i).get(0).toString());
+			                blbl2.setText(userNumber.get(i).get(1).toString());
+			                blbl3.setText(userNumber.get(i).get(2).toString());
+			                blbl4.setText(userNumber.get(i).get(3).toString());
+			                blbl5.setText(userNumber.get(i).get(4).toString());
+			                blbl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			            case 2:
+			                clbl1.setText(userNumber.get(i).get(0).toString());
+			                clbl2.setText(userNumber.get(i).get(1).toString());
+			                clbl3.setText(userNumber.get(i).get(2).toString());
+			                clbl4.setText(userNumber.get(i).get(3).toString());
+			                clbl5.setText(userNumber.get(i).get(4).toString());
+			                clbl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			            case 3:
+			                dlbl1.setText(userNumber.get(i).get(0).toString());
+			                dlbl2.setText(userNumber.get(i).get(1).toString());
+			                dlbl3.setText(userNumber.get(i).get(2).toString());
+			                dlbl4.setText(userNumber.get(i).get(3).toString());
+			                dlbl5.setText(userNumber.get(i).get(4).toString());
+			                dlbl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			            case 4:
+			                elbl1.setText(userNumber.get(i).get(0).toString());
+			                elbl2.setText(userNumber.get(i).get(1).toString());
+			                elbl3.setText(userNumber.get(i).get(2).toString());
+			                elbl4.setText(userNumber.get(i).get(3).toString());
+			                elbl5.setText(userNumber.get(i).get(4).toString());
+			                elbl6.setText(userNumber.get(i).get(5).toString());
+			                break;
+			        }
+			    }
+
+			    글자색깔변경();
+			}
+
+		});
 
 		MakeRoom a = new MakeRoom();
 		a.makeLottoNumberNew();
