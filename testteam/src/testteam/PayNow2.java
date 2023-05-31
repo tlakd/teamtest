@@ -12,11 +12,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class PayNow {
+public class PayNow2 {
 
 	private JFrame frame;
 	private JTextField textField;
-	AutoLottoUser1 auto;
+	NoAutoSt n;
 	int nowP;
 	JLabel lblNewLabel;
 	NoAutoSt na;
@@ -28,7 +28,7 @@ public class PayNow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PayNow window = new PayNow(null);
+					PayNow2 window = new PayNow2(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,8 +40,8 @@ public class PayNow {
 	/**
 	 * Create the application.
 	 */
-	public PayNow(AutoLottoUser1 auto) {
-		this.auto = auto;
+	public PayNow2(NoAutoSt n) {
+		this.n = n;
 		initialize();
 	}
 
@@ -67,7 +67,7 @@ public class PayNow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					auto.PayGo(Integer.valueOf(textField.getText()));
+					n.PayGo(Integer.valueOf(textField.getText()));
 				} catch (NumberFormatException o) {
 					lblNewLabel_1.setText("정수를 입력하세요.");
 				}

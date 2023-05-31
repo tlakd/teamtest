@@ -4,14 +4,11 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class AutoLottoUser1 {
 	private JFrame frame;
@@ -222,8 +219,10 @@ public class AutoLottoUser1 {
 		btnNo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sum = "0";
-				sum2 = 0;
+				try {
+					sum = sum.substring(0, sum.length() - 1);
+				} catch (Exception o) {
+				}
 				NowPay();
 			}
 		});

@@ -14,6 +14,7 @@ public class MakeRoom {
 	Map<Integer, List<NumberSave>> lottoNumber = new HashMap<>();// 로또 번호 저장
 	Map<Integer, List<NumberSave>> userNumber = new HashMap<>(); // 유저 번호 저장
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
+	int a = 0;
 
 	public Map<Integer, List<NumberSave>> getLottoNumber() {
 		return lottoNumber;
@@ -90,11 +91,10 @@ public class MakeRoom {
 		userNumber.clear();
 		autoNotAuto.clear();
 		selectBox.addItem(lottoCount);
-
+		a = 0;
 	}
 
 	public boolean pay(int i, int j) {// 결제 초안
-		int a = 0;
 		int setCount = userCount - a;
 		if (MaxPay - i < 0) {
 			// 10만원 이상 경고문

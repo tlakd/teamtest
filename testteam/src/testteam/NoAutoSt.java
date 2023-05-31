@@ -21,7 +21,8 @@ public class NoAutoSt extends JFrame {
 	Manual[] m = new Manual[5];
 	boolean[] payMinus = new boolean[5];
 	JLabel lbl;
-	int pay = 0;
+	int pay;
+	PayNow2 r = new PayNow2(this);
 
 	public void mainSt() {
 		char a = 'A';
@@ -53,7 +54,7 @@ public class NoAutoSt extends JFrame {
 
 			final int index = i + 1;
 			m[i] = new Manual(this);
-			jbt1[i].addActionListener(new ActionListener() {
+			jbt1[i].addActionListener(new ActionListener() {// A ~ E
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if (m[index - 1].numSa.get(index) == null) {
@@ -63,13 +64,14 @@ public class NoAutoSt extends JFrame {
 				}
 			});
 
-			jbt2[i].addActionListener(new ActionListener() {
+			jbt2[i].addActionListener(new ActionListener() {// 저장
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if (m[index - 1].numSa.get(index) == null) {
 						m[index - 1].numSa.put(index, new ArrayList<>());
 					}
 					m[index - 1].반자동(index);
+
 					System.out.println(m[index - 1].numSa.get(index).toString());
 					setlbl2();
 				}
@@ -111,14 +113,19 @@ public class NoAutoSt extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < 5; i++) {
 					jbt3[i].setEnabled(true);
-					m[i].numSa.get(i + 1).clear();
+					if (m[i].numSa.get(i + 1) == null) {
+						continue;
+					} else {
+						m[i].numSa.get(i + 1).clear();
+					}
 				}
+				setVisible(false);
 				pay = 0;
 			}
 		});
 		lp.add(jbt5);
 
-		for (int i = 0; i < lbl2.length; i++) {
+		for (int i = 0; i < lbl2.length; i++) {// 라벨 자리배치
 			for (int j = 0; j < lbl2[i].length; j++) {
 				lbl2[i][j] = new JLabel();
 				lbl2[i][j].setBounds(120 + (j * 40), 30 + (i * 60), 60, 40);
@@ -131,19 +138,32 @@ public class NoAutoSt extends JFrame {
 		JButton jbPay = new JButton("결제하기");
 		jbPay.setBounds(500, 350, 90, 40);
 		lp.add(jbPay);
-
 		jbPay.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				if (pay == 0) {
+					JOptionPane.showMessageDialog(null, "확인버튼을 눌러 숫자를 확정지어 주세요.");
+				} else {
+					r.getFrame().setVisible(true);
+					r.nowPay(pay);
+					for (int i = 0; i < 5; i++) {
+						jbt3[i].setEnabled(true);
+						if (m[i].numSa.get(i + 1) == null) {
+							continue;
+						} else {
+							m[i].수동부분저장();
+							m[i].numSa.get(i + 1).clear();
+						}
+					}
+				}
+
 			}
 		});
-		
+
 		add(lp);
 		setSize(665, 450);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
-		setlbl2();
 	}
 
 	public void setlbl2() {
@@ -166,6 +186,20 @@ public class NoAutoSt extends JFrame {
 
 	public void text() {
 		lbl.setText("총 금액: " + pay + "원");
+	}
+
+	public void PayGo(int q) {
+		int b = 0;
+		int a = pay + b;
+		MakeRoom makeRoom = new MakeRoom();
+		if (makeRoom.pay(pay, q)) {
+			for (int i = 0; i < pay / 1000; i++) {
+				makeRoom.makeAutoNumber();
+				r.falsePayNow();
+				setVisible(false);
+			}
+		}
+		pay = 0;
 	}
 
 	public static void main(String[] args) {
