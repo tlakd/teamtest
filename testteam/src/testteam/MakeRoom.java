@@ -1,5 +1,6 @@
 package testteam;
 
+import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -7,13 +8,16 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class MakeRoom {
 	Map<Integer, List<NumberSave>> lottoNumber = new HashMap<>();// 로또 번호 저장
 	Map<Integer, List<NumberSave>> userNumber = new HashMap<>(); // 유저 번호 저장
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
+
+	public Map<Integer, List<NumberSave>> getLottoNumber() {
+		return lottoNumber;
+	}
 
 	int userCount = 1;
 	static int lottoCount = 101;
@@ -32,9 +36,9 @@ public class MakeRoom {
 			}
 		}
 	}
-	
 
-	public void makeAutoNumber() {// 사용자의 로또번호 자동생성 초안
+	public void makeAutoNumber() {// 사용자의 로또번호 자동생성
+		
 		int count = 0;
 		if (!userNumber.containsKey(userCount)) {
 			userNumber.put(userCount, new ArrayList<>());
@@ -52,10 +56,23 @@ public class MakeRoom {
 		} else if (count < 6) {
 			autoNotAuto.put(userCount, "반자동");
 		}
+		Collections.sort(userNumber.get(userCount));
 		userCount++;
-		WinningNumber win = new WinningNumber();
-		win.자동여러장구매시(userNumber, autoNotAuto);
+		
 	
+	}
+	public void exeWin() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					WinningNumber win = new WinningNumber();
+					win.자동여러장구매시(userNumber, autoNotAuto);
+					win.frame.setVisible(true);
+			} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
@@ -73,6 +90,8 @@ public class MakeRoom {
 		userNumber.clear();
 		autoNotAuto.clear();
 		selectBox.addItem(lottoCount);
+		Manual m = new Manual();
+		m.reset();
 
 	}
 
@@ -83,11 +102,6 @@ public class MakeRoom {
 		userCount = 1;
 		MaxPay = 100000;
 		userNumber.clear();
-
-	}
-
-	public void lookList(int i) {// 유저 번호 순서대로 나열
-		Collections.sort(userNumber.get(i));
 
 	}
 
@@ -109,18 +123,21 @@ public class MakeRoom {
 			a = userCount;
 			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈부분추가
 			return true;
-			
+
 		}
-		
-		
+
 	}
 
 	public void 수동부분() {// 만들어야됨
-
+		Manual m = new Manual();
+		for (int i = 0; i < m.numSa.size(); i++) {
+			int number = m.numSa.get(i);
+			NumberSave newNumber = new NumberSave(number);
+			userNumber.get(userCount).add(newNumber);
+		}
+		if (m.numSa.size() == 6) {
+			autoNotAuto.put(userCount, "수 동");
+			userCount++;
+		}
 	}
-
-	public List<NumberSave> getLottoNumbers() {
-		return lottoNumber.get(lottoCount);
-	}
-
 }
