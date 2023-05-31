@@ -97,12 +97,10 @@ public class MakeRoom {
 		int a = 0;
 		int setCount = userCount - a;
 		if (MaxPay - i < 0) {
-			System.out.println("10만원");
 			// 10만원 이상 경고문
-			JOptionPane.showMessageDialog(null, "1인 10만원 이상 구매가 불가능 합니다.");
+			JOptionPane.showMessageDialog(null, "1인당 1회 10만원을 초과할 수 없습니다.");
 			return false;
 		} else if (j < i) {
-			System.out.println("돈부족");
 			// 돈이 부족하다는 경고문
 			JOptionPane.showMessageDialog(null, "결제 금액보다 투입금이 부족합니다.");
 			return false;

@@ -1,5 +1,6 @@
 package testteam;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -19,14 +20,19 @@ public class Manual extends JFrame {
 	Map<Integer, List<NumberSave>> numSa = new HashMap<Integer, List<NumberSave>>();
 	Map<Integer, String> userAt = new HashMap<>();
 	MakeRoom m = new MakeRoom();
-	int countAll = 0;
+	NoAutoSt noA;
 	int number;
 	int MakeNoA;
+	int countAll = 0;
+
+	public Manual(NoAutoSt noA) {
+		this.noA = noA;
+	}
 
 	public void makeButton(int MakeNoA) {
 		this.MakeNoA = MakeNoA;
 		int count = 0;
-
+		numSa.put(MakeNoA, new ArrayList<>());
 		// 초기화 버튼
 		JButton jbut = new JButton();
 		jbut.setBounds(50, 480, 100, 40);
@@ -46,14 +52,8 @@ public class Manual extends JFrame {
 		jbut1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (countAll == 6) {
-					userAt.put(MakeNoA, "자 동");
-				} else if (countAll < 6) {
-					userAt.put(MakeNoA, "반자동");
-				} else {
-					userAt.put(MakeNoA, "수 동");
-				}
 				Collections.sort(numSa.get(MakeNoA));
+				noA.setlbl2();
 				setVisible(false);
 			}
 		});
@@ -66,10 +66,11 @@ public class Manual extends JFrame {
 		jbut2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				반자동();
+				반자동(MakeNoA);
 			}
 		});
 		lp.add(jbut2);
+
 		for (int i = 0; i < button.length; i++) {// 숫자 버튼 생성
 			button[i] = new JButton();
 			button[i].setBounds(35 + ((i % 7) * 60), 60 + (count * 60), 50, 50);
@@ -108,7 +109,7 @@ public class Manual extends JFrame {
 		}
 		add(lp);
 		setSize(500, 600);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 
@@ -162,11 +163,8 @@ public class Manual extends JFrame {
 		return false;
 	}
 
-	public void 반자동() {
-
-		if (!numSa.containsKey(MakeNoA)) {
-			numSa.put(MakeNoA, new ArrayList<>());
-		}
+	public void 반자동(int MakeNoA) {
+		makeRo(MakeNoA);
 		while (numSa.get(MakeNoA).size() < 6) {
 			int q = (int) (Math.random() * 45) + 1;
 			NumberSave newNumber = new NumberSave(q);
@@ -175,11 +173,18 @@ public class Manual extends JFrame {
 				countAll++;
 			}
 		}
-		
+		if (countAll == 6) {
+			userAt.put(MakeNoA, "자 동");
+		} else if (countAll < 6) {
+			userAt.put(MakeNoA, "반자동");
+		} else {
+			userAt.put(MakeNoA, "수 동");
+		}
 	}
 
-	public static void main(String[] args) {
-		Manual m = new Manual();
-		m.makeButton(1);
+	public void makeRo(int a) {
+		if (!numSa.containsKey(MakeNoA)) {
+			numSa.put(MakeNoA, new ArrayList<>());
+		}
 	}
 }
