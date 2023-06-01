@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.text.DefaultCaret;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 //import javax.swing.text.DefaultCaret;
 
@@ -23,6 +24,7 @@ public class AutomaticNumberVerification {
 	
 	private Map<Integer, List<NumberSave>> userNumber;
 	private Map<Integer, String> autoNotAuto;
+	
 	
 
 	public void 자동번호출력(Map<Integer, List<NumberSave>> userNumber, Map<Integer, String> autoNotAuto) {
@@ -57,17 +59,22 @@ public class AutomaticNumberVerification {
 		        
 		        textArea.append(lottoNumber + "\n");
 		        
-                
+		        int increaseAmount = 1000 * letters.length;
+		        int pay = 0; 
+		        pay += increaseAmount;
 		        
+		       
+
 		        int fontStyle = Font.BOLD;
 		        Font font = new Font("맑은 고딕", Font.PLAIN, 14);
 		        font = font.deriveFont(fontStyle);
 		        textArea.setFont(font);
 		        textArea.setForeground(Color.BLACK);
 		        textArea.setFont(font);
-		        
+		        lblp.setText((String.valueOf(this.userNumber.size()*1000)));
 		    }
 		}
+		
 
 	}
 	
@@ -75,6 +82,7 @@ public class AutomaticNumberVerification {
 
 	public JFrame frame;
 	private JTextArea textArea;
+	private JLabel lblp;
 
 	/**
 	 * Launch the application.
@@ -139,6 +147,11 @@ public class AutomaticNumberVerification {
 		lblNewLabel.setIcon(new ImageIcon(AutomaticNumberVerification.class.getResource("/image/로또 출력물1 중간배경색 수정1.jpg")));
 		lblNewLabel.setBounds(0, 0, 494, 640);
 		frame.getContentPane().add(lblNewLabel);
+		
+		lblp = new JLabel("가격");
+		lblp.setHorizontalAlignment(SwingConstants.CENTER);
+		lblp.setBounds(262, 494, 57, 15);
+		frame.getContentPane().add(lblp);
 		
 		btn.addActionListener(new ActionListener() {
 			@Override
