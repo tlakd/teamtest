@@ -1,34 +1,30 @@
 package testteam;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import javax.swing.SpringLayout;
-import javax.swing.SwingConstants;
-
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import javax.swing.JLabel;
-import javax.swing.JSpinner;
-import javax.swing.JList;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JEditorPane;
-import javax.swing.JTextField;
-import java.awt.Font;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SpringLayout;
+import javax.swing.SwingConstants;
 
 public class PreviousRoundWinningNumber {
   
-  private List<Integer> lottoNumbers; // 로또 번호를 저장할 변수
+	private int selectedNumber; // 선택된 회차
+	private List<Integer> lottoNumbers; // 선택된 회차의 로또 번호
 
 
   private JFrame frame;
@@ -43,14 +39,20 @@ public class PreviousRoundWinningNumber {
    */
   private void initialize() {
     frame = new JFrame();
-    frame.getContentPane().setBackground(Color.WHITE);
+    frame.getContentPane().setBackground(Color.white);
     SpringLayout springLayout = new SpringLayout();
     frame.getContentPane().setLayout(springLayout);
     
-    JButton btn = new JButton("이전메뉴");
-    springLayout.putConstraint(SpringLayout.NORTH, btn, -49, SpringLayout.SOUTH, frame.getContentPane());
-    springLayout.putConstraint(SpringLayout.SOUTH, btn, -10, SpringLayout.SOUTH, frame.getContentPane());
-    springLayout.putConstraint(SpringLayout.EAST, btn, -10, SpringLayout.EAST, frame.getContentPane());
+    URL url = PreviousRoundWinningNumber.class.getClassLoader().getResource("이전회차 당첨번호 이미지5.jpg");
+    new ImageIcon(url);
+    
+    JButton btn = new JButton("");
+    btn.setIcon(new ImageIcon("D:\\Java_WookJin\\오늘 작업파일\\이전메뉴크게2.jpg"));
+    btn.setSelectedIcon(new ImageIcon("D:\\Java_WookJin\\오늘 작업파일\\이전메뉴크게2.jpg"));
+    btn.setOpaque(false);
+    btn.setContentAreaFilled(false);
+    btn.setBorderPainted(false);
+    springLayout.putConstraint(SpringLayout.NORTH, btn, 295, SpringLayout.NORTH, frame.getContentPane());
     btn.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent arg0) {
         //메인화면으로 돌아가야 함 나중에 바꿔야 함
@@ -60,73 +62,77 @@ public class PreviousRoundWinningNumber {
     frame.getContentPane().add(btn);
     
     JLabel lbl2 = new JLabel("회차 선택 :");
-    springLayout.putConstraint(SpringLayout.WEST, btn, 14, SpringLayout.WEST, lbl2);
-    lbl2.setFont(new Font("굴림", Font.PLAIN, 14));
+    lbl2.setForeground(Color.DARK_GRAY);
+    springLayout.putConstraint(SpringLayout.WEST, btn, 20, SpringLayout.WEST, lbl2);
+    lbl2.setFont(new Font("맑은 고딕", Font.BOLD, 14));
     frame.getContentPane().add(lbl2);
     
     
-    JLabel lbl3 = new JLabel("회차 당첨번호");
-    springLayout.putConstraint(SpringLayout.NORTH, lbl3, 68, SpringLayout.NORTH, frame.getContentPane());
-    lbl3.setFont(new Font("굴림", Font.PLAIN, 18));
+    JLabel lbl3 = new JLabel("회 당첨결과");
+    springLayout.putConstraint(SpringLayout.NORTH, lbl3, 94, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.WEST, lbl3, 190, SpringLayout.WEST, frame.getContentPane());
+    lbl3.setForeground(Color.WHITE);
+    lbl3.setFont(new Font("휴먼모음T", Font.BOLD, 30));
     frame.getContentPane().add(lbl3);
     
     JLabel lbl4 = new JLabel("?");
-    springLayout.putConstraint(SpringLayout.WEST, lbl3, 6, SpringLayout.EAST, lbl4);
-    springLayout.putConstraint(SpringLayout.NORTH, lbl4, 68, SpringLayout.NORTH, frame.getContentPane());
-    springLayout.putConstraint(SpringLayout.WEST, lbl4, 140, SpringLayout.WEST, frame.getContentPane());
-    springLayout.putConstraint(SpringLayout.EAST, lbl4, -264, SpringLayout.EAST, frame.getContentPane());
-    lbl4.setFont(new Font("굴림", Font.PLAIN, 18));
+    springLayout.putConstraint(SpringLayout.NORTH, lbl4, 94, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.WEST, lbl4, 130, SpringLayout.WEST, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.EAST, lbl4, -290, SpringLayout.EAST, frame.getContentPane());
+    lbl4.setForeground(Color.WHITE);
+    lbl4.setFont(new Font("휴먼모음T", Font.BOLD, 30));
     frame.getContentPane().add(lbl4);
-    frame.setBounds(100, 100, 450, 300);
+    frame.setBounds(100, 100, 510, 415);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
-    
-    JLabel lblNewLabel = new JLabel("당첨번호");
-    springLayout.putConstraint(SpringLayout.WEST, lblNewLabel, 0, SpringLayout.WEST, lbl4);
-    lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 15));
-    frame.getContentPane().add(lblNewLabel);
-    
-    JLabel lblNewLabel_1 = new JLabel("보너스");
-    springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel_1, 3, SpringLayout.NORTH, lblNewLabel);
-    springLayout.putConstraint(SpringLayout.EAST, lblNewLabel_1, 0, SpringLayout.EAST, lbl2);
-    frame.getContentPane().add(lblNewLabel_1);
-    
-    JLabel lbl5 = new JLabel("1번");
-    springLayout.putConstraint(SpringLayout.WEST, lbl5, 64, SpringLayout.WEST, frame.getContentPane());
+    JLabel lbl5 = new JLabel("1");
+    lbl5.setForeground(Color.BLUE);
+    springLayout.putConstraint(SpringLayout.NORTH, lbl5, 193, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.EAST, lbl5, -415, SpringLayout.EAST, frame.getContentPane());
+    lbl5.setFont(new Font("Yu Gothic UI", Font.BOLD, 30));
     frame.getContentPane().add(lbl5);
     
-    JLabel lbl6 = new JLabel("2번");
-    springLayout.putConstraint(SpringLayout.NORTH, lbl5, 0, SpringLayout.NORTH, lbl6);
-    springLayout.putConstraint(SpringLayout.EAST, lbl5, -19, SpringLayout.WEST, lbl6);
+    JLabel lbl6 = new JLabel("2");
+    lbl6.setForeground(Color.BLUE);
+    springLayout.putConstraint(SpringLayout.NORTH, lbl6, 193, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.EAST, lbl6, -365, SpringLayout.EAST, frame.getContentPane());
+    lbl6.setFont(new Font("Yu Gothic UI", Font.BOLD, 30));
     frame.getContentPane().add(lbl6);
     
-    JLabel lbl7 = new JLabel("3번");
-    springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel, 31, SpringLayout.SOUTH, lbl7);
-    springLayout.putConstraint(SpringLayout.NORTH, lbl6, 0, SpringLayout.NORTH, lbl7);
-    springLayout.putConstraint(SpringLayout.EAST, lbl6, -19, SpringLayout.WEST, lbl7);
-    springLayout.putConstraint(SpringLayout.WEST, lbl7, 0, SpringLayout.WEST, lbl4);
+    JLabel lbl7 = new JLabel("3");
+    lbl7.setForeground(Color.BLUE);
+    springLayout.putConstraint(SpringLayout.NORTH, lbl7, 193, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.EAST, lbl7, -315, SpringLayout.EAST, frame.getContentPane());
+    lbl7.setFont(new Font("Yu Gothic UI", Font.BOLD, 30));
     frame.getContentPane().add(lbl7);
     
-    JLabel lbl8 = new JLabel("4번");
-    springLayout.putConstraint(SpringLayout.NORTH, lbl8, 34, SpringLayout.SOUTH, lbl3);
-    springLayout.putConstraint(SpringLayout.NORTH, lbl7, 0, SpringLayout.NORTH, lbl8);
+    JLabel lbl8 = new JLabel("4");
+    lbl8.setForeground(Color.BLUE);
+    springLayout.putConstraint(SpringLayout.NORTH, lbl8, 193, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.EAST, lbl8, -265, SpringLayout.EAST, frame.getContentPane());
+    lbl8.setFont(new Font("Yu Gothic UI", Font.BOLD, 30));
     frame.getContentPane().add(lbl8);
     
-    JLabel lbl9 = new JLabel("5번");
-    springLayout.putConstraint(SpringLayout.WEST, lbl9, 216, SpringLayout.WEST, frame.getContentPane());
-    springLayout.putConstraint(SpringLayout.EAST, lbl8, -15, SpringLayout.WEST, lbl9);
-    springLayout.putConstraint(SpringLayout.NORTH, lbl9, 0, SpringLayout.NORTH, lbl5);
+    JLabel lbl9 = new JLabel("5");
+    lbl9.setForeground(Color.BLUE);
+    springLayout.putConstraint(SpringLayout.NORTH, lbl9, 193, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.EAST, lbl9, -215, SpringLayout.EAST, frame.getContentPane());
+    lbl9.setFont(new Font("Yu Gothic UI", Font.BOLD, 30));
     frame.getContentPane().add(lbl9);
     
-    JLabel lbl10 = new JLabel("6번");
-    springLayout.putConstraint(SpringLayout.NORTH, lbl10, 0, SpringLayout.NORTH, lbl5);
-    springLayout.putConstraint(SpringLayout.WEST, lbl10, 17, SpringLayout.EAST, lbl9);
+    JLabel lbl10 = new JLabel("6");
+    lbl10.setForeground(Color.BLUE);
+    springLayout.putConstraint(SpringLayout.NORTH, lbl10, 193, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.EAST, lbl10, -165, SpringLayout.EAST, frame.getContentPane());
+    lbl10.setFont(new Font("Yu Gothic UI", Font.BOLD, 30));
     frame.getContentPane().add(lbl10);
     
-    JLabel lbl11 = new JLabel("보너스 번호");
-    springLayout.putConstraint(SpringLayout.NORTH, lbl11, 0, SpringLayout.NORTH, lbl5);
-    springLayout.putConstraint(SpringLayout.WEST, lbl11, -1, SpringLayout.WEST, btn);
-    springLayout.putConstraint(SpringLayout.EAST, lbl11, -48, SpringLayout.EAST, frame.getContentPane());
+    JLabel lbl11 = new JLabel("7");
+    lbl11.setForeground(Color.RED);
+    springLayout.putConstraint(SpringLayout.NORTH, lbl11, 193, SpringLayout.NORTH, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.WEST, lbl11, 420, SpringLayout.WEST, frame.getContentPane());
+    springLayout.putConstraint(SpringLayout.EAST, lbl11, -40, SpringLayout.EAST, frame.getContentPane());
+    lbl11.setFont(new Font("Yu Gothic UI", Font.BOLD, 30));
     frame.getContentPane().add(lbl11);
     
     JComboBox<Integer> selectBox = new JComboBox<>();
@@ -144,31 +150,28 @@ a.makeLottoNumberNew(selectBox);
     Map<Integer, List<Integer>> lottoNumberMap = new HashMap<>(); // 회차별 로또 번호 저장
 
     selectBox.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-
-        int selectedNumber = (int) selectBox.getSelectedItem();
-        lbl4.setText(Integer.toString(selectedNumber));
-        List<Integer> lottoNumbers;
-        if (lottoNumberMap.containsKey(selectedNumber)) {
-          lottoNumbers = lottoNumberMap.get(selectedNumber);
-        } else {
-          lottoNumbers = generateLottoNumbers();
-          lottoNumberMap.put(selectedNumber, lottoNumbers);
+        public void actionPerformed(ActionEvent e) {
+            selectedNumber = (int) selectBox.getSelectedItem();
+            lbl4.setText(Integer.toString(selectedNumber));
+            
+            if (lottoNumberMap.containsKey(selectedNumber)) {
+                lottoNumbers = lottoNumberMap.get(selectedNumber);
+            } else {
+                lottoNumbers = generateLottoNumbers();
+                lottoNumberMap.put(selectedNumber, lottoNumbers);
+            }
+            
+            generateAndSetLottoNumbers();
         }
-        generateAndSetLottoNumbers();
-      
-      }
 
       private void generateAndSetLottoNumbers() {
-    	    List<Integer> numbers = generateLottoNumbers();
-
-    	    lbl5.setText(formatNumber(numbers.get(0)));
-    	    lbl6.setText(formatNumber(numbers.get(1)));
-    	    lbl7.setText(formatNumber(numbers.get(2)));
-    	    lbl8.setText(formatNumber(numbers.get(3)));
-    	    lbl9.setText(formatNumber(numbers.get(4)));
-    	    lbl10.setText(formatNumber(numbers.get(5)));
-    	    lbl11.setText(formatNumber(numbers.get(6)));
+    	    lbl5.setText(formatNumber(lottoNumbers.get(0)));
+    	    lbl6.setText(formatNumber(lottoNumbers.get(1)));
+    	    lbl7.setText(formatNumber(lottoNumbers.get(2)));
+    	    lbl8.setText(formatNumber(lottoNumbers.get(3)));
+    	    lbl9.setText(formatNumber(lottoNumbers.get(4)));
+    	    lbl10.setText(formatNumber(lottoNumbers.get(5)));
+    	    lbl11.setText(formatNumber(lottoNumbers.get(6)));
 
     	    lbl5.setHorizontalAlignment(SwingConstants.CENTER);
     	    lbl6.setHorizontalAlignment(SwingConstants.CENTER);
@@ -178,6 +181,7 @@ a.makeLottoNumberNew(selectBox);
     	    lbl10.setHorizontalAlignment(SwingConstants.CENTER);
     	    lbl11.setHorizontalAlignment(SwingConstants.CENTER);
     	}
+
 
       private String formatNumber(int number) {
           return String.format("%2d", number);
@@ -201,6 +205,14 @@ a.makeLottoNumberNew(selectBox);
 
     });
     frame.getContentPane().add(selectBox);
+    
+    JLabel lblNewLabel_2 = new JLabel("New label");
+    lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
+    lblNewLabel_2.setForeground(Color.WHITE);
+    springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel_2, -12, SpringLayout.NORTH, lbl2);
+    springLayout.putConstraint(SpringLayout.WEST, lblNewLabel_2, 0, SpringLayout.WEST, frame.getContentPane());
+    lblNewLabel_2.setIcon(new ImageIcon(PreviousRoundWinningNumber.class.getResource("/image/이전회차 당첨번호 이미지5.jpg")));
+    frame.getContentPane().add(lblNewLabel_2);
     
   }
   
