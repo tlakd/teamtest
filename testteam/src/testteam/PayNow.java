@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class PayNow {
 
@@ -50,17 +53,29 @@ public class PayNow {
 	public void initialize() {
 		MakeRoom makeRoom = new MakeRoom();
 		frame = new JFrame();
+		frame.setTitle("결제하기 메뉴");
+		frame.getContentPane().setForeground(Color.WHITE);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		lblNewLabel = new JLabel("총금액: " + nowP + "");// 글자
+		lblNewLabel = new JLabel("총 금액 : null");// 글자
+		lblNewLabel.setBounds(56, 46, 308, 37);
+		lblNewLabel.setForeground(Color.DARK_GRAY);
+		lblNewLabel.setFont(new Font("HY중고딕", Font.BOLD, 13));
 
-		JButton btnNewButton = new JButton("결제하기");
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBounds(288, 194, 77, 29);
+		btnNewButton.setIcon(new ImageIcon(PayNow.class.getResource("/image/결제하기버튼.jpg")));
 
 		textField = new JTextField();
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
 		textField.setColumns(10);
 
 		JLabel lblNewLabel_1 = new JLabel("돈을 넣어주세요.");
+		lblNewLabel_1.setBounds(56, 93, 250, 24);
+		lblNewLabel_1.setForeground(Color.DARK_GRAY);
+		lblNewLabel_1.setFont(new Font("HY중고딕", Font.BOLD, 13));
 
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
@@ -73,46 +88,22 @@ public class PayNow {
 			}
 		});
 
-		JButton btnNewButton_1 = new JButton("뒤로가기");
-
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setBounds(56, 194, 77, 29);
+		btnNewButton_1.setIcon(new ImageIcon(PayNow.class.getResource("/image/뒤로가기1.jpg")));
+		btnNewButton_1.setSelectedIcon(new ImageIcon(PayNow.class.getResource("/image/뒤로가기1.jpg")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 			}
 		});
-
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-				.createSequentialGroup().addGap(56)
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING,
-								groupLayout.createSequentialGroup().addComponent(btnNewButton_1)
-										.addPreferredGap(ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-										.addComponent(
-												btnNewButton, GroupLayout.PREFERRED_SIZE, 97,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(61))
-						.addGroup(groupLayout.createSequentialGroup().addGroup(groupLayout
-								.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 308, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 250,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
-								.addContainerGap(70, Short.MAX_VALUE)))));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(46)
-						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(37)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
-						.addContainerGap(29, Short.MAX_VALUE)));
-		frame.getContentPane().setLayout(groupLayout);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(btnNewButton_1);
+		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(lblNewLabel);
+		frame.getContentPane().add(lblNewLabel_1);
+		frame.getContentPane().add(textField);
 	}
 
 	public JFrame getFrame() {
