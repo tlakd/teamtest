@@ -39,7 +39,7 @@ public class MakeRoom {
 	}
 
 	public void makeAutoNumber() {// 사용자의 로또번호 자동생성
-		
+
 		int count = 0;
 		if (!userNumber.containsKey(userCount)) {
 			userNumber.put(userCount, new ArrayList<>());
@@ -59,13 +59,8 @@ public class MakeRoom {
 		}
 		Collections.sort(userNumber.get(userCount));
 		userCount++;
-<<<<<<< HEAD
-//		WinningNumber win = new WinningNumber();
-//		win.자동여러장구매시(userNumber, autoNotAuto);
-=======
-		
-	
->>>>>>> branch 'master' of https://github.com/tlakd/teamtest.git
+		WinningNumber win = new WinningNumber();
+		win.자동여러장구매시(userNumber, autoNotAuto);
 	}
 
 	public void exeWin() {
@@ -74,31 +69,27 @@ public class MakeRoom {
 				try {
 					WinningNumber win = new WinningNumber();
 					win.자동여러장구매시(userNumber, autoNotAuto);
-<<<<<<< HEAD
-				} catch (Exception e) {
-=======
 					win.frame.setVisible(true);
-			} catch (Exception e) {
->>>>>>> branch 'master' of https://github.com/tlakd/teamtest.git
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-	
-		public void exeAut( ) {
-			EventQueue.invokeLater(new Runnable() {
-				public void run() {
-					try {
-						AutomaticNumberVerification window = new AutomaticNumberVerification();
-						window.자동번호출력(userNumber, autoNotAuto);
-						window.frame.setVisible(true);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+
+	public void exeAut() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AutomaticNumberVerification window = new AutomaticNumberVerification();
+					window.자동번호출력(userNumber, autoNotAuto);
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			});
-		}
+			}
+		});
+	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
 		for (int i = 0; i <= lottoCount; i++) {
