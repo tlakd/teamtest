@@ -5,17 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import java.awt.Color;
 
 public class AutoLottoUser1 {
    private JFrame frame;
@@ -65,6 +60,7 @@ public class AutoLottoUser1 {
       textField = new JTextField();
       textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
       textField.setBounds(145, 101, 298, 27);
+      //textField.setText("총금액 : ");
       textField.setColumns(10);
       
       JButton btnNum1 = new JButton("1");
@@ -374,7 +370,5 @@ public class AutoLottoUser1 {
       }
       
    }
-   
-   
    
 }
