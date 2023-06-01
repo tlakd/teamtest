@@ -131,6 +131,12 @@ public class AutomaticNumberVerification {
         caret.setDot(10); // 커서 위치 설정
         caret.setVisible(false);
 		
+		lblp = new JLabel("가격");
+		lblp.setFont(new Font("HY견고딕", Font.PLAIN, 18));
+		lblp.setHorizontalAlignment(SwingConstants.CENTER);
+		lblp.setBounds(362, 464, 57, 15);
+		frame.getContentPane().add(lblp);
+		
 		frame.getContentPane().add(textArea);
 
 		JScrollPane scrollPane = new JScrollPane(textArea);
@@ -144,14 +150,9 @@ public class AutomaticNumberVerification {
 		frame.getContentPane().add(btn);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(AutomaticNumberVerification.class.getResource("/image/로또 출력물1 중간배경색 수정1.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(AutomaticNumberVerification.class.getResource("/image/로또 출력물1 중간배경색 수정2.jpg")));
 		lblNewLabel.setBounds(0, 0, 494, 640);
 		frame.getContentPane().add(lblNewLabel);
-		
-		lblp = new JLabel("가격");
-		lblp.setHorizontalAlignment(SwingConstants.CENTER);
-		lblp.setBounds(262, 494, 57, 15);
-		frame.getContentPane().add(lblp);
 		
 		btn.addActionListener(new ActionListener() {
 			@Override
