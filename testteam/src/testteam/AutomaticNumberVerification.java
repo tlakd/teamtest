@@ -146,6 +146,5 @@ public class AutomaticNumberVerification {
 				frame.dispose();
 			}
 		});
-
 	}
 }
