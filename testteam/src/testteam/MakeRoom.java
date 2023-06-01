@@ -74,6 +74,20 @@ public class MakeRoom {
 			}
 		});
 	}
+	
+		public void exeAut( ) {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						AutomaticNumberVerification window = new AutomaticNumberVerification();
+						window.자동번호출력(userNumber, autoNotAuto);
+						window.frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
 		for (int i = 0; i <= lottoCount; i++) {
