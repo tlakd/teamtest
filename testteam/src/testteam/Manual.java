@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,13 +17,14 @@ import javax.swing.JOptionPane;
 public class Manual extends JFrame {
 	JButton[] button = new JButton[45];
 	JLayeredPane lp = new JLayeredPane();
-	Map<Integer, List<NumberSave>> numSa = new HashMap<Integer, List<NumberSave>>();
+	Map<Integer, List<NumberSave>> numSa = new HashMap<>();
 	Map<Integer, String> userAt = new HashMap<>();
 	MakeRoom m = new MakeRoom();
 	NoAutoSt noA;
 	int number;
 	int MakeNoA;
 	int countAll = 0;
+	AtomicInteger customCount;
 
 	public Manual(NoAutoSt noA) {
 		this.noA = noA;
@@ -53,6 +55,7 @@ public class Manual extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Collections.sort(numSa.get(MakeNoA));
 				noA.setlbl2();
+				customCount.set(0);
 				setVisible(false);
 			}
 		});
@@ -69,7 +72,7 @@ public class Manual extends JFrame {
 			}
 		});
 		lp.add(jbut2);
-
+		customCount = new AtomicInteger(0);
 		for (int i = 0; i < button.length; i++) {// 숫자 버튼 생성
 			button[i] = new JButton();
 			button[i].setBounds(35 + ((i % 7) * 60), 60 + (count * 60), 50, 50);
@@ -84,10 +87,11 @@ public class Manual extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					JButton source = (JButton) e.getSource();
 					if (numSa.containsKey(MakeNoA)) {
-						if (numSa.get(MakeNoA).size() < 6) {// 6개까지 중복
+						if (customCount.get() < 6) {// 6개까지 중복
 							if (!containsNumber(numSa.get(MakeNoA), index)) {
 								NumberSave newNumber = new NumberSave(index);
 								numSa.get(MakeNoA).add(newNumber);
+								customCount.incrementAndGet();
 							} else {
 								performOtherAction(source, index); // 다른 액션 수행
 							}
@@ -123,7 +127,6 @@ public class Manual extends JFrame {
 	}
 
 	public void 수동부분저장() {
-		int userCount = 1; // 사용자 번호 초기화
 		for (int i = 1; i < 6; i++) {
 			if (numSa.get(i) == null) {
 				continue;
@@ -131,24 +134,26 @@ public class Manual extends JFrame {
 
 			List<NumberSave> numbers = numSa.get(i);
 			for (NumberSave number : numbers) {
-				if (!m.userNumber.containsKey(userCount)) {
-					m.userNumber.put(userCount, new ArrayList<>());
+				if (!m.userNumber.containsKey(m.userCount)) {
+					m.userNumber.put(m.userCount, new ArrayList<>());
 				}
 
-				m.userNumber.get(userCount).add(number);
+				m.userNumber.get(m.userCount).add(number);
 
 				// 6개씩 저장하면 새로운 사용자 번호 생성
-				if (m.userNumber.get(userCount).size() == 6) {
-					userCount++;
+				if (m.userNumber.get(m.userCount).size() == 6) {
+					m.userCount++;
 				}
 			}
 		}
 
 		// 저장된 값 확인을 위한 출력
-		for (int i = 1; i < userCount; i++) {
+		for (int i = 1; i < m.userCount; i++) {
 			System.out.print("User " + i + " Numbers: ");
-			for (NumberSave number : m.userNumber.get(i)) {
-				System.out.print(number.getNumber() + " ");
+			if (m.userNumber.containsKey(i)) {
+				for (NumberSave number : m.userNumber.get(i)) {
+					System.out.print(number.getNumber() + " ");
+				}
 			}
 			System.out.println();
 		}

@@ -2,28 +2,19 @@ package testteam;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.SpringLayout;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.JTextPane;
-import javax.swing.JList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JComboBox;
-import javax.swing.JScrollBar;
+import javax.swing.SwingConstants;
 
 public class WinningNumber {
 	JFrame frame;
@@ -440,60 +431,43 @@ public class WinningNumber {
 
 		else if (colorCountA == 3 && colorCountC == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountA == 3 && colorCountD == 3) {
+		} else if (colorCountA == 3 && colorCountD == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountA == 3 && colorCountE == 3) {
+		} else if (colorCountA == 3 && colorCountE == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountB == 3 && colorCountC == 3) {
+		} else if (colorCountB == 3 && colorCountC == 3) {
 			lbl3.setText("b경 축 !! 5등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountB == 3 && colorCountD == 3) {
+		} else if (colorCountB == 3 && colorCountD == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountB == 3 && colorCountE == 3) {
+		} else if (colorCountB == 3 && colorCountE == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountC == 3 && colorCountD == 3) {
+		} else if (colorCountC == 3 && colorCountD == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountC == 3 && colorCountE == 3) {
+		} else if (colorCountC == 3 && colorCountE == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountD == 3 && colorCountE == 3) {
+		} else if (colorCountD == 3 && colorCountE == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
 		}
 
 		else if (colorCountA == 4 && colorCountB == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountA == 4 && colorCountC == 4) {
+		} else if (colorCountA == 4 && colorCountC == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountA == 4 && colorCountD == 4) {
+		} else if (colorCountA == 4 && colorCountD == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountA == 4 && colorCountE == 4) {
+		} else if (colorCountA == 4 && colorCountE == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountB == 4 && colorCountC == 4) {
+		} else if (colorCountB == 4 && colorCountC == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountB == 4 && colorCountD == 4) {
+		} else if (colorCountB == 4 && colorCountD == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountB == 4 && colorCountE == 4) {
+		} else if (colorCountB == 4 && colorCountE == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountC == 4 && colorCountD == 4) {
+		} else if (colorCountC == 4 && colorCountD == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountC == 4 && colorCountE == 4) {
+		} else if (colorCountC == 4 && colorCountE == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
-		}
-		else if (colorCountD == 4 && colorCountE == 4) {
+		} else if (colorCountD == 4 && colorCountE == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
 		}
 
@@ -537,7 +511,7 @@ public class WinningNumber {
 	 * Launch the application.g
 	 */
 	public static void main(String[] args) {
-		
+
 	}
 
 	/**
@@ -585,117 +559,117 @@ public class WinningNumber {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-			    int tempCount = count;
+				int tempCount = count;
 
-			    if (count == 0) {
-			        tempCount++;
-			    }
+				if (count == 0) {
+					tempCount++;
+				}
 
-			    tempCount++;
+				tempCount++;
 
-			    if ((tempCount - 1) * 5 >= userNumber.size()) {
-			        // 로또 번호를 더 이상 참조할 수 없을 때 경고문을 표시합니다.
-			        JOptionPane.showMessageDialog(null, "더 이상 로또 번호가 없습니다.", "경고", JOptionPane.WARNING_MESSAGE);
-			        return;
-			    }
+				if ((tempCount - 1) * 5 >= userNumber.size()) {
+					// 로또 번호를 더 이상 참조할 수 없을 때 경고문을 표시합니다.
+					JOptionPane.showMessageDialog(null, "더 이상 로또 번호가 없습니다.", "경고", JOptionPane.WARNING_MESSAGE);
+					return;
+				}
 
-			    count = tempCount;
-			    lbl8.setText("내 선택 " + String.valueOf(count) + " 번째 번호 :");
-			        for (int i = (count - 1) * 5; i < count * 5; i++) {
-			            if (i < userNumber.size()) {
-			                int index = i % 5;
-			                switch (index) {
-			                    case 0:
-			                albl1.setText(userNumber.get(i).get(0).toString());
-			                albl2.setText(userNumber.get(i).get(1).toString());
-			                albl3.setText(userNumber.get(i).get(2).toString());
-			                albl4.setText(userNumber.get(i).get(3).toString());
-			                albl5.setText(userNumber.get(i).get(4).toString());
-			                albl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			            case 1:
-			                blbl1.setText(userNumber.get(i).get(0).toString());
-			                blbl2.setText(userNumber.get(i).get(1).toString());
-			                blbl3.setText(userNumber.get(i).get(2).toString());
-			                blbl4.setText(userNumber.get(i).get(3).toString());
-			                blbl5.setText(userNumber.get(i).get(4).toString());
-			                blbl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			            case 2:
-			                clbl1.setText(userNumber.get(i).get(0).toString());
-			                clbl2.setText(userNumber.get(i).get(1).toString());
-			                clbl3.setText(userNumber.get(i).get(2).toString());
-			                clbl4.setText(userNumber.get(i).get(3).toString());
-			                clbl5.setText(userNumber.get(i).get(4).toString());
-			                clbl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			            case 3:
-			                dlbl1.setText(userNumber.get(i).get(0).toString());
-			                dlbl2.setText(userNumber.get(i).get(1).toString());
-			                dlbl3.setText(userNumber.get(i).get(2).toString());
-			                dlbl4.setText(userNumber.get(i).get(3).toString());
-			                dlbl5.setText(userNumber.get(i).get(4).toString());
-			                dlbl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			            case 4:
-			                elbl1.setText(userNumber.get(i).get(0).toString());
-			                elbl2.setText(userNumber.get(i).get(1).toString());
-			                elbl3.setText(userNumber.get(i).get(2).toString());
-			                elbl4.setText(userNumber.get(i).get(3).toString());
-			                elbl5.setText(userNumber.get(i).get(4).toString());
-			                elbl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			        }
-			       }else {
-		                // usernumber.size()보다 큰 인덱스의 레이블을 공백으로 처리합니다.
-		                int index = i % 5;
-		                switch (index) {
-		                    case 0:
-		                        albl1.setText("");
-		                        albl2.setText("");
-		                        albl3.setText("");
-		                        albl4.setText("");
-		                        albl5.setText("");
-		                        albl6.setText("");
-		                        break;
-		                    case 1:
-		                        blbl1.setText("");
-		                        blbl2.setText("");
-		                        blbl3.setText("");
-		                        blbl4.setText("");
-		                        blbl5.setText("");
-		                        blbl6.setText("");
-		                        break;
-		                    case 2:
-		                        clbl1.setText("");
-		                        clbl2.setText("");
-		                        clbl3.setText("");
-		                        clbl4.setText("");
-		                        clbl5.setText("");
-		                        clbl6.setText("");
-		                        break;
-		                    case 3:
-		                        dlbl1.setText("");
-		                        dlbl2.setText("");
-		                        dlbl3.setText("");
-		                        dlbl4.setText("");
-		                        dlbl5.setText("");
-		                        dlbl6.setText("");
-		                        break;
-		                    case 4:
-		                        elbl1.setText("");
-		                        elbl2.setText("");
-		                        elbl3.setText("");
-		                        elbl4.setText("");
-		                        elbl5.setText("");
-		                        elbl6.setText("");
-		                        break;
-		                }
-		            }
-		        }
+				count = tempCount;
+				lbl8.setText("내 선택 " + String.valueOf(count) + " 번째 번호 :");
+				for (int i = (count - 1) * 5; i < count * 5; i++) {
+					if (i < userNumber.size()) {
+						int index = i % 5;
+						switch (index) {
+						case 0:
+							albl1.setText(userNumber.get(i).get(0).toString());
+							albl2.setText(userNumber.get(i).get(1).toString());
+							albl3.setText(userNumber.get(i).get(2).toString());
+							albl4.setText(userNumber.get(i).get(3).toString());
+							albl5.setText(userNumber.get(i).get(4).toString());
+							albl6.setText(userNumber.get(i).get(5).toString());
+							break;
+						case 1:
+							blbl1.setText(userNumber.get(i).get(0).toString());
+							blbl2.setText(userNumber.get(i).get(1).toString());
+							blbl3.setText(userNumber.get(i).get(2).toString());
+							blbl4.setText(userNumber.get(i).get(3).toString());
+							blbl5.setText(userNumber.get(i).get(4).toString());
+							blbl6.setText(userNumber.get(i).get(5).toString());
+							break;
+						case 2:
+							clbl1.setText(userNumber.get(i).get(0).toString());
+							clbl2.setText(userNumber.get(i).get(1).toString());
+							clbl3.setText(userNumber.get(i).get(2).toString());
+							clbl4.setText(userNumber.get(i).get(3).toString());
+							clbl5.setText(userNumber.get(i).get(4).toString());
+							clbl6.setText(userNumber.get(i).get(5).toString());
+							break;
+						case 3:
+							dlbl1.setText(userNumber.get(i).get(0).toString());
+							dlbl2.setText(userNumber.get(i).get(1).toString());
+							dlbl3.setText(userNumber.get(i).get(2).toString());
+							dlbl4.setText(userNumber.get(i).get(3).toString());
+							dlbl5.setText(userNumber.get(i).get(4).toString());
+							dlbl6.setText(userNumber.get(i).get(5).toString());
+							break;
+						case 4:
+							elbl1.setText(userNumber.get(i).get(0).toString());
+							elbl2.setText(userNumber.get(i).get(1).toString());
+							elbl3.setText(userNumber.get(i).get(2).toString());
+							elbl4.setText(userNumber.get(i).get(3).toString());
+							elbl5.setText(userNumber.get(i).get(4).toString());
+							elbl6.setText(userNumber.get(i).get(5).toString());
+							break;
+						}
+					} else {
+						// usernumber.size()보다 큰 인덱스의 레이블을 공백으로 처리합니다.
+						int index = i % 5;
+						switch (index) {
+						case 0:
+							albl1.setText("");
+							albl2.setText("");
+							albl3.setText("");
+							albl4.setText("");
+							albl5.setText("");
+							albl6.setText("");
+							break;
+						case 1:
+							blbl1.setText("");
+							blbl2.setText("");
+							blbl3.setText("");
+							blbl4.setText("");
+							blbl5.setText("");
+							blbl6.setText("");
+							break;
+						case 2:
+							clbl1.setText("");
+							clbl2.setText("");
+							clbl3.setText("");
+							clbl4.setText("");
+							clbl5.setText("");
+							clbl6.setText("");
+							break;
+						case 3:
+							dlbl1.setText("");
+							dlbl2.setText("");
+							dlbl3.setText("");
+							dlbl4.setText("");
+							dlbl5.setText("");
+							dlbl6.setText("");
+							break;
+						case 4:
+							elbl1.setText("");
+							elbl2.setText("");
+							elbl3.setText("");
+							elbl4.setText("");
+							elbl5.setText("");
+							elbl6.setText("");
+							break;
+						}
+					}
+				}
 
-		        글자색깔변경();
-		    }
+				글자색깔변경();
+			}
 		});
 		frame.getContentPane().add(btn2);
 
@@ -918,74 +892,74 @@ public class WinningNumber {
 		elbl6.setBounds(303, 159, 22, 15);
 		elbl6.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(elbl6);
-		
+
 		JButton btn3 = new JButton("이전 번호");
 		btn3.setBounds(136, 205, 96, 49);
 		frame.getContentPane().add(btn3);
 		btn3.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-			    if (count > 1) {
-			        count--; // Decrease count variable if it is greater than 1
-			    } else {
-				            JOptionPane.showMessageDialog(null, "첫 번호입니다.");
-			        return;
-			    }
-			    lbl8.setText("내 선택 " + String.valueOf(count) + " 번째 번호 :");
-			    for (int i = (count - 1) * 5; i < count * 5 && i < userNumber.size(); i++) {
-			        int index = (i - 1) % 5;
-			        switch (index) {
-			            case 0:
-			                albl1.setText(userNumber.get(i).get(0).toString());
-			                albl2.setText(userNumber.get(i).get(1).toString());
-			                albl3.setText(userNumber.get(i).get(2).toString());
-			                albl4.setText(userNumber.get(i).get(3).toString());
-			                albl5.setText(userNumber.get(i).get(4).toString());
-			                albl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			            case 1:
-			                blbl1.setText(userNumber.get(i).get(0).toString());
-			                blbl2.setText(userNumber.get(i).get(1).toString());
-			                blbl3.setText(userNumber.get(i).get(2).toString());
-			                blbl4.setText(userNumber.get(i).get(3).toString());
-			                blbl5.setText(userNumber.get(i).get(4).toString());
-			                blbl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			            case 2:
-			                clbl1.setText(userNumber.get(i).get(0).toString());
-			                clbl2.setText(userNumber.get(i).get(1).toString());
-			                clbl3.setText(userNumber.get(i).get(2).toString());
-			                clbl4.setText(userNumber.get(i).get(3).toString());
-			                clbl5.setText(userNumber.get(i).get(4).toString());
-			                clbl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			            case 3:
-			                dlbl1.setText(userNumber.get(i).get(0).toString());
-			                dlbl2.setText(userNumber.get(i).get(1).toString());
-			                dlbl3.setText(userNumber.get(i).get(2).toString());
-			                dlbl4.setText(userNumber.get(i).get(3).toString());
-			                dlbl5.setText(userNumber.get(i).get(4).toString());
-			                dlbl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			            case 4:
-			                elbl1.setText(userNumber.get(i).get(0).toString());
-			                elbl2.setText(userNumber.get(i).get(1).toString());
-			                elbl3.setText(userNumber.get(i).get(2).toString());
-			                elbl4.setText(userNumber.get(i).get(3).toString());
-			                elbl5.setText(userNumber.get(i).get(4).toString());
-			                elbl6.setText(userNumber.get(i).get(5).toString());
-			                break;
-			        }
-			    }
+				if (count > 1) {
+					count--; // Decrease count variable if it is greater than 1
+				} else {
+					JOptionPane.showMessageDialog(null, "첫 번호입니다.");
+					return;
+				}
+				lbl8.setText("내 선택 " + String.valueOf(count) + " 번째 번호 :");
+				for (int i = (count - 1) * 5; i < count * 5 && i < userNumber.size(); i++) {
+					int index = (i - 1) % 5;
+					switch (index) {
+					case 0:
+						albl1.setText(userNumber.get(i).get(0).toString());
+						albl2.setText(userNumber.get(i).get(1).toString());
+						albl3.setText(userNumber.get(i).get(2).toString());
+						albl4.setText(userNumber.get(i).get(3).toString());
+						albl5.setText(userNumber.get(i).get(4).toString());
+						albl6.setText(userNumber.get(i).get(5).toString());
+						break;
+					case 1:
+						blbl1.setText(userNumber.get(i).get(0).toString());
+						blbl2.setText(userNumber.get(i).get(1).toString());
+						blbl3.setText(userNumber.get(i).get(2).toString());
+						blbl4.setText(userNumber.get(i).get(3).toString());
+						blbl5.setText(userNumber.get(i).get(4).toString());
+						blbl6.setText(userNumber.get(i).get(5).toString());
+						break;
+					case 2:
+						clbl1.setText(userNumber.get(i).get(0).toString());
+						clbl2.setText(userNumber.get(i).get(1).toString());
+						clbl3.setText(userNumber.get(i).get(2).toString());
+						clbl4.setText(userNumber.get(i).get(3).toString());
+						clbl5.setText(userNumber.get(i).get(4).toString());
+						clbl6.setText(userNumber.get(i).get(5).toString());
+						break;
+					case 3:
+						dlbl1.setText(userNumber.get(i).get(0).toString());
+						dlbl2.setText(userNumber.get(i).get(1).toString());
+						dlbl3.setText(userNumber.get(i).get(2).toString());
+						dlbl4.setText(userNumber.get(i).get(3).toString());
+						dlbl5.setText(userNumber.get(i).get(4).toString());
+						dlbl6.setText(userNumber.get(i).get(5).toString());
+						break;
+					case 4:
+						elbl1.setText(userNumber.get(i).get(0).toString());
+						elbl2.setText(userNumber.get(i).get(1).toString());
+						elbl3.setText(userNumber.get(i).get(2).toString());
+						elbl4.setText(userNumber.get(i).get(3).toString());
+						elbl5.setText(userNumber.get(i).get(4).toString());
+						elbl6.setText(userNumber.get(i).get(5).toString());
+						break;
+					}
+				}
 
-			    글자색깔변경();
+				글자색깔변경();
 			}
 
 		});
 
 		MakeRoom a = new MakeRoom();
-		a.makeLottoNumberNew();
+//		a.makeLottoNumberNew();
 
 		Map<Integer, List<NumberSave>> lottoNumbers = a.getLottoNumber();
 

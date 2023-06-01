@@ -22,7 +22,6 @@ public class MakeRoom {
 
 	int userCount = 1;
 	static int lottoCount = 101;
-
 	int MaxPay = 100000;
 
 	public void makeMachineLotto(int i) {// 로또번호 만드는 곳

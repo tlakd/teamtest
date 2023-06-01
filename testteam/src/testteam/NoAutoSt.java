@@ -26,11 +26,11 @@ public class NoAutoSt extends JFrame {
 
 	public void mainSt() {
 		char a = 'A';
-
 		lbl = new JLabel("총 금액: ");
 		lbl.setBounds(250, 350, 150, 40);
 		lp.add(lbl);
-		for (int i = 0; i < jbt1.length; i++) {
+		for (int i = 0; i < 5; i++) {
+			final int index = i + 1;
 			jbt1[i] = new JButton();
 			jbt1[i].setBounds(25, 30 + (i * 60), 60, 40);
 			jbt1[i].setText(String.valueOf(a));
@@ -52,7 +52,6 @@ public class NoAutoSt extends JFrame {
 			jbt4[i].setText("리셋");
 			lp.add(jbt4[i]);
 
-			final int index = i + 1;
 			jbt1[i].addActionListener(new ActionListener() {// A ~ E
 				@Override
 				public void actionPerformed(ActionEvent e) {

@@ -19,7 +19,6 @@ public class PayNow2 {
 	NoAutoSt n;
 	int nowP;
 	JLabel lblNewLabel;
-	NoAutoSt na;
 
 	/**
 	 * Launch the application.

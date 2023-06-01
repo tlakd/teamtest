@@ -1,22 +1,19 @@
 package testteam;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-<<<<<<< HEAD
 import javax.swing.LayoutStyle.ComponentPlacement;
-=======
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.ImageIcon;
->>>>>>> branch 'master' of https://github.com/tlakd/teamtest.git
 
 public class PayNow {
 
@@ -72,13 +69,10 @@ public class PayNow {
 		btnNewButton.setIcon(new ImageIcon(PayNow.class.getResource("/image/결제하기버튼.jpg")));
 
 		textField = new JTextField();
-<<<<<<< HEAD
 		textField.setColumns(20);
-=======
 		textField.setBounds(56, 127, 308, 30);
 		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
 		textField.setColumns(10);
->>>>>>> branch 'master' of https://github.com/tlakd/teamtest.git
 
 		JLabel lblNewLabel_1 = new JLabel("돈을 넣어주세요.");
 		lblNewLabel_1.setBounds(56, 93, 250, 24);
@@ -106,7 +100,6 @@ public class PayNow {
 				frame.setVisible(false);
 			}
 		});
-<<<<<<< HEAD
 
 		JLabel lblNewLabel_2 = new JLabel("1인당 1회 10만원을 초과할 수 없습니다.");
 
@@ -145,14 +138,12 @@ public class PayNow {
 								.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
 						.addContainerGap(29, Short.MAX_VALUE)));
 		frame.getContentPane().setLayout(groupLayout);
-=======
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(btnNewButton_1);
 		frame.getContentPane().add(btnNewButton);
 		frame.getContentPane().add(lblNewLabel);
 		frame.getContentPane().add(lblNewLabel_1);
 		frame.getContentPane().add(textField);
->>>>>>> branch 'master' of https://github.com/tlakd/teamtest.git
 	}
 
 	public JFrame getFrame() {
