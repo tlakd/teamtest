@@ -65,7 +65,6 @@ public class AutoLottoUser1 {
       textField = new JTextField();
       textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
       textField.setBounds(145, 101, 298, 27);
-      //textField.setText("총금액 : ");
       textField.setColumns(10);
       
       JButton btnNum1 = new JButton("1");
