@@ -46,6 +46,9 @@ public class WinningNumber {
 	private JLabel lblD;
 	private JLabel lblE;
 	private JLabel lblA;
+	private JLabel lblx;
+	private JLabel lbly;
+	private JLabel lblz;
 
 	public String getNumberText() {
 		return numberText;
@@ -206,6 +209,7 @@ public class WinningNumber {
 			}
 
 		}
+        lbly.setText(String.valueOf(userNumber.size()));
 		글자색깔변경();
 	}
 
@@ -726,6 +730,7 @@ public class WinningNumber {
 		                }
 		            }
 		        }
+			
 
 		        글자색깔변경();
 		    }
@@ -739,7 +744,7 @@ public class WinningNumber {
 
 		lbl8 = new JLabel("내 선택 1 번째 번호 :");
 		lbl8.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl8.setBounds(130, 56, 171, 15);
+		lbl8.setBounds(120, 58, 171, 15);
 		frame.getContentPane().add(lbl8);
 
 		albl = new JLabel("");
@@ -981,6 +986,20 @@ public class WinningNumber {
 		lblA.setBounds(71, 77, 27, 15);
 		frame.getContentPane().add(lblA);
 		
+		lblx = new JLabel("총 구매 매수 :");
+		lblx.setBounds(12, 58, 84, 15);
+		frame.getContentPane().add(lblx);
+		
+		lbly = new JLabel("11");
+		lbly.setHorizontalAlignment(SwingConstants.CENTER);
+		lbly.setBounds(87, 58, 22, 15);
+		frame.getContentPane().add(lbly);
+		
+		lblz = new JLabel("개");
+		lblz.setHorizontalAlignment(SwingConstants.CENTER);
+		lblz.setBounds(102, 58, 28, 15);
+		frame.getContentPane().add(lblz);
+		
 		
 		btn3.addActionListener(new ActionListener() {
 			
@@ -1144,7 +1163,7 @@ public class WinningNumber {
 		});
 
 		MakeRoom a = new MakeRoom();
-		a.makeLottoNumberNew(null);
+		a.makeLottoNumberNew();
 
 		Map<Integer, List<NumberSave>> lottoNumbers = a.getLottoNumber();
 

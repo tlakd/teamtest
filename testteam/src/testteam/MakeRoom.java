@@ -108,6 +108,20 @@ public class MakeRoom {
 		selectBox.addItem(lottoCount);
 		a = 0;
 	}
+	
+
+	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는
+		// 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
+		lottoCount++;
+		makeMachineLotto(lottoCount);
+		userCount = 1;
+		MaxPay = 100000;
+		userNumber.clear();
+		autoNotAuto.clear();
+		a = 0;
+	}
+	
+	
 
 	public boolean pay(int i, int j) {// 결제 초안
 		int setCount = userCount - a;
