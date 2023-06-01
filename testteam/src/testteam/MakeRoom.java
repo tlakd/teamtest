@@ -14,6 +14,7 @@ public class MakeRoom {
 	Map<Integer, List<NumberSave>> lottoNumber = new HashMap<>();// 로또 번호 저장
 	Map<Integer, List<NumberSave>> userNumber = new HashMap<>(); // 유저 번호 저장
 	Map<Integer, String> autoNotAuto = new HashMap<>(); // 자동 반자동 수동
+	int a = 0;
 
 	public Map<Integer, List<NumberSave>> getLottoNumber() {
 		return lottoNumber;
@@ -21,7 +22,6 @@ public class MakeRoom {
 
 	int userCount = 1;
 	static int lottoCount = 101;
-
 	int MaxPay = 100000;
 
 	public void makeMachineLotto(int i) {// 로또번호 만드는 곳
@@ -38,7 +38,7 @@ public class MakeRoom {
 	}
 
 	public void makeAutoNumber() {// 사용자의 로또번호 자동생성
-		
+
 		int count = 0;
 		if (!userNumber.containsKey(userCount)) {
 			userNumber.put(userCount, new ArrayList<>());
@@ -58,9 +58,10 @@ public class MakeRoom {
 		}
 		Collections.sort(userNumber.get(userCount));
 		userCount++;
-		
-	
+		WinningNumber win = new WinningNumber();
+		win.자동여러장구매시(userNumber, autoNotAuto);
 	}
+
 	public void exeWin() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -68,26 +69,26 @@ public class MakeRoom {
 					WinningNumber win = new WinningNumber();
 					win.자동여러장구매시(userNumber, autoNotAuto);
 					win.frame.setVisible(true);
-			} catch (Exception e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-	
-		public void exeAut( ) {
-			EventQueue.invokeLater(new Runnable() {
-				public void run() {
-					try {
-						AutomaticNumberVerification window = new AutomaticNumberVerification();
-						window.자동번호출력(userNumber, autoNotAuto);
-						window.frame.setVisible(true);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+
+	public void exeAut() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AutomaticNumberVerification window = new AutomaticNumberVerification();
+					window.자동번호출력(userNumber, autoNotAuto);
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			});
-		}
+			}
+		});
+	}
 
 	public void makeLottoNumber() {// 이때 까지의 로또 1등번호 뽑기 초안 7자리 처음 만들때
 		for (int i = 0; i <= lottoCount; i++) {
@@ -104,10 +105,9 @@ public class MakeRoom {
 		userNumber.clear();
 		autoNotAuto.clear();
 		selectBox.addItem(lottoCount);
-		Manual m = new Manual();
-		m.reset();
-
+		a = 0;
 	}
+	
 
 	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는
 		// 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
@@ -116,19 +116,19 @@ public class MakeRoom {
 		userCount = 1;
 		MaxPay = 100000;
 		userNumber.clear();
-
+		autoNotAuto.clear();
+		a = 0;
 	}
+	
+	
 
 	public boolean pay(int i, int j) {// 결제 초안
-		int a = 0;
 		int setCount = userCount - a;
 		if (MaxPay - i < 0) {
-			System.out.println("10만원");
 			// 10만원 이상 경고문
-			JOptionPane.showMessageDialog(null, "1인 10만원 이상 구매가 불가능 합니다.");
+			JOptionPane.showMessageDialog(null, "1인당 1회 10만원을 초과할 수 없습니다.");
 			return false;
 		} else if (j < i) {
-			System.out.println("돈부족");
 			// 돈이 부족하다는 경고문
 			JOptionPane.showMessageDialog(null, "결제 금액보다 투입금이 부족합니다.");
 			return false;
@@ -137,21 +137,7 @@ public class MakeRoom {
 			a = userCount;
 			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈부분추가
 			return true;
-
 		}
 
-	}
-
-	public void 수동부분() {// 만들어야됨
-		Manual m = new Manual();
-		for (int i = 0; i < m.numSa.size(); i++) {
-			int number = m.numSa.get(i);
-			NumberSave newNumber = new NumberSave(number);
-			userNumber.get(userCount).add(newNumber);
-		}
-		if (m.numSa.size() == 6) {
-			autoNotAuto.put(userCount, "수 동");
-			userCount++;
-		}
 	}
 }

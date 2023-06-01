@@ -58,7 +58,7 @@ public class PayNow {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		lblNewLabel = new JLabel("총 금액 : null");// 글자
+		lblNewLabel = new JLabel("총 금액 : null" );// 글자
 		lblNewLabel.setBounds(56, 46, 308, 37);
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setFont(new Font("HY중고딕", Font.BOLD, 13));
@@ -116,6 +116,6 @@ public class PayNow {
 
 	public void nowPay(int a) {
 		nowP = a;
-		lblNewLabel.setText("총금액: " + nowP + "");
+		lblNewLabel.setText("총금액: " + nowP + "원");
 	}
 }
