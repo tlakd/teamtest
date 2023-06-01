@@ -18,7 +18,7 @@ public class NoAutoSt extends JFrame {
 	JButton[] jbt3 = new JButton[5];// 확인
 	JButton[] jbt4 = new JButton[5];// 리셋
 	JLabel[][] lbl2 = new JLabel[5][6];
-	Manual[] m = new Manual[5];
+	Manual m = new Manual(this);
 	boolean[] payMinus = new boolean[5];
 	JLabel lbl;
 	int pay;
@@ -53,26 +53,25 @@ public class NoAutoSt extends JFrame {
 			lp.add(jbt4[i]);
 
 			final int index = i + 1;
-			m[i] = new Manual(this);
 			jbt1[i].addActionListener(new ActionListener() {// A ~ E
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if (m[index - 1].numSa.get(index) == null) {
-						m[index - 1].numSa.put(index, new ArrayList<>());
+					if (m.numSa.get(index) == null) {
+						m.numSa.put(index, new ArrayList<>());
 					}
-					m[index - 1].makeButton(index);
+					m.makeButton(index);
 				}
 			});
 
-			jbt2[i].addActionListener(new ActionListener() {// 저장
+			jbt2[i].addActionListener(new ActionListener() {// 자동
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if (m[index - 1].numSa.get(index) == null) {
-						m[index - 1].numSa.put(index, new ArrayList<>());
+					if (m.numSa.get(index) == null) {
+						m.numSa.put(index, new ArrayList<>());
 					}
-					m[index - 1].반자동(index);
+					m.반자동(index);
 
-					System.out.println(m[index - 1].numSa.get(index).toString());
+					System.out.println(m.numSa.get(index).toString());
 					setlbl2();
 				}
 			});
@@ -80,7 +79,7 @@ public class NoAutoSt extends JFrame {
 			jbt3[i].addActionListener(new ActionListener() {// 확인
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if (m[index - 1].numSa.get(index) == null || m[index - 1].numSa.get(index).size() < 6) {
+					if (m.numSa.get(index) == null || m.numSa.get(index).size() < 6) {
 						JOptionPane.showMessageDialog(null, "6개의 숫자를 고르지 않았습니다.");
 					} else {
 						pay += 1000;
@@ -94,7 +93,7 @@ public class NoAutoSt extends JFrame {
 			jbt4[i].addActionListener(new ActionListener() {// 리셋
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					m[index - 1].numSa.get(index).clear();
+					m.numSa.get(index).clear();
 					setlbl2();
 					if (payMinus[index - 1]) {
 						pay -= 1000;
@@ -113,10 +112,10 @@ public class NoAutoSt extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < 5; i++) {
 					jbt3[i].setEnabled(true);
-					if (m[i].numSa.get(i + 1) == null) {
+					if (m.numSa.get(i + 1) == null) {
 						continue;
 					} else {
-						m[i].numSa.get(i + 1).clear();
+						m.numSa.get(i + 1).clear();
 					}
 				}
 				setVisible(false);
@@ -146,15 +145,6 @@ public class NoAutoSt extends JFrame {
 				} else {
 					r.getFrame().setVisible(true);
 					r.nowPay(pay);
-					for (int i = 0; i < 5; i++) {
-						jbt3[i].setEnabled(true);
-						if (m[i].numSa.get(i + 1) == null) {
-							continue;
-						} else {
-							m[i].수동부분저장();
-							m[i].numSa.get(i + 1).clear();
-						}
-					}
 				}
 
 			}
@@ -167,13 +157,13 @@ public class NoAutoSt extends JFrame {
 	}
 
 	public void setlbl2() {
-		for (int i = 0; i < m.length; i++) {
-			if (m[i].numSa.get(i + 1) == null) {
+		for (int i = 0; i < 5; i++) {
+			if (m.numSa.get(i + 1) == null) {
 				for (int j = 0; j < lbl2[i].length; j++) {
 					lbl2[i][j].setText("0");
 				}
 			} else {
-				List<NumberSave> numbers = m[i].numSa.get(i + 1);
+				List<NumberSave> numbers = m.numSa.get(i + 1);
 				for (int j = 0; j < numbers.size(); j++) {
 					lbl2[i][j].setText(numbers.get(j).toString());
 				}
@@ -197,6 +187,15 @@ public class NoAutoSt extends JFrame {
 				makeRoom.makeAutoNumber();
 				r.falsePayNow();
 				setVisible(false);
+			}
+		}
+		for (int i = 0; i < 5; i++) {
+			jbt3[i].setEnabled(true);
+			if (m.numSa.get(i + 1) == null) {
+				continue;
+			} else {
+				m.수동부분저장();
+				m.numSa.get(i + 1).clear();
 			}
 		}
 		pay = 0;

@@ -1,6 +1,5 @@
 package testteam;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -123,34 +122,35 @@ public class Manual extends JFrame {
 		numSa.get(MakeNoA).clear();
 	}
 
-	public void 수동부분저장() {// 나중에 한번에 저장
-		if (!m.userNumber.containsKey(m.userCount)) {
-			m.userNumber.put(m.userCount, new ArrayList<>());
-		}
+	public void 수동부분저장() {
+		int userCount = 1; // 사용자 번호 초기화
 		for (int i = 1; i < 6; i++) {
 			if (numSa.get(i) == null) {
 				continue;
-			} else {
-				List<NumberSave> numbers = numSa.get(i);
-				if (numbers != null) {
-					for (NumberSave number : numbers) {
-						m.userNumber.get(m.userCount).add(number);
-					}
+			}
+
+			List<NumberSave> numbers = numSa.get(i);
+			for (NumberSave number : numbers) {
+				if (!m.userNumber.containsKey(userCount)) {
+					m.userNumber.put(userCount, new ArrayList<>());
 				}
-				m.userCount++;
+
+				m.userNumber.get(userCount).add(number);
+
+				// 6개씩 저장하면 새로운 사용자 번호 생성
+				if (m.userNumber.get(userCount).size() == 6) {
+					userCount++;
+				}
 			}
 		}
 
 		// 저장된 값 확인을 위한 출력
-		for (int i = 1; i <= m.userCount; i++) {
-			List<NumberSave> userNumbers = m.userNumber.get(i);
-			if (userNumbers != null) {
-				System.out.print("User " + i + " Numbers: ");
-				for (NumberSave number : userNumbers) {
-					System.out.print(number.getNumber() + " ");
-				}
-				System.out.println();
+		for (int i = 1; i < userCount; i++) {
+			System.out.print("User " + i + " Numbers: ");
+			for (NumberSave number : m.userNumber.get(i)) {
+				System.out.print(number.getNumber() + " ");
 			}
+			System.out.println();
 		}
 	}
 
