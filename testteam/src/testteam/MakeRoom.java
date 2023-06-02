@@ -1,6 +1,7 @@
 package testteam;
 
 import java.awt.EventQueue;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -107,7 +108,6 @@ public class MakeRoom {
 		selectBox.addItem(lottoCount);
 		a = 0;
 	}
-	
 
 	public void makeLottoNumberNew() {// 다음 회차 될때 로또 1등번호 뽑기 초안(로또 다음 회차 생성, 샀던 개수 초기화 살수있는
 		// 값 초기화, 이때 까지 유저가 샀던 기록 초기화)
@@ -119,23 +119,21 @@ public class MakeRoom {
 		autoNotAuto.clear();
 		a = 0;
 	}
-	
-	
 
-	public boolean pay(int i, int j) {// 결제 초안
-		int setCount = userCount - a;
+	public boolean pay(int i, BigInteger j) {// 결제 초안
+		BigInteger o = BigInteger.valueOf(i);
 		if (MaxPay - i < 0) {
 			// 10만원 이상 경고문
 			JOptionPane.showMessageDialog(null, "1인당 1회 10만원을 초과할 수 없습니다.");
 			return false;
-		} else if (j < i) {
+		} else if (j.compareTo(o) == -1) {
 			// 돈이 부족하다는 경고문
 			JOptionPane.showMessageDialog(null, "결제 금액보다 투입금이 부족합니다.");
 			return false;
 		} else {
 			MaxPay = MaxPay - i;
 			a = userCount;
-			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + (j - i) + "원입니다.");// 잔돈부분추가
+			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + j.subtract(o) + "원입니다.");// 잔돈부분추가
 			return true;
 		}
 

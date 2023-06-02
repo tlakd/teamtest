@@ -18,12 +18,13 @@ public class Manual extends JFrame {
 	JButton[] button = new JButton[45];
 	JLayeredPane lp = new JLayeredPane();
 	Map<Integer, List<NumberSave>> numSa = new HashMap<>();
-	Map<Integer, String> userAt = new HashMap<>();
+	Map<Integer, String> userAt = new HashMap<>();// 수동 반자동 자동을 저장
 	MakeRoom m = new MakeRoom();
 	NoAutoSt noA;
 	int number;
 	int MakeNoA;
 	int countAll = 0;
+	int count = 0;
 	AtomicInteger customCount;
 
 	public Manual(NoAutoSt noA) {
@@ -56,6 +57,7 @@ public class Manual extends JFrame {
 				Collections.sort(numSa.get(MakeNoA));
 				noA.setlbl2();
 				customCount.set(0);
+				makeno();
 				setVisible(false);
 			}
 		});
@@ -72,6 +74,7 @@ public class Manual extends JFrame {
 			}
 		});
 		lp.add(jbut2);
+
 		customCount = new AtomicInteger(0);
 		for (int i = 0; i < button.length; i++) {// 숫자 버튼 생성
 			button[i] = new JButton();
@@ -86,26 +89,7 @@ public class Manual extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					JButton source = (JButton) e.getSource();
-					if (numSa.containsKey(MakeNoA)) {
-						if (customCount.get() < 6) {// 6개까지 중복
-							if (!containsNumber(numSa.get(MakeNoA), index)) {
-								NumberSave newNumber = new NumberSave(index);
-								numSa.get(MakeNoA).add(newNumber);
-								customCount.incrementAndGet();
-							} else {
-								performOtherAction(source, index); // 다른 액션 수행
-							}
-						} else if (!containsNumber(numSa.get(MakeNoA), index)) {
-							JOptionPane.showMessageDialog(null, "숫자 6개까지 선택 가능합니다.");
-						} else {
-							performOtherAction(source, index); // 다른 액션 수행
-						}
-					} else {
-						List<NumberSave> numbers = new ArrayList<NumberSave>();
-						NumberSave newNumber = new NumberSave(index);
-						numbers.add(newNumber);
-						numSa.put(MakeNoA, numbers);
-					}
+					수동(source, index);
 				}
 			});
 			lp.add(button[i]);
@@ -117,8 +101,10 @@ public class Manual extends JFrame {
 	}
 
 	private void performOtherAction(JButton source, int a) {
-		List<NumberSave> numbers = numSa.get(m.userCount);
-		numbers.removeIf(number -> number.getNumber() == a);
+		List<NumberSave> numbers = numSa.get(MakeNoA);
+		numbers.removeIf(numberSave -> numberSave.getNumber() == a);
+		count--;
+		customCount.decrementAndGet();
 	}
 
 	public void reset() {
@@ -131,31 +117,17 @@ public class Manual extends JFrame {
 			if (numSa.get(i) == null) {
 				continue;
 			}
-
 			List<NumberSave> numbers = numSa.get(i);
 			for (NumberSave number : numbers) {
 				if (!m.userNumber.containsKey(m.userCount)) {
 					m.userNumber.put(m.userCount, new ArrayList<>());
 				}
-
 				m.userNumber.get(m.userCount).add(number);
-
 				// 6개씩 저장하면 새로운 사용자 번호 생성
 				if (m.userNumber.get(m.userCount).size() == 6) {
 					m.userCount++;
 				}
 			}
-		}
-
-		// 저장된 값 확인을 위한 출력
-		for (int i = 1; i < m.userCount; i++) {
-			System.out.print("User " + i + " Numbers: ");
-			if (m.userNumber.containsKey(i)) {
-				for (NumberSave number : m.userNumber.get(i)) {
-					System.out.print(number.getNumber() + " ");
-				}
-			}
-			System.out.println();
 		}
 	}
 
@@ -178,11 +150,40 @@ public class Manual extends JFrame {
 				countAll++;
 			}
 		}
+		Collections.sort(numSa.get(MakeNoA));
 		if (countAll == 6) {
 			userAt.put(MakeNoA, "자 동");
 		} else if (countAll < 6) {
 			userAt.put(MakeNoA, "반자동");
+		}
+	}
+
+	public void 수동(JButton source, int index) {
+		if (numSa.containsKey(MakeNoA)) {
+			if (customCount.get() < 6) {// 6개까지 중복
+				if (!containsNumber(numSa.get(MakeNoA), index)) {
+					NumberSave newNumber = new NumberSave(index);
+					numSa.get(MakeNoA).add(newNumber);
+					customCount.incrementAndGet();
+					count++;
+				} else {
+					performOtherAction(source, index); // 다른 액션 수행
+				}
+			} else if (!containsNumber(numSa.get(MakeNoA), index)) {
+				JOptionPane.showMessageDialog(null, "숫자 6개까지 선택 가능합니다.");
+			} else {
+				performOtherAction(source, index); // 다른 액션 수행
+			}
 		} else {
+			List<NumberSave> numbers = new ArrayList<NumberSave>();
+			NumberSave newNumber = new NumberSave(index);
+			numbers.add(newNumber);
+			numSa.put(MakeNoA, numbers);
+		}
+	}
+
+	public void makeno() {
+		if (count == 6) {
 			userAt.put(MakeNoA, "수 동");
 		}
 	}
