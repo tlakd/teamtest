@@ -23,7 +23,8 @@ import javax.swing.SwingConstants;
 
 public class PreviousRoundWinningNumber {
   
-  private List<Integer> lottoNumbers; // 로또 번호를 저장할 변수
+	private int selectedNumber; // 선택된 회차
+	private List<Integer> lottoNumbers; // 선택된 회차의 로또 번호
 
 
   private JFrame frame;
@@ -46,8 +47,8 @@ public class PreviousRoundWinningNumber {
     new ImageIcon(url);
     
     JButton btn = new JButton("");
-    btn.setIcon(new ImageIcon("D:\\Java_WookJin\\오늘 작업파일\\이전메뉴크게2.jpg"));
-    btn.setSelectedIcon(new ImageIcon("D:\\Java_WookJin\\오늘 작업파일\\이전메뉴크게2.jpg"));
+    btn.setIcon(new ImageIcon(PreviousRoundWinningNumber.class.getResource("/image/이전메뉴크게2.jpg")));
+    btn.setSelectedIcon(new ImageIcon(PreviousRoundWinningNumber.class.getResource("/image/이전메뉴크게2.jpg")));
     btn.setOpaque(false);
     btn.setContentAreaFilled(false);
     btn.setBorderPainted(false);
@@ -149,31 +150,28 @@ a.makeLottoNumberNew(selectBox);
     Map<Integer, List<Integer>> lottoNumberMap = new HashMap<>(); // 회차별 로또 번호 저장
 
     selectBox.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-
-        int selectedNumber = (int) selectBox.getSelectedItem();
-        lbl4.setText(Integer.toString(selectedNumber));
-        List<Integer> lottoNumbers;
-        if (lottoNumberMap.containsKey(selectedNumber)) {
-          lottoNumbers = lottoNumberMap.get(selectedNumber);
-        } else {
-          lottoNumbers = generateLottoNumbers();
-          lottoNumberMap.put(selectedNumber, lottoNumbers);
+        public void actionPerformed(ActionEvent e) {
+            selectedNumber = (int) selectBox.getSelectedItem();
+            lbl4.setText(Integer.toString(selectedNumber));
+            
+            if (lottoNumberMap.containsKey(selectedNumber)) {
+                lottoNumbers = lottoNumberMap.get(selectedNumber);
+            } else {
+                lottoNumbers = generateLottoNumbers();
+                lottoNumberMap.put(selectedNumber, lottoNumbers);
+            }
+            
+            generateAndSetLottoNumbers();
         }
-        generateAndSetLottoNumbers();
-      
-      }
 
       private void generateAndSetLottoNumbers() {
-    	    List<Integer> numbers = generateLottoNumbers();
-
-    	    lbl5.setText(formatNumber(numbers.get(0)));
-    	    lbl6.setText(formatNumber(numbers.get(1)));
-    	    lbl7.setText(formatNumber(numbers.get(2)));
-    	    lbl8.setText(formatNumber(numbers.get(3)));
-    	    lbl9.setText(formatNumber(numbers.get(4)));
-    	    lbl10.setText(formatNumber(numbers.get(5)));
-    	    lbl11.setText(formatNumber(numbers.get(6)));
+    	    lbl5.setText(formatNumber(lottoNumbers.get(0)));
+    	    lbl6.setText(formatNumber(lottoNumbers.get(1)));
+    	    lbl7.setText(formatNumber(lottoNumbers.get(2)));
+    	    lbl8.setText(formatNumber(lottoNumbers.get(3)));
+    	    lbl9.setText(formatNumber(lottoNumbers.get(4)));
+    	    lbl10.setText(formatNumber(lottoNumbers.get(5)));
+    	    lbl11.setText(formatNumber(lottoNumbers.get(6)));
 
     	    lbl5.setHorizontalAlignment(SwingConstants.CENTER);
     	    lbl6.setHorizontalAlignment(SwingConstants.CENTER);
@@ -183,6 +181,7 @@ a.makeLottoNumberNew(selectBox);
     	    lbl10.setHorizontalAlignment(SwingConstants.CENTER);
     	    lbl11.setHorizontalAlignment(SwingConstants.CENTER);
     	}
+
 
       private String formatNumber(int number) {
           return String.format("%2d", number);
