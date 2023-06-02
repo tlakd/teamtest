@@ -35,7 +35,6 @@ public class Manual extends JFrame {
 		jbut1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				m.수동부분();
 				setVisible(false);
 			}
 		});

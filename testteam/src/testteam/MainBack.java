@@ -1,6 +1,5 @@
+package testteam;
 
-
-import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.net.URL;
 
@@ -9,9 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import testteam.PreviousRoundWinningNumber;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
  
@@ -91,7 +87,6 @@ public class MainBack extends JFrame {
         JButton btnNewButton3 = new JButton("");
         btnNewButton3.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
         	}
         });
         btnNewButton3.setBounds(254, 308, 82, 31);
@@ -115,17 +110,8 @@ public class MainBack extends JFrame {
         JButton btnNewButton4 = new JButton("");
         btnNewButton4.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		EventQueue.invokeLater(new Runnable() {
-        	        public void run() {
-        	          try {
-        	            PreviousRoundWinningNumber window = new PreviousRoundWinningNumber();
-        	            window.frame.setVisible(true);
-        	          } catch (Exception e) {
-        	            e.printStackTrace();
-        	          }
-        	          
-        	        }
-        	      });
+        		PreviousRoundWinningNumber p  = new PreviousRoundWinningNumber();
+        		
         	}
         });
         btnNewButton4.setIcon(icon4);

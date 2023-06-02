@@ -364,11 +364,10 @@ public class AutoLottoUser1 {
             a.falsePayNow();
             frame.setVisible(false);
          }
-         //makeRoom.exeWin();
-         makeRoom.exeAut();
+         makeRoom.exeWin();
+         //makeRoom.exeAut();
          
       }
       
    }
-   
 }

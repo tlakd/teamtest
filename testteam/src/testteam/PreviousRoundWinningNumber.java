@@ -27,7 +27,7 @@ public class PreviousRoundWinningNumber {
 	private List<Integer> lottoNumbers; // 선택된 회차의 로또 번호
 
 
-  private JFrame frame;
+  public JFrame frame;
 
   public PreviousRoundWinningNumber() {
     initialize();
@@ -219,17 +219,7 @@ a.makeLottoNumberNew(selectBox);
   public static void main(String[] args) {
       
       
-      EventQueue.invokeLater(new Runnable() {
-        public void run() {
-          try {
-            PreviousRoundWinningNumber window = new PreviousRoundWinningNumber();
-            window.frame.setVisible(true);
-          } catch (Exception e) {
-            e.printStackTrace();
-          }
-          
-        }
-      });
+      
       
   }
   }

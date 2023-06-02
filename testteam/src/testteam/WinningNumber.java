@@ -19,6 +19,8 @@ import java.util.stream.Collectors;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+
+
 import javax.swing.JTextPane;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -49,6 +51,11 @@ public class WinningNumber {
 	private JLabel lblx;
 	private JLabel lbly;
 	private JLabel lblz;
+	private JLabel lblp2;
+	private JLabel lblp3;
+	private JLabel lblp4;
+	private JLabel lblp5;
+	private JLabel lblp1;
 
 	public String getNumberText() {
 		return numberText;
@@ -260,21 +267,26 @@ public class WinningNumber {
 		switch (colorCountA) {
 		case 3:
 			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
+			lblp1.setText("당첨");
 			break;
 		case 4:
 			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
+			lblp1.setText("당첨");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(albl1.getText()) || nlbl7.getText().equals(albl2.getText())
 					|| nlbl7.getText().equals(albl3.getText()) || nlbl7.getText().equals(albl4.getText())
 					|| nlbl7.getText().equals(albl5.getText()) || nlbl7.getText().equals(albl6.getText())) {
 				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
+				lblp1.setText("당첨");
 			} else {
 				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
+				lblp1.setText("당첨");
 			}
 			break;
 		case 6:
 			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
+			lblp1.setText("당첨");
 			break;
 		}
 
@@ -302,21 +314,26 @@ public class WinningNumber {
 		switch (colorCountB) {
 		case 3:
 			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
+			lblp2.setText("당첨");
 			break;
 		case 4:
 			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
+			lblp2.setText("당첨");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(blbl1.getText()) || nlbl7.getText().equals(blbl2.getText())
 					|| nlbl7.getText().equals(blbl3.getText()) || nlbl7.getText().equals(blbl4.getText())
 					|| nlbl7.getText().equals(blbl5.getText()) || nlbl7.getText().equals(blbl6.getText())) {
 				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
+				lblp2.setText("당첨");
 			} else {
 				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
+				lblp2.setText("당첨");
 			}
 			break;
 		case 6:
 			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
+			lblp2.setText("당첨");
 			break;
 		}
 
@@ -344,21 +361,26 @@ public class WinningNumber {
 		switch (colorCountC) {
 		case 3:
 			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
+			lblp3.setText("당첨");
 			break;
 		case 4:
 			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
+			lblp3.setText("당첨");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(clbl1.getText()) || nlbl7.getText().equals(clbl2.getText())
 					|| nlbl7.getText().equals(clbl3.getText()) || nlbl7.getText().equals(clbl4.getText())
 					|| nlbl7.getText().equals(clbl5.getText()) || nlbl7.getText().equals(clbl6.getText())) {
 				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
+				lblp3.setText("당첨");
 			} else {
 				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
+				lblp3.setText("당첨");
 			}
 			break;
 		case 6:
 			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
+			lblp3.setText("당첨");
 			break;
 		}
 
@@ -386,21 +408,26 @@ public class WinningNumber {
 		switch (colorCountD) {
 		case 3:
 			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
+			lblp4.setText("당첨");
 			break;
 		case 4:
 			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
+			lblp4.setText("당첨");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(dlbl1.getText()) || nlbl7.getText().equals(dlbl2.getText())
 					|| nlbl7.getText().equals(dlbl3.getText()) || nlbl7.getText().equals(dlbl4.getText())
 					|| nlbl7.getText().equals(dlbl5.getText()) || nlbl7.getText().equals(dlbl6.getText())) {
 				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
+				lblp4.setText("당첨");
 			} else {
 				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
+				lblp4.setText("당첨");
 			}
 			break;
 		case 6:
 			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
+			lblp4.setText("당첨");
 			break;
 		}
 
@@ -428,91 +455,146 @@ public class WinningNumber {
 		switch (colorCountE) {
 		case 3:
 			lbl3.setText("경 축 !! 5등 당첨 되었습니다.");
+			lblp5.setText("당첨");
 			break;
 		case 4:
 			lbl3.setText("경 축 !! 4등 당첨 되었습니다.");
+			lblp5.setText("당첨");
 			break;
 		case 5:
 			if (nlbl7.getText().equals(elbl1.getText()) || nlbl7.getText().equals(elbl2.getText())
 					|| nlbl7.getText().equals(elbl3.getText()) || nlbl7.getText().equals(elbl4.getText())
 					|| nlbl7.getText().equals(elbl5.getText()) || nlbl7.getText().equals(elbl6.getText())) {
 				lbl3.setText("경 축 !! 2등 당첨 되었습니다.");
+				lblp5.setText("당첨");
 			} else {
 				lbl3.setText("경 축 !! 3등 당첨 되었습니다.");
+				lblp5.setText("당첨");
 			}
 			break;
 		case 6:
 			lbl3.setText("경 축 !! 1등 당첨 되었습니다.");
+			lblp5.setText("당첨");
 			break;
 		}
 		if (colorCountA < 3 && colorCountB < 3 && colorCountC < 3 && colorCountD < 3 && colorCountE < 3) {
 			lbl3.setText("낙첨 되었습니다.");
 		}
 
-		if (colorCountA == 3 && colorCountB == 3)
+		if (colorCountA == 3 && colorCountB == 3) {
 			lbl3.setText("경 축 !! 5등 두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp2.setText("당첨");
+		}
+		
+		
 
 		else if (colorCountA == 3 && colorCountC == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp3.setText("당첨");
 		}
 		else if (colorCountA == 3 && colorCountD == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp4.setText("당첨");
 		}
 		else if (colorCountA == 3 && colorCountE == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp5.setText("당첨");
 		}
 		else if (colorCountB == 3 && colorCountC == 3) {
 			lbl3.setText("b경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp2.setText("당첨");
+			lblp3.setText("당첨");
 		}
 		else if (colorCountB == 3 && colorCountD == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp2.setText("당첨");
+			lblp4.setText("당첨");
 		}
 		else if (colorCountB == 3 && colorCountE == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp2.setText("당첨");
+			lblp5.setText("당첨");
 		}
 		else if (colorCountC == 3 && colorCountD == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp3.setText("당첨");
+			lblp4.setText("당첨");
 		}
 		else if (colorCountC == 3 && colorCountE == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp3.setText("당첨");
+			lblp5.setText("당첨");
 		}
 		else if (colorCountD == 3 && colorCountE == 3) {
 			lbl3.setText("경 축 !! 5등  두 개 당첨 되었습니다.");
+			lblp4.setText("당첨");
+			lblp5.setText("당첨");
 		}
 
+		
+		
 		else if (colorCountA == 4 && colorCountB == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp2.setText("당첨");
 		}
 		else if (colorCountA == 4 && colorCountC == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp3.setText("당첨");
 		}
 		else if (colorCountA == 4 && colorCountD == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp4.setText("당첨");
 		}
 		else if (colorCountA == 4 && colorCountE == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp5.setText("당첨");
 		}
 		else if (colorCountB == 4 && colorCountC == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp2.setText("당첨");
+			lblp3.setText("당첨");
 		}
 		else if (colorCountB == 4 && colorCountD == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp2.setText("당첨");
+			lblp4.setText("당첨");
 		}
 		else if (colorCountB == 4 && colorCountE == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp2.setText("당첨");
+			lblp5.setText("당첨");
 		}
 		else if (colorCountC == 4 && colorCountD == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp3.setText("당첨");
+			lblp4.setText("당첨");
 		}
 		else if (colorCountC == 4 && colorCountE == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp3.setText("당첨");
+			lblp5.setText("당첨");
 		}
 		else if (colorCountD == 4 && colorCountE == 4) {
 			lbl3.setText("경 축 !! 4등  두 개 당첨 되었습니다.");
+			lblp4.setText("당첨");
+			lblp5.setText("당첨");
 		}
 
-		if (colorCountA == 5 && colorCountB == 5)
+		
+		
+		if (colorCountA == 5 && colorCountB == 5) {
 			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
+			lblp1.setText("당첨");
+			lblp2.setText("당첨");
+		}
 
 		if (colorCountA == 5 && colorCountC == 5) {
 			lbl3.setText("경 축 !! 3등  두 개 당첨 되었습니다.");
@@ -575,13 +657,11 @@ public class WinningNumber {
 		lbl2.setBounds(303, 24, 71, 15);
 		frame.getContentPane().add(lbl2);
 
-		JButton btn1 = new JButton("이전 화면");
+		JButton btn1 = new JButton("메인 화면");
 		btn1.setBounds(0, 208, 98, 43);
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// 메인화면으로 돌아가야함 나중에 바꿔야 함
-				frame.dispose();
-
+				 MainBack mainBack = new MainBack();
 			}
 		});
 		frame.getContentPane().add(btn1);
@@ -620,9 +700,17 @@ public class WinningNumber {
 			                albl4.setText(userNumber.get(i).get(3).toString());
 			                albl5.setText(userNumber.get(i).get(4).toString());
 			                albl6.setText(userNumber.get(i).get(5).toString());
+			                
+			                lblp1.setText("");
+			    			lblp2.setText("");
+			    			lblp3.setText("");
+			    			lblp4.setText("");
+			    			lblp5.setText("");
+			                
 			                if(autoNotAuto.get(i).equals("자 동")) {
 			                albl.setText("자 동");
 			                lblA.setText("A");
+			                
 			                }
 			                break;
 			            case 1:
@@ -632,6 +720,13 @@ public class WinningNumber {
 			                blbl4.setText(userNumber.get(i).get(3).toString());
 			                blbl5.setText(userNumber.get(i).get(4).toString());
 			                blbl6.setText(userNumber.get(i).get(5).toString());
+			                
+			                lblp1.setText("");
+			    			lblp2.setText("");
+			    			lblp3.setText("");
+			    			lblp4.setText("");
+			    			lblp5.setText("");
+			                
 			                if(autoNotAuto.get(i).equals("자 동")) {
 				                blbl.setText("자 동");
 			                lblB.setText("B");
@@ -644,6 +739,13 @@ public class WinningNumber {
 			                clbl4.setText(userNumber.get(i).get(3).toString());
 			                clbl5.setText(userNumber.get(i).get(4).toString());
 			                clbl6.setText(userNumber.get(i).get(5).toString());
+			                
+			                lblp1.setText("");
+			    			lblp2.setText("");
+			    			lblp3.setText("");
+			    			lblp4.setText("");
+			    			lblp5.setText("");
+			                
 			                if(autoNotAuto.get(i).equals("자 동")) {
 				                clbl.setText("자 동");
 			                lblC.setText("C");
@@ -656,6 +758,13 @@ public class WinningNumber {
 			                dlbl4.setText(userNumber.get(i).get(3).toString());
 			                dlbl5.setText(userNumber.get(i).get(4).toString());
 			                dlbl6.setText(userNumber.get(i).get(5).toString());
+			                
+			                lblp1.setText("");
+			    			lblp2.setText("");
+			    			lblp3.setText("");
+			    			lblp4.setText("");
+			    			lblp5.setText("");
+			                
 			                if(autoNotAuto.get(i).equals("자 동")) {
 				                dlbl.setText("자 동");
 			                lblD.setText("D");}
@@ -667,6 +776,13 @@ public class WinningNumber {
 			                elbl4.setText(userNumber.get(i).get(3).toString());
 			                elbl5.setText(userNumber.get(i).get(4).toString());
 			                elbl6.setText(userNumber.get(i).get(5).toString());
+			                
+			                lblp1.setText("");
+			    			lblp2.setText("");
+			    			lblp3.setText("");
+			    			lblp4.setText("");
+			    			lblp5.setText("");
+			                
 			                if(autoNotAuto.get(i).equals("자 동")) {
 				                elbl.setText("자 동");
 			                lblE.setText("E");
@@ -678,6 +794,12 @@ public class WinningNumber {
 		                int index = i % 5;
 		                switch (index) {
 		                    case 0:
+		                    	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 		                        albl1.setText("");
 		                        albl2.setText("");
 		                        albl3.setText("");
@@ -688,6 +810,12 @@ public class WinningNumber {
 		                        lblA.setText("");
 		                        break;
 		                    case 1:
+		                    	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 		                        blbl1.setText("");
 		                        blbl2.setText("");
 		                        blbl3.setText("");
@@ -698,6 +826,12 @@ public class WinningNumber {
 		                        lblB.setText("");
 		                        break;
 		                    case 2:
+		                    	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 		                        clbl1.setText("");
 		                        clbl2.setText("");
 		                        clbl3.setText("");
@@ -708,6 +842,12 @@ public class WinningNumber {
 		                        lblC.setText("");
 		                        break;
 		                    case 3:
+		                    	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 		                        dlbl1.setText("");
 		                        dlbl2.setText("");
 		                        dlbl3.setText("");
@@ -718,6 +858,12 @@ public class WinningNumber {
 		                        lblD.setText("");
 		                        break;
 		                    case 4:
+		                    	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 		                        elbl1.setText("");
 		                        elbl2.setText("");
 		                        elbl3.setText("");
@@ -1000,6 +1146,31 @@ public class WinningNumber {
 		lblz.setBounds(102, 58, 28, 15);
 		frame.getContentPane().add(lblz);
 		
+		lblp2 = new JLabel("  ");
+		lblp2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblp2.setBounds(12, 98, 57, 15);
+		frame.getContentPane().add(lblp2);
+		
+		lblp3 = new JLabel("  ");
+		lblp3.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblp3.setBounds(12, 119, 57, 15);
+		frame.getContentPane().add(lblp3);
+		
+		lblp4 = new JLabel("  ");
+		lblp4.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblp4.setBounds(12, 140, 57, 15);
+		frame.getContentPane().add(lblp4);
+		
+		lblp5 = new JLabel("  ");
+		lblp5.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblp5.setBounds(12, 162, 57, 15);
+		frame.getContentPane().add(lblp5);
+		
+		lblp1 = new JLabel("  ");
+		lblp1.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblp1.setBounds(12, 77, 57, 15);
+		frame.getContentPane().add(lblp1);
+		
 		
 		btn3.addActionListener(new ActionListener() {
 			
@@ -1031,6 +1202,12 @@ public class WinningNumber {
 			            
 			            switch (index) {
 			                case 0:
+			                	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 			                    albl1.setText(userNumber.get(i).get(0).toString());
 			                    albl2.setText(userNumber.get(i).get(1).toString());
 			                    albl3.setText(userNumber.get(i).get(2).toString());
@@ -1043,6 +1220,12 @@ public class WinningNumber {
 			                    }
 			                    break;
 			                case 1:
+			                	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 			                    blbl1.setText(userNumber.get(i).get(0).toString());
 			                    blbl2.setText(userNumber.get(i).get(1).toString());
 			                    blbl3.setText(userNumber.get(i).get(2).toString());
@@ -1054,6 +1237,12 @@ public class WinningNumber {
 			                    	lblB.setText("B");			                    	
 			                    }
 			                    if (count ==1) {
+			                    	lblp1.setText("");
+					    			lblp2.setText("");
+					    			lblp3.setText("");
+					    			lblp4.setText("");
+					    			lblp5.setText("");
+					    			
 			                    	albl1.setText(userNumber.get(1).get(0).toString());
 				                    albl2.setText(userNumber.get(1).get(1).toString());
 				                    albl3.setText(userNumber.get(1).get(2).toString());
@@ -1064,6 +1253,12 @@ public class WinningNumber {
 				                    	albl.setText("자 동");
 				                    	lblA.setText("A");
 				                    }
+				                    lblp1.setText("");
+					    			lblp2.setText("");
+					    			lblp3.setText("");
+					    			lblp4.setText("");
+					    			lblp5.setText("");
+					    			
 				                    blbl1.setText(userNumber.get(2).get(0).toString());
 				                    blbl2.setText(userNumber.get(2).get(1).toString());
 				                    blbl3.setText(userNumber.get(2).get(2).toString());
@@ -1077,6 +1272,12 @@ public class WinningNumber {
 			                    }
 			                    break;
 			                case 2:
+			                	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 			                    clbl1.setText(userNumber.get(i).get(0).toString());
 			                    clbl2.setText(userNumber.get(i).get(1).toString());
 			                    clbl3.setText(userNumber.get(i).get(2).toString());
@@ -1088,6 +1289,12 @@ public class WinningNumber {
 			                    	lblC.setText("C");
 			                    }
 			                    if (count ==1) {
+			                    	lblp1.setText("");
+					    			lblp2.setText("");
+					    			lblp3.setText("");
+					    			lblp4.setText("");
+					    			lblp5.setText("");
+					    			
 				                    clbl1.setText(userNumber.get(3).get(0).toString());
 				                    clbl2.setText(userNumber.get(3).get(1).toString());
 				                    clbl3.setText(userNumber.get(3).get(2).toString());
@@ -1101,6 +1308,12 @@ public class WinningNumber {
 			                    }
 			                    break;
 			                case 3:
+			                	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 			                    dlbl1.setText(userNumber.get(i).get(0).toString());
 			                    dlbl2.setText(userNumber.get(i).get(1).toString());
 			                    dlbl3.setText(userNumber.get(i).get(2).toString());
@@ -1112,6 +1325,12 @@ public class WinningNumber {
 			                    	lblD.setText("D");
 			                    }
 			                    if (count ==1) {
+			                    	lblp1.setText("");
+					    			lblp2.setText("");
+					    			lblp3.setText("");
+					    			lblp4.setText("");
+					    			lblp5.setText("");
+					    			
 				                    dlbl1.setText(userNumber.get(4).get(0).toString());
 				                    dlbl2.setText(userNumber.get(4).get(1).toString());
 				                    dlbl3.setText(userNumber.get(4).get(2).toString());
@@ -1125,6 +1344,12 @@ public class WinningNumber {
 			                    }
 			                    break;
 			                case 4:
+			                	lblp1.setText("");
+				    			lblp2.setText("");
+				    			lblp3.setText("");
+				    			lblp4.setText("");
+				    			lblp5.setText("");
+				    			
 			                    elbl1.setText(userNumber.get(i).get(0).toString());
 			                    elbl2.setText(userNumber.get(i).get(1).toString());
 			                    elbl3.setText(userNumber.get(i).get(2).toString());
@@ -1136,6 +1361,12 @@ public class WinningNumber {
 			                    	lblE.setText("E");
 			                    }
 			                    if (count ==1) {
+			                    	lblp1.setText("");
+					    			lblp2.setText("");
+					    			lblp3.setText("");
+					    			lblp4.setText("");
+					    			lblp5.setText("");
+					    			
 				                    elbl1.setText(userNumber.get(5).get(0).toString());
 				                    elbl2.setText(userNumber.get(5).get(1).toString());
 				                    elbl3.setText(userNumber.get(5).get(2).toString());
