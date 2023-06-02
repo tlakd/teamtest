@@ -1,19 +1,17 @@
 package testteam;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigInteger;
 
-import javax.swing.JFrame;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTextField;
-import java.awt.Font;
-import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class PayNow {
 
@@ -22,6 +20,7 @@ public class PayNow {
 	AutoLottoUser1 auto;
 	int nowP;
 	JLabel lblNewLabel;
+	NoAutoSt na;
 
 	/**
 	 * Launch the application.
@@ -58,7 +57,7 @@ public class PayNow {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		lblNewLabel = new JLabel("총 금액 : null" );// 글자
+		lblNewLabel = new JLabel("총 금액 : null");// 글자
 		lblNewLabel.setBounds(56, 46, 308, 37);
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setFont(new Font("HY중고딕", Font.BOLD, 13));
@@ -67,7 +66,27 @@ public class PayNow {
 		btnNewButton.setBounds(288, 194, 77, 29);
 		btnNewButton.setIcon(new ImageIcon(PayNow.class.getResource("/image/결제하기버튼.jpg")));
 
+		lblNewLabel = new JLabel("총 금액 : null");// 글자
+		lblNewLabel.setBounds(56, 46, 308, 37);
+		lblNewLabel.setForeground(Color.DARK_GRAY);
+		lblNewLabel.setFont(new Font("HY중고딕", Font.BOLD, 13));
 		textField = new JTextField();
+		textField.setColumns(20);
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField.setColumns(10);
+		textField = new JTextField();
+		textField.setColumns(20);
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField.setColumns(10);
+		textField = new JTextField();
+		textField.setColumns(20);
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField.setColumns(10);
+		textField = new JTextField();
+		textField.setColumns(20);
 		textField.setBounds(56, 127, 308, 30);
 		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
 		textField.setColumns(10);
@@ -77,11 +96,17 @@ public class PayNow {
 		lblNewLabel_1.setForeground(Color.DARK_GRAY);
 		lblNewLabel_1.setFont(new Font("HY중고딕", Font.BOLD, 13));
 
+		textField = new JTextField();
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField.setColumns(10);
+
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					auto.PayGo(Integer.valueOf(textField.getText()));
+					BigInteger a = new BigInteger(textField.getText());
+					auto.PayGo(a);
 				} catch (Exception o) {
 					lblNewLabel_1.setText("정수를 입력해 주세요.");
 				}
