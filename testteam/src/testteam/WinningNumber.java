@@ -26,6 +26,8 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JScrollBar;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class WinningNumber {
 	JFrame frame;
@@ -645,20 +647,25 @@ public class WinningNumber {
 	private void initialize() {
 
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 510, 562);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lbl1 = new JLabel("1등 당첨 번호:");
-		lbl1.setBounds(39, 24, 84, 15);
+		JLabel lbl1 = new JLabel("당첨 번호");
+		lbl1.setFont(new Font("HY견고딕", Font.BOLD, 17));
+		lbl1.setBounds(39, 248, 84, 24);
 		frame.getContentPane().add(lbl1);
 
-		JLabel lbl2 = new JLabel("보너스 번호:");
-		lbl2.setBounds(303, 24, 71, 15);
+		JLabel lbl2 = new JLabel("+");
+		lbl2.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl2.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		lbl2.setBounds(370, 248, 35, 25);
 		frame.getContentPane().add(lbl2);
 
-		JButton btn1 = new JButton("메인 화면");
-		btn1.setBounds(0, 208, 98, 43);
+		JButton btn1 = new JButton("");
+		btn1.setIcon(new ImageIcon(WinningNumber.class.getResource("/image/홈버튼.jpg")));
+		btn1.setSelectedIcon(new ImageIcon(WinningNumber.class.getResource("/image/홈버튼.jpg")));
+		btn1.setBounds(8, 7, 48, 43);
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 MainBack mainBack = new MainBack();
@@ -666,8 +673,10 @@ public class WinningNumber {
 		});
 		frame.getContentPane().add(btn1);
 
-		btn2 = new JButton("다음 번호");
-		btn2.setBounds(268, 208, 85, 43);
+		btn2 = new JButton("");
+		btn2.setSelectedIcon(new ImageIcon(WinningNumber.class.getResource("/image/다음5.jpg")));
+		btn2.setIcon(new ImageIcon(WinningNumber.class.getResource("/image/다음5.jpg")));
+		btn2.setBounds(432, 481, 50, 36);
 
 		btn2.addActionListener(new ActionListener() {
 
@@ -883,293 +892,359 @@ public class WinningNumber {
 		});
 		frame.getContentPane().add(btn2);
 
-		lbl3 = new JLabel("11");
+		lbl3 = new JLabel("당첨 유무");
+		lbl3.setFont(new Font("HY견고딕", Font.BOLD, 23));
 		lbl3.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl3.setBounds(71, 187, 303, 15);
+		lbl3.setBounds(93, 81, 303, 36);
 		frame.getContentPane().add(lbl3);
 
-		lbl8 = new JLabel("내 선택 1 번째 번호 :");
+		lbl8 = new JLabel("내 선택 1 번째 번호");
+		lbl8.setFont(new Font("HY견고딕", Font.PLAIN, 17));
 		lbl8.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl8.setBounds(120, 58, 171, 15);
+		lbl8.setBounds(154, 488, 186, 21);
 		frame.getContentPane().add(lbl8);
 
-		albl = new JLabel("");
+		albl = new JLabel("자동");
+		albl.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		albl.setHorizontalAlignment(SwingConstants.CENTER);
-		albl.setBounds(102, 77, 40, 15);
+		albl.setBounds(119, 312, 40, 15);
 		frame.getContentPane().add(albl);
 
-		blbl = new JLabel("");
+		blbl = new JLabel("자동");
+		blbl.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		blbl.setHorizontalAlignment(SwingConstants.CENTER);
-		blbl.setBounds(102, 98, 40, 15);
+		blbl.setBounds(119, 348, 40, 15);
 		frame.getContentPane().add(blbl);
 
-		clbl = new JLabel("");
+		clbl = new JLabel("자동");
+		clbl.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		clbl.setHorizontalAlignment(SwingConstants.CENTER);
-		clbl.setBounds(102, 119, 40, 15);
+		clbl.setBounds(119, 380, 40, 15);
 		frame.getContentPane().add(clbl);
 
-		dlbl = new JLabel("");
+		dlbl = new JLabel("자동");
+		dlbl.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		dlbl.setHorizontalAlignment(SwingConstants.CENTER);
-		dlbl.setBounds(102, 140, 40, 15);
+		dlbl.setBounds(119, 416, 40, 15);
 		frame.getContentPane().add(dlbl);
 
-		elbl = new JLabel("");
+		elbl = new JLabel("자동");
+		elbl.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		elbl.setHorizontalAlignment(SwingConstants.CENTER);
-		elbl.setBounds(102, 159, 40, 15);
+		elbl.setBounds(119, 451, 40, 15);
 		frame.getContentPane().add(elbl);
 
-		this.albl1 = new JLabel("  ");
-		albl1.setBounds(154, 77, 22, 15);
+		this.albl1 = new JLabel("1");
+		albl1.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		albl1.setBounds(170, 308, 35, 25);
 		albl1.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(albl1);
 
-		albl2 = new JLabel("  ");
-		albl2.setBounds(183, 77, 22, 15);
+		albl2 = new JLabel("2");
+		albl2.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		albl2.setBounds(220, 308, 35, 25);
 		albl2.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(albl2);
 
-		albl3 = new JLabel("  ");
-		albl3.setBounds(210, 77, 22, 15);
+		albl3 = new JLabel("3");
+		albl3.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		albl3.setBounds(270, 308, 35, 25);
 		albl3.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(albl3);
 
-		albl4 = new JLabel("  ");
-		albl4.setBounds(240, 77, 22, 15);
+		albl4 = new JLabel("4");
+		albl4.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		albl4.setBounds(320, 308, 35, 25);
 		albl4.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(albl4);
 
-		albl5 = new JLabel("  ");
-		albl5.setBounds(268, 77, 23, 15);
+		albl5 = new JLabel("5");
+		albl5.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		albl5.setBounds(370, 308, 35, 25);
 		albl5.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(albl5);
 
-		albl6 = new JLabel("  ");
-		albl6.setBounds(303, 77, 22, 15);
+		albl6 = new JLabel("6");
+		albl6.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		albl6.setBounds(420, 308, 35, 25);
 		albl6.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(albl6);
 
-		blbl1 = new JLabel("  ");
-		blbl1.setBounds(154, 98, 22, 15);
+		blbl1 = new JLabel("1");
+		blbl1.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		blbl1.setBounds(170, 345, 35, 25);
 		blbl1.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(blbl1);
 
-		blbl2 = new JLabel("  ");
-		blbl2.setBounds(183, 98, 22, 15);
+		blbl2 = new JLabel("2");
+		blbl2.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		blbl2.setBounds(220, 345, 35, 25);
 		blbl2.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(blbl2);
 
-		blbl3 = new JLabel("  ");
-		blbl3.setBounds(210, 98, 22, 15);
+		blbl3 = new JLabel("3");
+		blbl3.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		blbl3.setBounds(270, 345, 35, 25);
 		blbl3.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(blbl3);
 
-		blbl4 = new JLabel("  ");
-		blbl4.setBounds(240, 98, 22, 15);
+		blbl4 = new JLabel("4");
+		blbl4.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		blbl4.setBounds(320, 345, 35, 25);
 		blbl4.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(blbl4);
 
-		blbl5 = new JLabel("  ");
-		blbl5.setBounds(268, 98, 23, 15);
+		blbl5 = new JLabel("5");
+		blbl5.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		blbl5.setBounds(370, 345, 35, 25);
 		blbl5.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(blbl5);
 
-		blbl6 = new JLabel("  ");
-		blbl6.setBounds(303, 98, 22, 15);
+		blbl6 = new JLabel("6");
+		blbl6.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		blbl6.setBounds(420, 345, 35, 25);
 		blbl6.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(blbl6);
 
-		nlbl1 = new JLabel("11");
-		nlbl1.setBounds(130, 24, 22, 15);
+		nlbl1 = new JLabel("1");
+		nlbl1.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		nlbl1.setBounds(130, 248, 35, 25);
 		nlbl1.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(nlbl1);
 
-		nlbl2 = new JLabel("11");
-		nlbl2.setBounds(154, 24, 22, 15);
+		nlbl2 = new JLabel("2");
+		nlbl2.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		nlbl2.setBounds(170, 248, 35, 25);
 		nlbl2.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(nlbl2);
 
-		nlbl3 = new JLabel("11");
-		nlbl3.setBounds(176, 24, 22, 15);
+		nlbl3 = new JLabel("3");
+		nlbl3.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		nlbl3.setBounds(210, 248, 35, 25);
 		nlbl3.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(nlbl3);
 
-		nlbl4 = new JLabel("11");
-		nlbl4.setBounds(196, 24, 22, 15);
+		nlbl4 = new JLabel("4");
+		nlbl4.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		nlbl4.setBounds(250, 248, 35, 25);
 		nlbl4.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(nlbl4);
 
-		nlbl5 = new JLabel("11");
-		nlbl5.setBounds(214, 24, 22, 15);
+		nlbl5 = new JLabel("5");
+		nlbl5.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		nlbl5.setBounds(290, 248, 35, 25);
 		nlbl5.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(nlbl5);
 
-		nlbl6 = new JLabel("11");
-		nlbl6.setBounds(240, 24, 22, 15);
+		nlbl6 = new JLabel("6");
+		nlbl6.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		nlbl6.setBounds(330, 248, 35, 25);
 		nlbl6.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(nlbl6);
 
-		nlbl7 = new JLabel("11");
-		nlbl7.setBounds(380, 24, 28, 15);
+		nlbl7 = new JLabel("7");
+		nlbl7.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		nlbl7.setBounds(410, 248, 35, 25);
 		nlbl7.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(nlbl7);
 
-		clbl1 = new JLabel("  ");
-		clbl1.setBounds(154, 119, 22, 15);
+		clbl1 = new JLabel("1");
+		clbl1.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		clbl1.setBounds(170, 378, 35, 25);
 		clbl1.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(clbl1);
 
-		clbl2 = new JLabel("  ");
-		clbl2.setBounds(185, 119, 20, 15);
+		clbl2 = new JLabel("2");
+		clbl2.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		clbl2.setBounds(220, 378, 35, 25);
 		clbl2.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(clbl2);
 
-		clbl3 = new JLabel("  ");
+		clbl3 = new JLabel("3");
+		clbl3.setFont(new Font("HY견고딕", Font.PLAIN, 17));
 		clbl3.setHorizontalAlignment(SwingConstants.CENTER);
-		clbl3.setBounds(210, 119, 22, 15);
+		clbl3.setBounds(270, 378, 35, 25);
 		frame.getContentPane().add(clbl3);
 
-		clbl4 = new JLabel("  ");
+		clbl4 = new JLabel("4");
+		clbl4.setFont(new Font("HY견고딕", Font.PLAIN, 17));
 		clbl4.setHorizontalAlignment(SwingConstants.CENTER);
-		clbl4.setBounds(240, 119, 22, 15);
+		clbl4.setBounds(320, 378, 35, 25);
 		frame.getContentPane().add(clbl4);
 
-		clbl5 = new JLabel("  ");
+		clbl5 = new JLabel("5");
+		clbl5.setFont(new Font("HY견고딕", Font.PLAIN, 17));
 		clbl5.setHorizontalAlignment(SwingConstants.CENTER);
-		clbl5.setBounds(268, 119, 23, 15);
+		clbl5.setBounds(370, 378, 35, 25);
 		frame.getContentPane().add(clbl5);
 
-		clbl6 = new JLabel("  ");
-		clbl6.setBounds(303, 119, 22, 15);
+		clbl6 = new JLabel("6");
+		clbl6.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		clbl6.setBounds(420, 378, 35, 25);
 		clbl6.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(clbl6);
 
-		dlbl1 = new JLabel("  ");
-		dlbl1.setBounds(154, 140, 22, 15);
+		dlbl1 = new JLabel("1");
+		dlbl1.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		dlbl1.setBounds(170, 413, 35, 25);
 		dlbl1.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(dlbl1);
 
-		dlbl2 = new JLabel("  ");
-		dlbl2.setBounds(185, 140, 20, 15);
+		dlbl2 = new JLabel("2");
+		dlbl2.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		dlbl2.setBounds(220, 413, 35, 25);
 		dlbl2.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(dlbl2);
 
-		dlbl3 = new JLabel("  ");
-		dlbl3.setBounds(210, 140, 22, 15);
+		dlbl3 = new JLabel("3");
+		dlbl3.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		dlbl3.setBounds(270, 413, 35, 25);
 		dlbl3.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(dlbl3);
 
-		dlbl4 = new JLabel("  ");
-		dlbl4.setBounds(240, 140, 22, 15);
+		dlbl4 = new JLabel("4");
+		dlbl4.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		dlbl4.setBounds(320, 413, 35, 25);
 		dlbl4.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(dlbl4);
 
-		dlbl5 = new JLabel("  ");
-		dlbl5.setBounds(268, 140, 23, 15);
+		dlbl5 = new JLabel("5");
+		dlbl5.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		dlbl5.setBounds(370, 413, 35, 25);
 		dlbl5.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(dlbl5);
 
-		dlbl6 = new JLabel("  ");
-		dlbl6.setBounds(303, 140, 22, 15);
+		dlbl6 = new JLabel("6");
+		dlbl6.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		dlbl6.setBounds(420, 413, 35, 25);
 		dlbl6.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(dlbl6);
 
-		elbl1 = new JLabel("  ");
-		elbl1.setBounds(154, 159, 22, 15);
+		elbl1 = new JLabel("1");
+		elbl1.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		elbl1.setBounds(170, 448, 35, 25);
 		elbl1.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(elbl1);
 
-		elbl2 = new JLabel("  ");
-		elbl2.setBounds(185, 159, 20, 15);
+		elbl2 = new JLabel("2");
+		elbl2.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		elbl2.setBounds(220, 448, 35, 25);
 		elbl2.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(elbl2);
 
-		elbl3 = new JLabel("  ");
-		elbl3.setBounds(210, 159, 22, 15);
+		elbl3 = new JLabel("3");
+		elbl3.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		elbl3.setBounds(270, 448, 35, 25);
 		elbl3.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(elbl3);
 
-		elbl4 = new JLabel("  ");
-		elbl4.setBounds(240, 159, 22, 15);
+		elbl4 = new JLabel("4");
+		elbl4.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		elbl4.setBounds(320, 448, 35, 25);
 		elbl4.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(elbl4);
 
-		elbl5 = new JLabel("  ");
-		elbl5.setBounds(268, 159, 23, 15);
+		elbl5 = new JLabel("5");
+		elbl5.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		elbl5.setBounds(370, 448, 35, 25);
 		elbl5.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(elbl5);
 
-		elbl6 = new JLabel("  ");
-		elbl6.setBounds(303, 159, 22, 15);
+		elbl6 = new JLabel("6");
+		elbl6.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		elbl6.setBounds(420, 448, 35, 25);
 		elbl6.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(elbl6);
 		
-		JButton btn3 = new JButton("이전 번호");
-		btn3.setBounds(136, 205, 96, 49);
+		JButton btn3 = new JButton("");
+		btn3.setSelectedIcon(new ImageIcon(WinningNumber.class.getResource("/image/이전5.jpg")));
+		btn3.setIcon(new ImageIcon(WinningNumber.class.getResource("/image/이전5.jpg")));
+		btn3.setBounds(15, 481, 50, 36);
 		frame.getContentPane().add(btn3);
 		
-		lblB = new JLabel("");
+		lblB = new JLabel("B");
+		lblB.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		lblB.setHorizontalAlignment(SwingConstants.CENTER);
-		lblB.setBounds(71, 98, 27, 15);
+		lblB.setBounds(87, 348, 28, 15);
 		frame.getContentPane().add(lblB);
 		
-		lblC = new JLabel("");
+		lblC = new JLabel("C");
+		lblC.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		lblC.setHorizontalAlignment(SwingConstants.CENTER);
-		lblC.setBounds(71, 119, 27, 15);
+		lblC.setBounds(87, 380, 28, 15);
 		frame.getContentPane().add(lblC);
 		
-		lblD = new JLabel("");
+		lblD = new JLabel("D");
+		lblD.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		lblD.setHorizontalAlignment(SwingConstants.CENTER);
-		lblD.setBounds(71, 140, 27, 15);
+		lblD.setBounds(87, 416, 28, 15);
 		frame.getContentPane().add(lblD);
 		
-		lblE = new JLabel("");
+		lblE = new JLabel("E");
+		lblE.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		lblE.setHorizontalAlignment(SwingConstants.CENTER);
-		lblE.setBounds(71, 162, 28, 15);
+		lblE.setBounds(88, 450, 28, 15);
 		frame.getContentPane().add(lblE);
 		
-		lblA = new JLabel("");
+		lblA = new JLabel("A");
+		lblA.setFont(new Font("HY견고딕", Font.PLAIN, 15));
 		lblA.setHorizontalAlignment(SwingConstants.CENTER);
-		lblA.setBounds(71, 77, 27, 15);
+		lblA.setBounds(87, 312, 28, 15);
 		frame.getContentPane().add(lblA);
 		
 		lblx = new JLabel("총 구매 매수 :");
-		lblx.setBounds(12, 58, 84, 15);
+		lblx.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblx.setFont(new Font("HY견고딕", Font.PLAIN, 17));
+		lblx.setBounds(159, 174, 109, 25);
 		frame.getContentPane().add(lblx);
 		
 		lbly = new JLabel("11");
+		lbly.setFont(new Font("HY견고딕", Font.PLAIN, 17));
 		lbly.setHorizontalAlignment(SwingConstants.CENTER);
-		lbly.setBounds(87, 58, 22, 15);
+		lbly.setBounds(278, 174, 35, 25);
 		frame.getContentPane().add(lbly);
 		
 		lblz = new JLabel("개");
+		lblz.setFont(new Font("HY견고딕", Font.PLAIN, 17));
 		lblz.setHorizontalAlignment(SwingConstants.CENTER);
-		lblz.setBounds(102, 58, 28, 15);
+		lblz.setBounds(309, 174, 35, 25);
 		frame.getContentPane().add(lblz);
 		
-		lblp2 = new JLabel("  ");
-		lblp2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblp2.setBounds(12, 98, 57, 15);
+		lblp2 = new JLabel("당첨");
+		lblp2.setFont(new Font("HY견고딕", Font.PLAIN, 15));
+		lblp2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblp2.setBounds(28, 343, 35, 25);
 		frame.getContentPane().add(lblp2);
 		
-		lblp3 = new JLabel("  ");
-		lblp3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblp3.setBounds(12, 119, 57, 15);
+		lblp3 = new JLabel("당첨");
+		lblp3.setFont(new Font("HY견고딕", Font.PLAIN, 15));
+		lblp3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblp3.setBounds(28, 377, 35, 25);
 		frame.getContentPane().add(lblp3);
 		
-		lblp4 = new JLabel("  ");
-		lblp4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblp4.setBounds(12, 140, 57, 15);
+		lblp4 = new JLabel("당첨");
+		lblp4.setFont(new Font("HY견고딕", Font.PLAIN, 15));
+		lblp4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblp4.setBounds(28, 410, 35, 25);
 		frame.getContentPane().add(lblp4);
 		
-		lblp5 = new JLabel("  ");
-		lblp5.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblp5.setBounds(12, 162, 57, 15);
+		lblp5 = new JLabel("당첨");
+		lblp5.setFont(new Font("HY견고딕", Font.PLAIN, 15));
+		lblp5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblp5.setBounds(28, 445, 35, 25);
 		frame.getContentPane().add(lblp5);
 		
-		lblp1 = new JLabel("  ");
-		lblp1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblp1.setBounds(12, 77, 57, 15);
+		lblp1 = new JLabel("당첨");
+		lblp1.setFont(new Font("HY견고딕", Font.PLAIN, 15));
+		lblp1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblp1.setBounds(28, 309, 35, 25);
 		frame.getContentPane().add(lblp1);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setFont(new Font("HY견고딕", Font.PLAIN, 13));
+		lblNewLabel.setIcon(new ImageIcon(WinningNumber.class.getResource("/image/로또 당첨 배경만4.jpg")));
+		lblNewLabel.setBounds(-1, -23, 500, 573);
+		frame.getContentPane().add(lblNewLabel);
 		
 		
 		btn3.addActionListener(new ActionListener() {
