@@ -124,16 +124,16 @@ public class MakeRoom {
 		BigInteger o = BigInteger.valueOf(i);
 		if (MaxPay - i < 0) {
 			// 10만원 이상 경고문
-			JOptionPane.showMessageDialog(null, "1인당 1회 10만원을 초과할 수 없습니다.");
+			JOptionPane.showMessageDialog(null, "1인당 1회 10만원을 초과할 수 없습니다.", "경고", JOptionPane.WARNING_MESSAGE);
 			return false;
 		} else if (j.compareTo(o) == -1) {
 			// 돈이 부족하다는 경고문
-			JOptionPane.showMessageDialog(null, "결제 금액보다 투입금이 부족합니다.");
+			JOptionPane.showMessageDialog(null, "결제 금액보다 투입금이 부족합니다.", "경고", JOptionPane.WARNING_MESSAGE);
 			return false;
 		} else {
 			MaxPay = MaxPay - i;
 			a = userCount;
-			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + j.subtract(o) + "원입니다.");// 잔돈부분추가
+			JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.\n거스름돈은: " + j.subtract(o) + "원입니다.");
 			return true;
 		}
 

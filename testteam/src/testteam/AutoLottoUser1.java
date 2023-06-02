@@ -316,9 +316,9 @@ public class AutoLottoUser1 {
 			public void actionPerformed(ActionEvent e) {
 				pay = Integer.valueOf(sum) * sum2;
 				if (pay == 0) {
-					JOptionPane.showMessageDialog(null, "원이나 장수가 0입니다. 다시입력해주세요.");
+					JOptionPane.showMessageDialog(null, "원이나 장수가 0입니다. 다시입력해주세요.", "경고", JOptionPane.WARNING_MESSAGE);
 				} else if (pay > 100000) {
-					JOptionPane.showMessageDialog(null, "1인당 1회 10만원을 초과할 수 없습니다.");
+					JOptionPane.showMessageDialog(null, "1인당 1회 10만원을 초과할 수 없습니다.", "경고", JOptionPane.WARNING_MESSAGE);
 				} else {
 					a.getFrame().setVisible(true);
 					a.nowPay(pay);
