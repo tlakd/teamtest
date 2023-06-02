@@ -14,11 +14,14 @@ import testteam.PreviousRoundWinningNumber;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
- 
+import testteam.NoAutoSt;
+import testteam.AutoLottoUser1;
+
 public class MainBack extends JFrame {
     JScrollPane scrollPane;
     ImageIcon icon;
- 
+    
+    
     public MainBack() {
     	URL urlback = MainBack.class.getResource("메인화면2.jpg");
         icon = new ImageIcon(urlback);
@@ -38,6 +41,8 @@ public class MainBack extends JFrame {
      // 선택번호 액션리스너
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
+        		NoAutoSt n = new NoAutoSt();
+        		n.mainSt();
         	}
         });
         btnNewButton.setBounds(44, 308, 82, 33);
@@ -68,6 +73,8 @@ public class MainBack extends JFrame {
      // 추첨번호 엑션 리스너
         btnNewButton2.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		AutoLottoUser1 window = new AutoLottoUser1();
+				window.frame.setVisible(true);
         	}
         });
         btnNewButton2.setBounds(150, 308, 82, 31);

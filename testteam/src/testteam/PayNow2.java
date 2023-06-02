@@ -13,11 +13,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class PayNow {
+public class PayNow2 {
 
 	private JFrame frame;
 	private JTextField textField;
-	AutoLottoUser1 auto;
+	NoAutoSt n;
 	int nowP;
 	JLabel lblNewLabel;
 	NoAutoSt na;
@@ -29,7 +29,7 @@ public class PayNow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PayNow window = new PayNow(null);
+					PayNow2 window = new PayNow2(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,8 +41,8 @@ public class PayNow {
 	/**
 	 * Create the application.
 	 */
-	public PayNow(AutoLottoUser1 auto) {
-		this.auto = auto;
+	public PayNow2(NoAutoSt n) {
+		this.n = n;
 		initialize();
 	}
 
@@ -64,7 +64,7 @@ public class PayNow {
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBounds(288, 194, 77, 29);
-		btnNewButton.setIcon(new ImageIcon(PayNow.class.getResource("/image/결제하기버튼.jpg")));
+		btnNewButton.setIcon(new ImageIcon(PayNow2.class.getResource("/image/결제하기버튼.jpg")));
 
 		lblNewLabel = new JLabel("총 금액 : null");// 글자
 		lblNewLabel.setBounds(56, 46, 308, 37);
@@ -106,7 +106,7 @@ public class PayNow {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					BigInteger a = new BigInteger(textField.getText());
-					auto.PayGo(a);
+					n.PayGo(a);
 				} catch (Exception o) {
 					lblNewLabel_1.setText("정수를 입력해 주세요.");
 				}
@@ -115,8 +115,8 @@ public class PayNow {
 
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.setBounds(56, 194, 77, 29);
-		btnNewButton_1.setIcon(new ImageIcon(PayNow.class.getResource("/image/뒤로가기1.jpg")));
-		btnNewButton_1.setSelectedIcon(new ImageIcon(PayNow.class.getResource("/image/뒤로가기1.jpg")));
+		btnNewButton_1.setIcon(new ImageIcon(PayNow2.class.getResource("/image/뒤로가기1.jpg")));
+		btnNewButton_1.setSelectedIcon(new ImageIcon(PayNow2.class.getResource("/image/뒤로가기1.jpg")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

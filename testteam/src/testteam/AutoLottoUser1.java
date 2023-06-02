@@ -1,25 +1,26 @@
 package testteam;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigInteger;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import java.awt.Font;
 
 public class AutoLottoUser1 {
-   private JFrame frame;
+   public JFrame frame;
    private JTextField textField;
    private String sum = "0";
    private int sum2 = 0;
    private int pay = Integer.valueOf(sum) * sum2;
    PayNow a = new PayNow(this);
-   
 
    /**
     * Launch the application.
@@ -50,19 +51,19 @@ public class AutoLottoUser1 {
    private void initialize() {
       frame = new JFrame();
       frame.setTitle("로또 구매하기 메뉴");
-      
+
       URL url = AutoLottoUser1.class.getClassLoader().getResource("금액계산기 수정 배경.jpg");
-       new ImageIcon(url);
-      
+      new ImageIcon(url);
+
       frame.setBounds(100, 100, 511, 416);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
       textField = new JTextField();
       textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
       textField.setBounds(145, 101, 298, 27);
-      //textField.setText("총금액 : ");
+      // textField.setText("총금액 : ");
       textField.setColumns(10);
-      
+
       JButton btnNum1 = new JButton("1");
       btnNum1.setFont(new Font("굴림", Font.BOLD, 0));
       btnNum1.setIcon(new ImageIcon(AutoLottoUser1.class.getResource("/image/1번.jpg")));
@@ -142,7 +143,6 @@ public class AutoLottoUser1 {
       btnNum0.setBounds(310, 325, 49, 31);
       btnNum0.setOpaque(false);
       btnNum0.setBorderPainted(false);
-      
 
       JButton btnNum1000 = new JButton("");
       btnNum1000.setIcon(new ImageIcon(AutoLottoUser1.class.getResource("/image/1000원.jpg")));
@@ -315,9 +315,14 @@ public class AutoLottoUser1 {
          @Override
          public void actionPerformed(ActionEvent e) {
             pay = Integer.valueOf(sum) * sum2;
-            a.getFrame().setVisible(true);
-            a.nowPay(pay);
-
+            if (pay == 0) {
+               JOptionPane.showMessageDialog(null, "원이나 장수가 0입니다. 다시입력해주세요.", "경고", JOptionPane.WARNING_MESSAGE);
+            } else if (pay > 100000) {
+               JOptionPane.showMessageDialog(null, "1인당 1회 10만원을 초과할 수 없습니다.", "경고", JOptionPane.WARNING_MESSAGE);
+            } else {
+               a.getFrame().setVisible(true);
+               a.nowPay(pay);
+            }
          }
       });
       frame.getContentPane().setLayout(null);
@@ -339,7 +344,7 @@ public class AutoLottoUser1 {
       frame.getContentPane().add(btnNum3000);
       frame.getContentPane().add(btnNum2000);
       frame.getContentPane().add(btnNum1000);
-      
+
       JLabel lblNewLabel_1 = new JLabel("New label");
       lblNewLabel_1.setIcon(new ImageIcon(AutoLottoUser1.class.getResource("/image/금액계산기 수정3.jpg")));
       lblNewLabel_1.setBounds(0, 0, 496, 377);
@@ -355,19 +360,20 @@ public class AutoLottoUser1 {
       return frame;
    }
 
-   public void PayGo(int q) {
+   public void PayGo(BigInteger q) {
       int sumP = Integer.valueOf(sum);
       MakeRoom makeRoom = new MakeRoom();
       if (makeRoom.pay(pay, q)) {
-         for (int i = 0; i < sumP * (sum2/1000); i++) {
+         for (int i = 0; i < sumP * (sum2 / 1000); i++) {
             makeRoom.makeAutoNumber();
             a.falsePayNow();
             frame.setVisible(false);
          }
          makeRoom.exeWin();
-         //makeRoom.exeAut();
-         
+         // makeRoom.exeAut();
+
       }
-      
+
    }
+
 }
