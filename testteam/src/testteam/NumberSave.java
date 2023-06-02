@@ -12,9 +12,9 @@ public class NumberSave implements Comparable<NumberSave> {
 		this.number = value;
 	}
 
-	public int getNumber() {
-		return number;
-	}
+	   public int getNumber() {
+	        return number;
+	    }
 
 	@Override
 	public String toString() {

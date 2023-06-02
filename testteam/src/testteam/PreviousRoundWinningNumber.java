@@ -47,8 +47,8 @@ public class PreviousRoundWinningNumber {
     new ImageIcon(url);
     
     JButton btn = new JButton("");
-    btn.setIcon(new ImageIcon("D:\\Java_WookJin\\오늘 작업파일\\이전메뉴크게2.jpg"));
-    btn.setSelectedIcon(new ImageIcon("D:\\Java_WookJin\\오늘 작업파일\\이전메뉴크게2.jpg"));
+    btn.setIcon(new ImageIcon(PreviousRoundWinningNumber.class.getResource("/image/이전메뉴크게2.jpg")));
+    btn.setSelectedIcon(new ImageIcon(PreviousRoundWinningNumber.class.getResource("/image/이전메뉴크게2.jpg")));
     btn.setOpaque(false);
     btn.setContentAreaFilled(false);
     btn.setBorderPainted(false);

@@ -1,27 +1,24 @@
 package testteam;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigInteger;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.ImageIcon;
 
 public class PayNow {
 
 	private JFrame frame;
 	private JTextField textField;
 	AutoLottoUser1 auto;
-	long nowP;
+	int nowP;
 	JLabel lblNewLabel;
 	NoAutoSt na;
 
@@ -69,6 +66,25 @@ public class PayNow {
 		btnNewButton.setBounds(288, 194, 77, 29);
 		btnNewButton.setIcon(new ImageIcon(PayNow.class.getResource("/image/결제하기버튼.jpg")));
 
+		lblNewLabel = new JLabel("총 금액 : null");// 글자
+		lblNewLabel.setBounds(56, 46, 308, 37);
+		lblNewLabel.setForeground(Color.DARK_GRAY);
+		lblNewLabel.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField = new JTextField();
+		textField.setColumns(20);
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField.setColumns(10);
+		textField = new JTextField();
+		textField.setColumns(20);
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField.setColumns(10);
+		textField = new JTextField();
+		textField.setColumns(20);
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField.setColumns(10);
 		textField = new JTextField();
 		textField.setColumns(20);
 		textField.setBounds(56, 127, 308, 30);
@@ -80,14 +96,19 @@ public class PayNow {
 		lblNewLabel_1.setForeground(Color.DARK_GRAY);
 		lblNewLabel_1.setFont(new Font("HY중고딕", Font.BOLD, 13));
 
+		textField = new JTextField();
+		textField.setBounds(56, 127, 308, 30);
+		textField.setFont(new Font("HY중고딕", Font.BOLD, 13));
+		textField.setColumns(10);
+
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
 					BigInteger a = new BigInteger(textField.getText());
 					auto.PayGo(a);
-				} catch (NumberFormatException o) {
-					lblNewLabel_1.setText("정수를 입력하세요.");
+				} catch (Exception o) {
+					lblNewLabel_1.setText("정수를 입력해 주세요.");
 				}
 			}
 		});
@@ -102,44 +123,6 @@ public class PayNow {
 				frame.setVisible(false);
 			}
 		});
-
-		JLabel lblNewLabel_2 = new JLabel("1인당 1회 10만원을 초과할 수 없습니다.");
-
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(56)
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addGroup(groupLayout.createSequentialGroup().addComponent(btnNewButton_1)
-										.addPreferredGap(ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-										.addComponent(
-												btnNewButton, GroupLayout.PREFERRED_SIZE, 97,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(61))
-								.addGroup(groupLayout.createSequentialGroup()
-										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 308,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 250,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(textField, GroupLayout.PREFERRED_SIZE, 238,
-														GroupLayout.PREFERRED_SIZE))
-										.addContainerGap(70, Short.MAX_VALUE))))
-				.addGroup(groupLayout.createSequentialGroup().addGap(102).addComponent(lblNewLabel_2)
-						.addContainerGap(116, Short.MAX_VALUE)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(25).addComponent(lblNewLabel_2)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(37)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
-						.addContainerGap(29, Short.MAX_VALUE)));
-		frame.getContentPane().setLayout(groupLayout);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(btnNewButton_1);
 		frame.getContentPane().add(btnNewButton);
@@ -156,8 +139,8 @@ public class PayNow {
 		frame.setVisible(false);
 	}
 
-	public void nowPay(long a) {
+	public void nowPay(int a) {
 		nowP = a;
-		lblNewLabel.setText("총금액: " + nowP + "");
+		lblNewLabel.setText("총금액: " + nowP + "원");
 	}
 }

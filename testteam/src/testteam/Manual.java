@@ -18,13 +18,13 @@ public class Manual extends JFrame {
 	JButton[] button = new JButton[45];
 	JLayeredPane lp = new JLayeredPane();
 	Map<Integer, List<NumberSave>> numSa = new HashMap<>();
-	Map<Integer, String> userAt = new HashMap<>();// 수동 반자동 자동을 저장
+	Map<Integer, String> userAt = new HashMap<>();
 	MakeRoom m = new MakeRoom();
 	NoAutoSt noA;
 	int number;
 	int MakeNoA;
 	int countAll = 0;
-	int count = 0;
+	int counta = 0;
 	AtomicInteger customCount;
 
 	public Manual(NoAutoSt noA) {
@@ -57,7 +57,9 @@ public class Manual extends JFrame {
 				Collections.sort(numSa.get(MakeNoA));
 				noA.setlbl2();
 				customCount.set(0);
-				makeno();
+				if(counta == 6) {
+					수동인지확인();
+				}
 				setVisible(false);
 			}
 		});
@@ -103,8 +105,8 @@ public class Manual extends JFrame {
 	private void performOtherAction(JButton source, int a) {
 		List<NumberSave> numbers = numSa.get(MakeNoA);
 		numbers.removeIf(numberSave -> numberSave.getNumber() == a);
-		count--;
 		customCount.decrementAndGet();
+		counta--;
 	}
 
 	public void reset() {
@@ -117,6 +119,7 @@ public class Manual extends JFrame {
 			if (numSa.get(i) == null) {
 				continue;
 			}
+
 			List<NumberSave> numbers = numSa.get(i);
 			for (NumberSave number : numbers) {
 				if (!m.userNumber.containsKey(m.userCount)) {
@@ -158,6 +161,10 @@ public class Manual extends JFrame {
 		}
 	}
 
+	public void 수동인지확인() {
+		userAt.put(MakeNoA, "반자동");
+	}
+	
 	public void 수동(JButton source, int index) {
 		if (numSa.containsKey(MakeNoA)) {
 			if (customCount.get() < 6) {// 6개까지 중복
@@ -165,7 +172,7 @@ public class Manual extends JFrame {
 					NumberSave newNumber = new NumberSave(index);
 					numSa.get(MakeNoA).add(newNumber);
 					customCount.incrementAndGet();
-					count++;
+					counta ++;
 				} else {
 					performOtherAction(source, index); // 다른 액션 수행
 				}
@@ -179,12 +186,6 @@ public class Manual extends JFrame {
 			NumberSave newNumber = new NumberSave(index);
 			numbers.add(newNumber);
 			numSa.put(MakeNoA, numbers);
-		}
-	}
-
-	public void makeno() {
-		if (count == 6) {
-			userAt.put(MakeNoA, "수 동");
 		}
 	}
 
