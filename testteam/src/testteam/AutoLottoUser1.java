@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class AutoLottoUser1 {
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField textField;
 	private String sum = "0";
 	private int sum2 = 0;

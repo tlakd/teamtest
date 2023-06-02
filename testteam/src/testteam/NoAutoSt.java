@@ -202,8 +202,4 @@ public class NoAutoSt extends JFrame {
       pay = 0;
    }
 
-   public static void main(String[] args) {
-      NoAutoSt n = new NoAutoSt();
-      n.mainSt();
-   }
 }
