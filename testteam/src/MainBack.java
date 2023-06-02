@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import testteam.NoAutoSt;
 import testteam.AutoLottoUser1;
+import testteam.AutomaticNumberVerification;
+import testteam.MakeRoom;
 
 public class MainBack extends JFrame {
     JScrollPane scrollPane;
@@ -98,7 +100,12 @@ public class MainBack extends JFrame {
         JButton btnNewButton3 = new JButton("");
         btnNewButton3.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		if(MakeRoom.userNumber.containsValue(null)) {
+        			System.out.println("userNumber에 값이 비었음");
+        		} else {
+        			System.out.println("userNumber 값이 비었음");
+        		}
+        		   
         	}
         });
         btnNewButton3.setBounds(254, 308, 82, 31);
