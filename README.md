@@ -4,6 +4,8 @@
 # 수동 페이지
 ![image](https://github.com/tlakd/teamtest/assets/134483851/f5f41b91-b4e8-4bbb-a5d0-1f8388277829)
 
+![image](https://github.com/tlakd/teamtest/assets/134483851/135a1e5c-51c1-4794-805a-43fa1860d539)
+
 # 자동 페이지
 ![image](https://github.com/tlakd/teamtest/assets/134483851/fa8134d5-6bde-430a-a075-24aff354f484)
 
